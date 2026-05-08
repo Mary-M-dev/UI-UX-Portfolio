@@ -4,14 +4,15 @@ export default function Button({
   children, 
   variant = 'primary', 
   size = 'md',
+  icon = null,
   className = '',
   ...props 
 }) {
-  const baseStyles = 'font-medium transition-all duration-300 rounded-lg inline-flex items-center justify-center';
+  const baseStyles = 'font-medium transition-all duration-300 rounded-lg inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-black';
   
   const variants = {
-    primary: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20',
-    secondary: 'border border-white/20 text-white hover:border-white/40 hover:bg-white/5',
+    primary: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105',
+    secondary: 'border-2 border-yellow-500/50 text-white hover:border-yellow-500 hover:bg-yellow-500/10 hover:shadow-lg hover:shadow-yellow-500/20 hover:scale-105',
     ghost: 'text-white hover:text-yellow-500 hover:bg-white/5',
   };
 
@@ -28,7 +29,8 @@ export default function Button({
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
-      {children}
+      <span>{children}</span>
+      {icon && <span className="transition-transform group-hover:translate-x-1">{icon}</span>}
     </motion.button>
   );
 }
