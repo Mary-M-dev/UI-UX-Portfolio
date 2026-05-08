@@ -1,26 +1,19 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    setIsOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const location = useLocation();
 
   const navItems = [
-    { label: 'Work', id: 'work' },
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'Work', path: '/work' },
+    { label: 'About', path: '/about' },
+    { label: 'Experience', path: '/experience' },
+    { label: 'Contact', path: '/contact' },
   ];
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
@@ -35,16 +28,16 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`text-sm font-medium transition-colors relative group ${
-                  activeSection === item.id ? 'text-yellow-500' : 'text-gray-300 hover:text-white'
+                  isActive(item.path) ? 'text-yellow-500' : 'text-gray-300 hover:text-white'
                 }`}
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -68,13 +61,14 @@ export default function Navbar() {
             className="md:hidden pb-4 space-y-2"
           >
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
                 className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </motion.div>
         )}

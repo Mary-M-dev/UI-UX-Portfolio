@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -30,10 +31,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#work" className="hover:text-yellow-500 transition-colors">Work</a></li>
-              <li><a href="#about" className="hover:text-yellow-500 transition-colors">About</a></li>
-              <li><a href="#experience" className="hover:text-yellow-500 transition-colors">Experience</a></li>
-              <li><a href="#contact" className="hover:text-yellow-500 transition-colors">Contact</a></li>
+              <li><Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link></li>
+              <li><Link to="/work" className="hover:text-yellow-500 transition-colors">Work</Link></li>
+              <li><Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link></li>
+              <li><Link to="/experience" className="hover:text-yellow-500 transition-colors">Experience</Link></li>
+              <li><Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
