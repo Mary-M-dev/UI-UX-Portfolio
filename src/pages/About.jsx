@@ -58,10 +58,10 @@ export default function About() {
             >
               <div className="relative">
                 {[
-                  { year: '2021', label: 'Started Design Journey', icon: '🎓' },
-                  { year: '2022', label: 'First Design Internships', icon: '💼' },
-                  { year: '2023', label: 'Product Owner Role', icon: '🚀' },
-                  { year: '2024', label: 'AI-Augmented Design Focus', icon: '🤖' },
+                  { year: '2016', label: 'Bachelor of Arts - Egerton University', icon: '🎓', detail: 'Economics, Sociology (Math minor)' },
+                  { year: '2022', label: 'Virtual Assistant Certificate - ALX Africa', icon: '📜', detail: 'Professional Certification' },
+                  { year: '2023', label: 'Product Design/UI-UX - Moringa School', icon: '🎨', detail: 'Intensive Design Training' },
+                  { year: '2025', label: 'Product Owner & Designer - Digital Qatalyst', icon: '🚀', detail: 'Current Role' },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -78,7 +78,8 @@ export default function About() {
                     </div>
                     <div className="pt-2">
                       <p className="text-yellow-500 font-semibold">{item.year}</p>
-                      <p className="text-gray-300">{item.label}</p>
+                      <p className="text-white font-medium">{item.label}</p>
+                      <p className="text-gray-400 text-sm">{item.detail}</p>
                     </div>
                   </motion.div>
                 ))}

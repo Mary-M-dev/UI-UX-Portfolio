@@ -40,6 +40,7 @@ export default function ExperiencePage() {
                   <div>
                     <h3 className="text-xl font-bold text-white">{exp.role}</h3>
                     <p className="text-yellow-500 font-medium">{exp.company}</p>
+                    {exp.location && <p className="text-gray-500 text-sm">{exp.location}</p>}
                   </div>
                   <p className="text-gray-400 text-sm mt-2 md:mt-0">{exp.duration}</p>
                 </div>
