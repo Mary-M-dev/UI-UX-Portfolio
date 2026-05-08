@@ -145,22 +145,30 @@ export const experience = [
 export const skills = [
   {
     category: 'Product Strategy',
-    items: ['Product Roadmapping', 'User Research', 'Market Analysis', 'Competitive Analysis', 'OKRs & KPIs'],
+    items: ['Product Ownership', 'Product Strategy', 'Stakeholder Management', 'Agile & Sprint Planning', 'Design Thinking'],
   },
   {
     category: 'UX/UI Design',
-    items: ['Wireframing', 'Prototyping', 'User Testing', 'Design Systems', 'Accessibility'],
+    items: ['User Experience Design', 'Conversational UX', 'Wireframing & Interactive Prototyping', 'Design Systems', 'Information Architecture'],
   },
   {
-    category: 'AI-Assisted Prototyping',
-    items: ['AI Integration', 'Prompt Engineering', 'AI-Powered Features', 'Machine Learning Basics'],
+    category: 'Research & Testing',
+    items: ['User Research', 'Usability Testing', 'Design Thinking', 'User-Centered Design'],
   },
   {
-    category: 'Collaboration & Agile',
-    items: ['Agile/Scrum', 'Stakeholder Management', 'Cross-functional Leadership', 'Communication'],
+    category: 'AI-Assisted Design',
+    items: ['AI-Assisted Prototyping', 'ChatGPT', 'NotebookLM', 'Midjourney', 'Magic Patterns'],
   },
   {
     category: 'Design Tools',
-    items: ['Figma', 'Adobe XD', 'Protopie', 'Framer', 'Webflow'],
+    items: ['Figma', 'Framer', 'Adobe Illustrator', 'Adobe Photoshop', 'Miro'],
+  },
+  {
+    category: 'Development & Collaboration',
+    items: ['HTML & CSS', 'GitHub', 'Cursor', 'Kiro', 'Lovable', 'Antigravity'],
+  },
+  {
+    category: 'Productivity & Organization',
+    items: ['Google Workspace', 'Trello', 'Miro', 'Notion'],
   },
 ];

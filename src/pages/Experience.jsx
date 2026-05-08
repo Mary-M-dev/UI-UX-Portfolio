@@ -78,7 +78,7 @@ export default function ExperiencePage() {
                     {skillGroup.items.map((skill, sidx) => (
                       <span
                         key={sidx}
-                        className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm border border-yellow-500/20"
+                        className="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm border border-yellow-500/20 hover:border-yellow-500/50 hover:bg-yellow-500/20 transition-all cursor-default"
                       >
                         {skill}
                       </span>
