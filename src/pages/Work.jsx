@@ -3,6 +3,8 @@ import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
 
 export default function Work() {
+  const allProjects = projects.filter(p => !p.featured);
+
   return (
     <div className="bg-black text-white min-h-screen pt-20">
       {/* Hero Section */}
@@ -20,16 +22,16 @@ export default function Work() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Featured Work<span className="text-yellow-500">.</span>
+              All Projects<span className="text-yellow-500">.</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              A selection of projects where I've bridged product strategy, design, and technology to create meaningful digital experiences.
+              A complete collection of projects where I've applied product strategy, design, and technology to solve real problems.
             </p>
           </motion.div>
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {allProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
