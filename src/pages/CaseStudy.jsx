@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import Button from '../components/Button';
 
@@ -8,132 +9,303 @@ export default function CaseStudy() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Project not found</h1>
-          <Link to="/" className="text-gold hover:underline">
-            Back to home
+          <Link to="/">
+            <Button variant="primary">Back to Home</Button>
           </Link>
         </div>
       </div>
     );
   }
 
+  const sections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'problem', label: 'Problem' },
+    { id: 'research', label: 'Research' },
+    { id: 'journey', label: 'User Journey' },
+    { id: 'wireframes', label: 'Wireframes' },
+    { id: 'decisions', label: 'Design Decisions' },
+    { id: 'screens', label: 'High Fidelity' },
+    { id: 'impact', label: 'Impact' },
+  ];
+
   return (
-    <div className="bg-black">
+    <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 py-20">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-20">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl opacity-20 animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-500/5 rounded-full blur-3xl opacity-10 animate-pulse" />
+        </div>
+
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">{project.title}</h1>
-          <p className="text-xl text-gray-400 mb-8">{project.description}</p>
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {project.tags.map((tag) => (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8 text-6xl"
+          >
+            {project.icon}
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl font-bold mb-6"
+          >
+            {project.title}
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap gap-3 justify-center mb-8"
+          >
+            {project.tags.map((tag, idx) => (
               <span
-                key={tag}
-                className="px-4 py-2 border border-gray-700 text-gray-300 rounded-full text-sm"
+                key={idx}
+                className="px-4 py-2 bg-yellow-500/10 text-yellow-400 rounded-full border border-yellow-500/20"
               >
                 {tag}
               </span>
             ))}
-          </div>
-          <div className="bg-gray-900 aspect-video rounded-lg overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* Problem Section */}
-      <section className="py-20 px-6 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">The Problem</h2>
-          <p className="text-lg text-gray-400 leading-relaxed mb-6">
-            {project.caseStudy?.problem || 'Understanding the core challenge was essential to creating a meaningful solution. Through research and user interviews, we identified key pain points that needed to be addressed.'}
-          </p>
-        </div>
-      </section>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl text-gray-400 max-w-2xl mx-auto mb-8"
+          >
+            {project.overview}
+          </motion.p>
 
-      {/* Research Section */}
-      <section className="py-20 px-6 bg-gray-950 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Research & Insights</h2>
-          <p className="text-lg text-gray-400 leading-relaxed mb-6">
-            {project.caseStudy?.research || 'Our research phase involved extensive user interviews, competitive analysis, and behavioral studies. We discovered that users valued simplicity, speed, and personalization above all else.'}
-          </p>
-        </div>
-      </section>
-
-      {/* Design Process Section */}
-      <section className="py-20 px-6 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Design Process</h2>
-          <p className="text-lg text-gray-400 leading-relaxed mb-8">
-            {project.caseStudy?.process || 'We started with low-fidelity wireframes to explore different approaches. Through iterative testing and refinement, we developed high-fidelity designs that balanced aesthetics with functionality.'}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-900 aspect-video rounded-lg overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
-                alt="Wireframes"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-gray-900 aspect-video rounded-lg overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
-                alt="Iterations"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Section */}
-      <section className="py-20 px-6 bg-gray-950 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Final Solution</h2>
-          <p className="text-lg text-gray-400 leading-relaxed mb-8">
-            {project.caseStudy?.solution || 'The final design delivers a clean, intuitive interface that prioritizes user needs. Every element was carefully crafted to enhance the user experience and drive engagement.'}
-          </p>
-          <div className="bg-gray-900 aspect-video rounded-lg overflow-hidden">
-            <img
-              src={project.image}
-              alt="Final Solution"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Section */}
-      <section className="py-20 px-6 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Impact & Learnings</h2>
-          <p className="text-lg text-gray-400 leading-relaxed mb-6">
-            {project.caseStudy?.impact || 'This project reinforced the importance of user-centered design. By focusing on real user needs and iterating based on feedback, we created a solution that truly resonates with our audience.'}
-          </p>
-          <p className="text-lg text-gray-400 leading-relaxed">
-            Key learnings: The power of simplicity, the value of user feedback, and the importance of continuous iteration in creating meaningful digital experiences.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gray-950 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Interested in working together?</h2>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button variant="primary">Get in Touch</Button>
-            <Link to="/" className="px-8 py-3 font-semibold border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 inline-block">
-              Back to Work
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <Link to="/">
+              <Button variant="secondary">← Back to Portfolio</Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Main Content with Sidebar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          {/* Sticky Table of Contents */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-sm font-bold text-yellow-500 mb-4 uppercase tracking-wider">
+                Sections
+              </h3>
+              <nav className="space-y-3">
+                {sections.map((section) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className="block text-sm text-gray-400 hover:text-yellow-500 transition-colors"
+                  >
+                    {section.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="lg:col-span-3 space-y-16">
+            {/* Overview */}
+            <motion.section
+              id="overview"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Overview</h2>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                {project.overview}
+              </p>
+            </motion.section>
+
+            {/* Problem Statement */}
+            <motion.section
+              id="problem"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Problem Statement</h2>
+              <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  {project.problem}
+                </p>
+              </div>
+            </motion.section>
+
+            {/* Research & Insights */}
+            <motion.section
+              id="research"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Research & Insights</h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {project.research}
+              </p>
+              <div className="bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-lg p-8 text-center">
+                <p className="text-gray-400">Research insights visualization placeholder</p>
+              </div>
+            </motion.section>
+
+            {/* User Journey */}
+            <motion.section
+              id="journey"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">User Journey</h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {project.userJourney}
+              </p>
+              <div className="bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-lg p-8 text-center">
+                <p className="text-gray-400">User journey map placeholder</p>
+              </div>
+            </motion.section>
+
+            {/* Wireframes */}
+            <motion.section
+              id="wireframes"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Wireframes</h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {project.wireframes}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-lg p-8 text-center aspect-video flex items-center justify-center"
+                  >
+                    <p className="text-gray-400">Wireframe {i}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+
+            {/* Design Decisions */}
+            <motion.section
+              id="decisions"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Design Decisions</h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {project.designDecisions}
+              </p>
+              <div className="space-y-4">
+                {['Decision 1', 'Decision 2', 'Decision 3'].map((decision, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 rounded-lg p-6">
+                    <h4 className="text-yellow-500 font-semibold mb-2">{decision}</h4>
+                    <p className="text-gray-400">Key rationale and implementation details</p>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+
+            {/* High Fidelity Screens */}
+            <motion.section
+              id="screens"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">High Fidelity Screens</h2>
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {project.screens}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-lg p-8 text-center aspect-video flex items-center justify-center"
+                  >
+                    <p className="text-gray-400">Screen {i}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+
+            {/* Impact & Learnings */}
+            <motion.section
+              id="impact"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold mb-6">Impact & Learnings</h2>
+              <div className="bg-gradient-to-r from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-lg p-8">
+                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  {project.impact}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  {[
+                    { metric: '+40%', label: 'Engagement' },
+                    { metric: '4.8★', label: 'Rating' },
+                    { metric: '50K+', label: 'Users' },
+                  ].map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <p className="text-3xl font-bold text-yellow-500 mb-2">{stat.metric}</p>
+                      <p className="text-gray-400">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.section>
+
+            {/* Next Steps */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="pt-8 border-t border-white/10"
+            >
+              <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Interested in working together?</h3>
+                  <p className="text-gray-400">Let's discuss how I can help with your next project</p>
+                </div>
+                <Link to="/#contact">
+                  <Button variant="primary" size="lg">
+                    Get in Touch
+                  </Button>
+                </Link>
+              </div>
+            </motion.section>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
