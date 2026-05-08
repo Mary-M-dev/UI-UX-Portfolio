@@ -58,10 +58,10 @@ export default function About() {
             >
               <div className="relative">
                 {[
-                  { year: '2016', label: 'Bachelor of Arts - Egerton University', icon: '🎓', detail: 'Economics, Sociology (Math minor)' },
-                  { year: '2022', label: 'Virtual Assistant Certificate - ALX Africa', icon: '📜', detail: 'Professional Certification' },
-                  { year: '2023', label: 'Product Design/UI-UX - Moringa School', icon: '🎨', detail: 'Intensive Design Training' },
-                  { year: '2025', label: 'Product Owner & Designer - Digital Qatalyst', icon: '🚀', detail: 'Current Role' },
+                  { label: 'Bachelor of Arts - Egerton University', icon: '🎓', detail: 'Economics, Sociology (Math minor)' },
+                  { label: 'Virtual Assistant Certificate - ALX Africa', icon: '📜', detail: 'Professional Certification' },
+                  { label: 'Product Design/UI-UX - Moringa School', icon: '🎨', detail: 'Intensive Design Training' },
+                  { label: 'Product Owner & Designer - Digital Qatalyst', icon: '🚀', detail: 'Current Role' },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -77,7 +77,6 @@ export default function About() {
                       {idx < 3 && <div className="w-0.5 h-12 bg-yellow-500/20 mt-2" />}
                     </div>
                     <div className="pt-2">
-                      <p className="text-yellow-500 font-semibold">{item.year}</p>
                       <p className="text-white font-medium">{item.label}</p>
                       <p className="text-gray-400 text-sm">{item.detail}</p>
                     </div>
