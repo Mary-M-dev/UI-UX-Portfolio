@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        black: '#000000',
+        black: '#010A08',
         white: '#ffffff',
-        yellow: {
-          400: '#fbbf24',
-          500: '#eab308',
+        pink: {
+          500: '#F60588',
+          300: '#F7B2D8',
         },
       },
       fontFamily: {

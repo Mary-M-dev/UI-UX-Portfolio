@@ -8,12 +8,12 @@ export default function Button({
   className = '',
   ...props 
 }) {
-  const baseStyles = 'font-medium transition-all duration-300 rounded-lg inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-black';
+  const baseStyles = 'font-medium transition-all duration-300 rounded-lg inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-white';
   
   const variants = {
-    primary: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105',
-    secondary: 'border-2 border-yellow-500/50 text-white hover:border-yellow-500 hover:bg-yellow-500/10 hover:shadow-lg hover:shadow-yellow-500/20 hover:scale-105',
-    ghost: 'text-white hover:text-yellow-500 hover:bg-white/5',
+    primary: 'bg-pink-500 text-white hover:bg-pink-600 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105',
+    secondary: 'border-2 border-pink-300 text-black hover:border-pink-500 hover:bg-pink-500/10 hover:shadow-lg hover:shadow-pink-500/20 hover:scale-105',
+    ghost: 'text-black hover:text-pink-500 hover:bg-pink-300/10',
   };
 
   const sizes = {

@@ -8,46 +8,48 @@ export default function ProjectCard({ project }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -4 }}
       className="group"
     >
       <Link to={`/case-study/${project.id}`}>
-        <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300">
-          {/* Project Image */}
-          <div className="relative h-64 bg-gradient-to-br from-yellow-500/10 to-transparent overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl opacity-20 group-hover:scale-110 transition-transform duration-300">
+        <div className="bg-white border border-black/8 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300">
+          
+          {/* Image / Preview Area */}
+          <div
+            className="relative h-52 overflow-hidden flex items-center justify-center"
+            style={{ backgroundColor: project.cardBg || '#F3F4F6' }}
+          >
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                className={`w-full h-full ${project.imageStyle === 'contain' ? 'object-contain p-4' : 'object-cover object-top'}`}
+              />
+            ) : (
+              <div className="text-7xl opacity-30 group-hover:scale-110 transition-transform duration-300">
                 {project.icon}
               </div>
-            </div>
+            )}
+
+            {/* NDA Badge */}
+            {project.nda && (
+              <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                🔒 NDA
+              </div>
+            )}
           </div>
 
-          {/* Project Info */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-500 transition-colors">
-              {project.title}
-            </h3>
-            <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-              {project.description}
+          {/* Card Info */}
+          <div className="p-5">
+            {/* Category */}
+            <p className="text-xs text-black/40 mb-2 uppercase tracking-wide">
+              {project.category || project.tags?.[0] || 'Case Study'}
             </p>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full border border-yellow-500/20"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <div className="flex items-center text-yellow-500 font-medium text-sm group-hover:gap-2 transition-all">
-              View Case Study
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
+            {/* Title */}
+            <h3 className="text-base font-semibold text-black leading-snug group-hover:text-pink-500 transition-colors">
+              {project.title}
+            </h3>
           </div>
         </div>
       </Link>
