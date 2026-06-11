@@ -123,6 +123,19 @@ export default function Work() {
                           alt={project.title}
                           className={`w-full h-full ${project.imageStyle === 'contain' ? 'object-contain p-4' : 'object-cover object-top'}`}
                         />
+                      ) : project.id === 'health-mobile' ? (
+                        <div className="flex items-center justify-center h-full">
+                          <div className="relative" style={{ width: '90px', height: '180px' }}>
+                            <div className="absolute inset-0 bg-gray-700 rounded-[1.4rem] border-2 border-gray-500 shadow-lg"></div>
+                            <div className="absolute -left-1 top-10 w-0.5 h-4 bg-gray-500 rounded-l-full"></div>
+                            <div className="absolute -right-1 top-12 w-0.5 h-6 bg-gray-500 rounded-r-full"></div>
+                            <div className="absolute inset-1 rounded-[1.1rem] overflow-hidden flex flex-col items-center justify-center gap-1" style={{ backgroundColor: '#0f172a' }}>
+                              <span className="text-lg">🏥</span>
+                              <p className="text-white font-bold text-[7px] tracking-wide">AFYACARE</p>
+                              <p className="text-white/40 text-[6px]">Coming Soon</p>
+                            </div>
+                          </div>
+                        </div>
                       ) : (
                         <div className="text-6xl opacity-20 group-hover:scale-110 transition-transform duration-300">
                           {project.icon}

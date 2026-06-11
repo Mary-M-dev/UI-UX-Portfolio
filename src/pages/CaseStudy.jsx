@@ -79,10 +79,18 @@ export default function CaseStudy() {
                     {/* Side button right */}
                     <div className="absolute -right-2 top-32 w-1.5 h-16 bg-gray-600 rounded-r-full"></div>
                     {/* Screen area */}
-                    <div className="absolute inset-2 rounded-[2.3rem] overflow-hidden flex flex-col" style={{ backgroundColor: '#8B0000' }}>
-                      {/* Splash animation */}
+                    <div className="absolute inset-2 rounded-[2.3rem] overflow-hidden flex flex-col" style={{ backgroundColor: project.id === 'health-mobile' ? '#0f172a' : '#8B0000' }}>
+                      {/* Splash animation or Coming Soon */}
                       <div className="flex-1 flex items-center justify-center">
-                        <SplashAnimation />
+                        {project.id === 'health-mobile' ? (
+                          <div className="flex flex-col items-center gap-3 px-4 text-center">
+                            <span className="text-3xl">🏥</span>
+                            <p className="text-white font-bold text-sm tracking-wide">AFYACARE</p>
+                            <p className="text-white/50 text-xs">Coming Soon</p>
+                          </div>
+                        ) : (
+                          <SplashAnimation />
+                        )}
                       </div>
                       {/* Home indicator */}
                       <div className="flex justify-center pb-3 flex-shrink-0">
@@ -1259,6 +1267,21 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
+      {/* Challenge */}
+      {c.challenge && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">The Challenge</h2>
+          <p className="text-gray-700 text-base mb-4">{c.challenge.intro}</p>
+          <ul className="space-y-2">
+            {c.challenge.points.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
       {/* HMW Question */}
       {c.hmw && (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
@@ -1336,7 +1359,7 @@ function GenericCaseStudy({ project }) {
       )}
 
       {/* User Journey */}
-      {c.userJourneySteps && (
+      {c.userJourneySteps ? (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
           <div className="flex flex-wrap items-center gap-2">
@@ -1347,6 +1370,32 @@ function GenericCaseStudy({ project }) {
               </div>
             ))}
           </div>
+        </motion.section>
+      ) : c.showJourneyTitle ? (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
+          <p className="text-gray-700 text-base leading-relaxed">To understand the complete experience, I mapped the journey from account creation to post-consultation care — from the moment a user sets up their account through to managing follow-up care and sharing information with a caregiver.</p>
+        </motion.section>
+      ) : null}
+
+      {/* User Flows */}
+      {c.userFlows && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">User Flows</h2>
+          <p className="text-gray-700 text-base mb-6">I focused on five primary experiences:</p>
+          <div className="space-y-4">
+            {c.userFlows.map((flow, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{flow.title} — </span>{flow.desc}</span>
+              </div>
+            ))}
+          </div>
+          {c.showUserFlowImage && (
+            <div className="mt-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <img src="/uf.png" alt="User flow diagrams" className="w-full h-auto object-contain" />
+            </div>
+          )}
         </motion.section>
       )}
 
