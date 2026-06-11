@@ -108,9 +108,10 @@ export default function Home() {
                     transition={{ duration: 0.3 }}
                   >
                     <img
-                      src="/flip.jpeg"
-                      alt="Mary Mwirigi - Flip"
+                      src="/Passport.jpeg"
+                      alt="Mary Mwirigi"
                       className="w-full h-full object-cover object-top"
+                      style={{ filter: 'brightness(1.08) saturate(0.3) contrast(1.05)' }}
                     />
                   </motion.div>
                 </motion.div>

@@ -342,6 +342,14 @@ export default function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+                {/* Circular passport photo overlay */}
+                <div className="absolute -bottom-5 -right-4 w-36 h-36 rounded-full overflow-hidden border-4 border-white shadow-lg z-10">
+                  <img
+                    src="/Passport.jpeg"
+                    alt="Mary Mwirigi"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>

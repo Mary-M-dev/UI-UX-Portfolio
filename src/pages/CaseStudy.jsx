@@ -927,6 +927,40 @@ function SplashAnimation() {
   );
 }
 
+// Infinite horizontally-scrolling collage for Key Redesign Improvements
+function FFScrollingCollage() {
+  const images = ['/ff/25.png', '/ff/26.png', '/ff/27.png', '/ff/28.png'];
+  const track = [...images, ...images];
+
+  return (
+    <div className="relative w-full" style={{ overflowX: 'hidden', overflowY: 'visible' }}>
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+      <motion.div
+        className="flex gap-4 items-end"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
+        style={{ width: 'max-content' }}
+      >
+        {track.map((src, i) => (
+          <div
+            key={i}
+            className="flex-shrink-0 rounded-2xl shadow-lg border border-gray-100"
+            style={{ width: '200px' }}
+          >
+            <img
+              src={src}
+              alt={`Redesign screen ${(i % images.length) + 1}`}
+              className="w-full h-auto block rounded-2xl"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 // Infinite horizontally-scrolling collage for Reserve Me screenshots
 function RMScrollingCollage() {
   const images = [
@@ -1007,17 +1041,19 @@ function GenericCaseStudy({ project }) {
         )}
       </motion.section>
 
-      {/* RMCollage — infinite scrolling marquee */}
-      <motion.section
-        id="collage"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="overflow-hidden"
-      >
-        <RMScrollingCollage />
-      </motion.section>
+      {/* RMCollage — infinite scrolling marquee (Reserve Me only) */}
+      {project.id === 'reserve-me' && (
+        <motion.section
+          id="collage"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="overflow-hidden"
+        >
+          <RMScrollingCollage />
+        </motion.section>
+      )}
 
       {/* The Problem */}
       {c.problem && (
@@ -1036,7 +1072,8 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
-      {/* Old App Screens — shown after the problem */}
+      {/* Old App Screens — Reserve Me only */}
+      {project.id === 'reserve-me' && (
       <motion.section
         id="old-screens"
         initial={{ opacity: 0, y: 20 }}
@@ -1065,6 +1102,7 @@ function GenericCaseStudy({ project }) {
         </div>
         <p className="text-sm text-gray-400 italic mt-4">The original experience lacked visual consistency and hierarchy.</p>
       </motion.section>
+      )}
 
       {/* Audit & Key Findings */}
       {c.audit && (
@@ -1117,14 +1155,14 @@ function GenericCaseStudy({ project }) {
         <motion.section id="insights" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-4 text-black">Key Insights</h2>
           <p className="text-gray-700 text-base leading-relaxed mb-6">From the audit, three core opportunities emerged:</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <ul className="space-y-4">
             {c.keyInsights.map((insight, i) => (
-              <div key={i} className="bg-pink-50 border border-pink-200 rounded-xl p-5">
-                <p className="font-bold text-black mb-2">{insight.title}</p>
-                <p className="text-gray-700 text-sm leading-relaxed">{insight.desc}</p>
-              </div>
+              <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{insight.title} — </span>{insight.desc}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </motion.section>
       )}
 
@@ -1133,17 +1171,14 @@ function GenericCaseStudy({ project }) {
         <motion.section id="goals" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">Design Goals</h2>
           <p className="text-gray-700 text-base leading-relaxed mb-6">Based on the findings, the redesign focused on:</p>
-          <div className="space-y-4">
+          <ul className="space-y-4">
             {c.designGoals.map((goal, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-pink-500 text-white text-xs font-bold flex-shrink-0 mt-0.5">{i + 1}</span>
-                <div>
-                  <p className="font-semibold text-black mb-1">{goal.title}</p>
-                  <p className="text-gray-700 text-sm leading-relaxed">{goal.desc}</p>
-                </div>
-              </div>
+              <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{goal.title} — </span>{goal.desc}</span>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="mt-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
             <img src="/md/md.png" alt="Design goals reference" className="w-full h-auto object-contain" />
           </div>
@@ -1161,9 +1196,9 @@ function GenericCaseStudy({ project }) {
           </div>
 
           {/* User journey / wireframe screens */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8">
+          <div className="grid grid-cols-6 gap-3 mt-8">
             {['/q/q.png', '/q/q1.png', '/q/q2.png', '/q/q3.png', '/q/q4.png', '/q/q5.png'].map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                 <img src={src} alt={`Design process screen ${i + 1}`} className="w-full h-auto object-contain" />
               </div>
             ))}
@@ -1171,13 +1206,13 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
-      {/* Key Redesign Improvements */}
-      {c.keyImprovements && (
+      {/* Key Redesign Improvements — Reserve Me only */}
+      {project.id === 'reserve-me' && c.keyImprovements && (
         <motion.section id="improvements" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-8 text-black">Key Redesign Improvements</h2>
           <div className="flex flex-col lg:flex-row gap-6 items-start">
 
-            {/* Left — improvements list */}
+            {/* improvements list — full width now */}
             <div className="flex-1 space-y-10">
               {c.keyImprovements.map((item, i) => (
                 <div key={i}>
@@ -1199,19 +1234,11 @@ function GenericCaseStudy({ project }) {
               ))}
             </div>
 
-            {/* Right — ff images in 3-column grid */}
-            <div className="lg:w-96 flex-shrink-0 grid grid-cols-3 gap-2 items-start content-start">
-              {[
-                '/ff/20.png', '/ff/21.png', '/ff/22.png',
-                '/ff/23.png', '/ff/24.png', '/ff/25.png',
-                '/ff/26.png', '/ff/27.png', '/ff/28.png',
-              ].map((src, i) => (
-                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-                  <img src={src} alt={`Redesign screen ${i + 1}`} className="w-full h-auto object-contain" />
-                </div>
-              ))}
-            </div>
+          </div>
 
+          {/* Horizontal scrolling marquee below the improvements list */}
+          <div className="mt-6">
+            <FFScrollingCollage />
           </div>
         </motion.section>
       )}
@@ -1229,6 +1256,188 @@ function GenericCaseStudy({ project }) {
             ))}
           </ul>
           {c.outcomeClosing && <p className="text-gray-600 text-base leading-relaxed">{c.outcomeClosing}</p>}
+        </motion.section>
+      )}
+
+      {/* HMW Question */}
+      {c.hmw && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
+            <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Design Challenge</p>
+            <p className="text-gray-800 text-base leading-relaxed italic">"{c.hmw}"</p>
+          </div>
+        </motion.section>
+      )}
+
+      {/* Research */}
+      {c.research && Array.isArray(c.research) && (
+        <motion.section id="research" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Understanding the Users</h2>
+          <div className="space-y-8">
+            {c.research.map((section, i) => (
+              <div key={i}>
+                <h3 className="text-base font-semibold text-black mb-3">{section.title}</h3>
+                <ul className="space-y-2">
+                  {section.points.map((p, j) => (
+                    <li key={j} className="flex items-start gap-2 text-gray-700 text-base">
+                      <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* Success Criteria */}
+      {c.successCriteria && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Defining Success</h2>
+          <p className="text-gray-700 text-base mb-4">For this product to succeed, users should be able to:</p>
+          <ul className="space-y-2">
+            {c.successCriteria.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">✅</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
+      {/* Competitive Insights */}
+      {c.competitiveInsights && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">Exploring the Market</h2>
+          <p className="text-gray-700 text-base mb-4">While most platforms offered appointment booking and virtual consultations, few were intentionally designed around the needs of elderly users. Common issues included:</p>
+          <ul className="space-y-2">
+            {c.competitiveInsights.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
+      {/* Design Principles */}
+      {c.designPrinciples && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Design Principles</h2>
+          <div className="space-y-4">
+            {c.designPrinciples.map((p, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{p.title} — </span>{p.desc}</span>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* User Journey */}
+      {c.userJourneySteps && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            {c.userJourneySteps.map((step, i, arr) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="bg-pink-50 border border-pink-200 text-pink-700 font-semibold px-3 py-1.5 rounded-lg text-sm">{step}</span>
+                {i < arr.length - 1 && <span className="text-pink-300">↓</span>}
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* Experiences Designed */}
+      {c.experiencesDesigned && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">From Ideas to Wireframes</h2>
+          <p className="text-gray-700 text-base mb-4">Rather than overwhelming users with numerous features, I prioritized a few essential experiences:</p>
+          <ul className="space-y-2">
+            {c.experiencesDesigned.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">✅</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
+      {/* Key Design Decisions */}
+      {c.keyDesignDecisions && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Key Design Decisions</h2>
+          <div className="space-y-6">
+            {c.keyDesignDecisions.map((item, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{item.title} — </span>{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* Tradeoffs */}
+      {c.tradeoffs && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Tradeoffs</h2>
+          <div className="space-y-6">
+            {c.tradeoffs.map((t, i) => (
+              <div key={i} className="border-l-2 border-gray-200 pl-5">
+                <h3 className="font-semibold text-black mb-1">{t.title}</h3>
+                <p className="text-gray-700 text-sm">Decision: {t.decision}</p>
+                <p className="text-gray-500 text-sm">Why: {t.why}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* Final Solution */}
+      {c.finalExperiences && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">Final Solution</h2>
+          <p className="text-gray-700 text-base mb-4">The final design delivers a streamlined telehealth experience tailored to the needs of elderly Kenyans:</p>
+          <ul className="space-y-2">
+            {c.finalExperiences.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">✅</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
+      {/* Accessibility */}
+      {c.accessibilityFeatures && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">Accessibility Considerations</h2>
+          <p className="text-gray-700 text-base mb-4">Accessibility was integrated throughout the design process rather than treated as an afterthought:</p>
+          <ul className="space-y-2">
+            {c.accessibilityFeatures.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">✅</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+      )}
+
+      {/* Success Metrics */}
+      {c.successMetrics && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">Measuring Success</h2>
+          <p className="text-gray-700 text-base mb-4">If this product were launched, I would validate the experience through usability testing with elderly users and caregivers. Key metrics:</p>
+          <ul className="space-y-2">
+            {c.successMetrics.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </motion.section>
       )}
 

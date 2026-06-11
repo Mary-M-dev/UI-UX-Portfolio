@@ -98,12 +98,22 @@ export default function MyStory() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center"
             >
-              <div className="relative w-full max-w-md overflow-hidden rounded-2xl shadow-lg">
-                <img
-                  src="/UX.jpg"
-                  alt="UX Design workspace"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative w-full max-w-md">
+                <div className="overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/UX.jpg"
+                    alt="UX Design workspace"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Circular passport photo overlay */}
+                <div className="absolute -bottom-5 -right-4 w-36 h-36 rounded-full overflow-hidden border-4 border-white shadow-lg z-10">
+                  <img
+                    src="/Passport.jpeg"
+                    alt="Mary Mwirigi"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -129,6 +139,12 @@ export default function MyStory() {
                     {para}
                   </p>
                 ))}
+                {/* Image after Discovering Product Design */}
+                {chapter.title === 'Discovering Product Design' && (
+                  <div className="mt-6 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <img src="/hl.jpg" alt="Discovering Product Design" className="w-full h-auto object-contain" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
