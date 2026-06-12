@@ -29,36 +29,66 @@ export default function Work() {
               </p>
             </motion.div>
 
-            {/* Right: Floating UI Preview Cards */}
+            {/* Right: Actual project mockup previews */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-64 hidden md:block"
+              className="relative h-72 hidden md:block"
             >
-              {/* Card 1 */}
-              <div className="absolute top-0 right-24 w-48 bg-white rounded-xl shadow-lg border border-black/8 p-3 rotate-2">
-                <div className="w-full h-24 bg-pink-50 rounded-lg mb-2 flex items-center justify-center">
-                  <span className="text-pink-400 text-2xl">✏️</span>
+              {/* Card 1 — DTMA (laptop, back-left) */}
+              <div className="absolute top-0 left-0 w-56 bg-white rounded-2xl shadow-xl border border-black/8 p-2 -rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="w-full h-28 rounded-xl overflow-hidden mb-2" style={{ backgroundColor: '#E8EDF5' }}>
+                  <div className="flex flex-col items-center justify-center h-full scale-[0.45] origin-center">
+                    <div className="bg-gray-800 rounded-lg p-1 border border-gray-700 shadow-lg" style={{ width: '300px' }}>
+                      <img src="/Screenshots/22.png" alt="DTMA" className="w-full h-auto object-contain rounded-md block" />
+                    </div>
+                  </div>
                 </div>
-                <div className="h-2 bg-black/10 rounded w-3/4 mb-1" />
-                <div className="h-2 bg-black/6 rounded w-1/2" />
+                <div className="px-1 pb-1">
+                  <p className="text-[9px] text-black/40 uppercase tracking-widest mb-0.5">Web App</p>
+                  <p className="text-xs font-bold text-black">DTMA</p>
+                </div>
               </div>
-              {/* Card 2 */}
-              <div className="absolute top-10 right-4 w-44 bg-white rounded-xl shadow-lg border border-black/8 p-3 -rotate-2">
-                <div className="w-full h-20 bg-blue-50 rounded-lg mb-2 flex items-center justify-center">
-                  <span className="text-blue-400 text-2xl">📊</span>
+
+              {/* Card 2 — Reserve Me (phone, center) */}
+              <div className="absolute top-8 left-36 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-2 hover:rotate-0 transition-transform duration-300 z-10">
+                <div className="w-full h-28 rounded-xl overflow-hidden mb-2 flex items-center justify-center" style={{ backgroundColor: '#FDE8E8' }}>
+                  <div className="relative scale-[0.38] origin-center" style={{ width: '140px', height: '280px' }}>
+                    <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                    <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex flex-col" style={{ backgroundColor: '#8B0000' }}>
+                      <div className="flex-1 flex items-center justify-center flex-col gap-2">
+                        <svg width="32" height="36" viewBox="0 0 48 56" fill="white">
+                          <rect x="21" y="0" width="6" height="7" rx="3"/>
+                          <path d="M24 5 C13 5 8 14 8 24 L8 38 L3 42 L45 42 L40 38 L40 24 C40 14 35 5 24 5Z"/>
+                          <ellipse cx="24" cy="50" rx="5" ry="5"/>
+                          <rect x="22" y="42" width="4" height="10" rx="2"/>
+                        </svg>
+                        <p className="text-white font-bold text-[10px]">Reserve me</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="h-2 bg-black/10 rounded w-full mb-1" />
-                <div className="h-2 bg-black/6 rounded w-2/3" />
+                <div className="px-1 pb-1">
+                  <p className="text-[9px] text-black/40 uppercase tracking-widest mb-0.5">Mobile App</p>
+                  <p className="text-xs font-bold text-black">Reserve Me</p>
+                </div>
               </div>
-              {/* Card 3 */}
-              <div className="absolute bottom-0 right-16 w-40 bg-white rounded-xl shadow-lg border border-black/8 p-3 rotate-1">
-                <div className="w-full h-16 bg-green-50 rounded-lg mb-2 flex items-center justify-center">
-                  <span className="text-green-400 text-2xl">🔧</span>
+
+              {/* Card 3 — AFYACARE (phone, front-right) */}
+              <div className="absolute top-20 left-72 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-1 hover:rotate-0 transition-transform duration-300 z-20">
+                <div className="w-full h-28 rounded-xl overflow-hidden mb-2 flex items-center justify-center" style={{ backgroundColor: '#E0F2F1' }}>
+                  <div className="relative scale-[0.38] origin-center" style={{ width: '140px', height: '280px' }}>
+                    <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                    <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
+                      <img src="/HF/O5.png" alt="AFYACARE" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
                 </div>
-                <div className="h-2 bg-black/10 rounded w-5/6 mb-1" />
-                <div className="h-2 bg-black/6 rounded w-1/3" />
+                <div className="px-1 pb-1">
+                  <p className="text-[9px] text-black/40 uppercase tracking-widest mb-0.5">Mobile App</p>
+                  <p className="text-xs font-bold text-black">AFYACARE</p>
+                </div>
               </div>
             </motion.div>
 
@@ -117,25 +147,58 @@ export default function Work() {
                       className="relative h-52 overflow-hidden flex items-center justify-center"
                       style={{ backgroundColor: project.cardBg || '#F3F4F6' }}
                     >
-                      {project.image ? (
+                      {project.id === 'dtma' ? (
+                        <div className="flex flex-col items-center scale-[0.55] origin-center">
+                          <div className="bg-gray-800 rounded-xl p-1.5 shadow-xl border-2 border-gray-700" style={{ width: '480px' }}>
+                            <div className="overflow-hidden rounded-lg bg-black">
+                              <img src={project.image} alt="DTMA" className="w-full h-auto object-contain block" />
+                            </div>
+                          </div>
+                          <div className="bg-gray-700 rounded-b-md" style={{ width: '500px', height: '4px' }}></div>
+                          <div className="bg-gray-800 rounded-b-lg" style={{ width: '520px', height: '8px' }}></div>
+                        </div>
+                      ) : project.id === 'reserve-me' ? (
+                        <div className="flex items-center justify-center h-full">
+                          <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>
+                            <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                            <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
+                            <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
+                            <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
+                            <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex flex-col" style={{ backgroundColor: '#8B0000' }}>
+                              <div className="flex-1 flex items-center justify-center flex-col gap-2">
+                                <svg width="32" height="36" viewBox="0 0 48 56" fill="white">
+                                  <rect x="21" y="0" width="6" height="7" rx="3"/>
+                                  <path d="M24 5 C13 5 8 14 8 24 L8 38 L3 42 L45 42 L40 38 L40 24 C40 14 35 5 24 5Z"/>
+                                  <ellipse cx="24" cy="50" rx="5" ry="5"/>
+                                  <rect x="22" y="42" width="4" height="10" rx="2"/>
+                                </svg>
+                                <p className="text-white font-bold text-[9px] tracking-wide">Reserve me</p>
+                                <p className="text-white/60 text-[7px]">Reservation made easy</p>
+                              </div>
+                              <div className="flex justify-center pb-2">
+                                <div className="w-10 h-0.5 bg-white/20 rounded-full"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : project.id === 'health-mobile' ? (
+                        <div className="flex items-center justify-center h-full">
+                          <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>
+                            <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                            <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
+                            <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
+                            <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
+                            <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
+                              <img src="/HF/O5.png" alt="AFYACARE screen" className="w-full h-full object-cover" />
+                            </div>
+                          </div>
+                        </div>
+                      ) : project.image ? (
                         <img
                           src={project.image}
                           alt={project.title}
                           className={`w-full h-full ${project.imageStyle === 'contain' ? 'object-contain p-4' : 'object-cover object-top'}`}
                         />
-                      ) : project.id === 'health-mobile' ? (
-                        <div className="flex items-center justify-center h-full">
-                          <div className="relative" style={{ width: '90px', height: '180px' }}>
-                            <div className="absolute inset-0 bg-gray-700 rounded-[1.4rem] border-2 border-gray-500 shadow-lg"></div>
-                            <div className="absolute -left-1 top-10 w-0.5 h-4 bg-gray-500 rounded-l-full"></div>
-                            <div className="absolute -right-1 top-12 w-0.5 h-6 bg-gray-500 rounded-r-full"></div>
-                            <div className="absolute inset-1 rounded-[1.1rem] overflow-hidden flex flex-col items-center justify-center gap-1" style={{ backgroundColor: '#0f172a' }}>
-                              <span className="text-lg">🏥</span>
-                              <p className="text-white font-bold text-[7px] tracking-wide">AFYACARE</p>
-                              <p className="text-white/40 text-[6px]">Coming Soon</p>
-                            </div>
-                          </div>
-                        </div>
                       ) : (
                         <div className="text-6xl opacity-20 group-hover:scale-110 transition-transform duration-300">
                           {project.icon}

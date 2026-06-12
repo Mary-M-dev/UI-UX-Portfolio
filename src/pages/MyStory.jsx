@@ -131,19 +131,39 @@ export default function MyStory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
                 viewport={{ once: true }}
-                className="space-y-4"
+                className={chapter.title === 'Building Solutions That Matter'
+                  ? 'relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 px-8 py-10 space-y-5'
+                  : 'space-y-4'
+                }
               >
-                <h2 className="text-2xl font-bold text-black">{chapter.title}</h2>
-                {chapter.paragraphs.map((para, pIdx) => (
-                  <p key={pIdx} className="text-base text-black/65 leading-relaxed">
-                    {para}
-                  </p>
-                ))}
-                {/* Image after Discovering Product Design */}
-                {chapter.title === 'Discovering Product Design' && (
-                  <div className="mt-6 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-                    <img src="/hl.jpg" alt="Discovering Product Design" className="w-full h-auto object-contain" />
-                  </div>
+                {chapter.title === 'Building Solutions That Matter' ? (
+                  <>
+                    {/* Subtle background accent */}
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl -z-0" />
+                    <p className="text-xs text-pink-500 uppercase tracking-widest font-semibold relative z-10">Currently</p>
+                    <h2 className="text-3xl font-bold text-black relative z-10">{chapter.title}</h2>
+                    <blockquote className="border-l-4 border-pink-500 pl-5 py-1 relative z-10">
+                      <p className="text-lg text-gray-700 italic leading-relaxed">
+                        "What excites me most is taking something complex and transforming it into an experience that feels simple, intuitive, and useful."
+                      </p>
+                    </blockquote>
+                    {chapter.paragraphs.filter(p => !p.includes('What excites me most')).map((para, pIdx) => (
+                      <p key={pIdx} className="text-base text-black/65 leading-relaxed relative z-10">{para}</p>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-bold text-black">{chapter.title}</h2>
+                    {chapter.paragraphs.map((para, pIdx) => (
+                      <p key={pIdx} className="text-base text-black/65 leading-relaxed">{para}</p>
+                    ))}
+                    {/* Image after Discovering Product Design */}
+                    {chapter.title === 'Discovering Product Design' && (
+                      <div className="mt-6 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src="/hl.jpg" alt="Discovering Product Design" className="w-full h-auto object-contain" />
+                      </div>
+                    )}
+                  </>
                 )}
               </motion.div>
             ))}

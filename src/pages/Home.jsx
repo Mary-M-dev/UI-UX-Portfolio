@@ -12,21 +12,21 @@ export default function Home() {
     <div className="bg-white text-black">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-0 sm:px-0 lg:px-0 overflow-hidden pb-20">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-0 items-center">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
-            {/* Left Column - Product Designer — dims on hover */}
+            {/* Left Column - Product Designer */}
             <motion.div
               animate={{ opacity: isHovering ? 0.15 : 1 }}
               transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center mb-12 md:mb-0"
+              className="md:col-span-3 flex flex-col justify-center mb-8 md:mb-0"
             >
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
                     Product<br />Designer
                   </h2>
-                  <div className="w-16 h-1 bg-pink-500"></div>
+                  <div className="w-12 h-1 bg-pink-500"></div>
                 </div>
                 <ul className="space-y-3">
                   {['UI/UX Design', 'Design Systems', 'User Research'].map((skill) => (
@@ -44,14 +44,14 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:col-span-6 flex justify-center mb-12 md:mb-0"
+              className="md:col-span-6 flex justify-center mb-8 md:mb-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full max-w-xs">
                 {/* Left Paint Splash */}
                 <motion.svg
-                  className="absolute w-32 h-32 -left-10 top-1/3"
+                  className="absolute w-28 h-28 -left-8 top-1/3"
                   viewBox="0 0 100 100"
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4 }}
@@ -69,7 +69,7 @@ export default function Home() {
 
                 {/* Right Paint Splash */}
                 <motion.svg
-                  className="absolute w-28 h-28 -right-8 bottom-1/3"
+                  className="absolute w-24 h-24 -right-6 bottom-1/3"
                   viewBox="0 0 100 100"
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
@@ -84,12 +84,12 @@ export default function Home() {
                   </g>
                 </motion.svg>
 
-                {/* Portrait with flip */}
+                {/* Portrait */}
                 <motion.div
-                  className="relative z-10 w-full aspect-[3/3.5] overflow-hidden"
+                  className="relative z-10 w-full overflow-hidden rounded-2xl shadow-lg"
+                  style={{ aspectRatio: '3/4' }}
                   animate={{ rotateY: isHovering ? 180 : 0 }}
                   transition={{ duration: 0.6 }}
-                  style={{ perspective: 1000 }}
                 >
                   <motion.div
                     className="absolute inset-0"
@@ -118,22 +118,22 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right Column - Product Owner — brightens on hover */}
+            {/* Right Column - Product Owner */}
             <motion.div
               animate={{ opacity: isHovering ? 1 : 1 }}
               transition={{ duration: 0.4 }}
               className="md:col-span-3 flex flex-col justify-center"
             >
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
                     Product<br />Owner
                   </h2>
-                  <div className="w-16 h-1 bg-pink-500"></div>
+                  <div className="w-12 h-1 bg-pink-500"></div>
                 </div>
                 <ul className="space-y-3">
                   {['Product Strategy', 'Agile Architecture', 'Stakeholder Management'].map((skill) => (
-                    <li key={skill} className="text-gray-700 flex items-center justify-start gap-3">
+                    <li key={skill} className="text-gray-700 flex items-center gap-3">
                       <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
                       <span className="text-base">{skill}</span>
                     </li>

@@ -19,26 +19,61 @@ export default function ProjectCard({ project }) {
             className="relative h-52 overflow-hidden flex items-center justify-center"
             style={{ backgroundColor: project.cardBg || '#F3F4F6' }}
           >
-            {project.image ? (
+            {project.id === 'dtma' ? (
+              /* Laptop mockup for DTMA */
+              <div className="flex flex-col items-center scale-[0.55] origin-center">
+                <div className="bg-gray-800 rounded-xl p-1.5 shadow-xl border-2 border-gray-700" style={{ width: '480px' }}>
+                  <div className="overflow-hidden rounded-lg bg-black">
+                    <img src={project.image} alt="DTMA" className="w-full h-auto object-contain block" />
+                  </div>
+                </div>
+                <div className="bg-gray-700 rounded-b-md" style={{ width: '500px', height: '4px' }}></div>
+                <div className="bg-gray-800 rounded-b-lg" style={{ width: '520px', height: '8px' }}></div>
+              </div>
+            ) : project.id === 'reserve-me' ? (
+              /* Phone mockup for Reserve Me */
+              <div className="flex items-center justify-center h-full">
+                <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>
+                  <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                  <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
+                  <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
+                  <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
+                  <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex flex-col" style={{ backgroundColor: '#8B0000' }}>
+                    <div className="flex-1 flex items-center justify-center flex-col gap-2">
+                      <svg width="32" height="36" viewBox="0 0 48 56" fill="white">
+                        <rect x="21" y="0" width="6" height="7" rx="3"/>
+                        <path d="M24 5 C13 5 8 14 8 24 L8 38 L3 42 L45 42 L40 38 L40 24 C40 14 35 5 24 5Z"/>
+                        <ellipse cx="24" cy="50" rx="5" ry="5"/>
+                        <rect x="22" y="42" width="4" height="10" rx="2"/>
+                      </svg>
+                      <p className="text-white font-bold text-[9px] tracking-wide">Reserve me</p>
+                      <p className="text-white/60 text-[7px]">Reservation made easy</p>
+                    </div>
+                    <div className="flex justify-center pb-2">
+                      <div className="w-10 h-0.5 bg-white/20 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : project.id === 'health-mobile' ? (
+              /* Phone mockup for AFYACARE */
+              <div className="flex items-center justify-center h-full">
+                <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>
+                  <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                  <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
+                  <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
+                  <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
+                  <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
+                    <img src="/HF/O5.png" alt="AFYACARE screen" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            ) : project.image ? (
               <img
                 src={project.image}
                 alt={project.title}
                 className={`w-full h-full ${project.imageStyle === 'contain' ? 'object-contain p-4' : 'object-cover object-top'}`}
               />
-            ) : project.id === 'health-mobile' ? (
-              /* Mini phone mockup for AFYACARE */
-              <div className="flex items-center justify-center h-full">
-                <div className="relative" style={{ width: '90px', height: '180px' }}>
-                  <div className="absolute inset-0 bg-gray-700 rounded-[1.4rem] border-2 border-gray-500 shadow-lg"></div>
-                  <div className="absolute -left-1 top-10 w-0.5 h-4 bg-gray-500 rounded-l-full"></div>
-                  <div className="absolute -right-1 top-12 w-0.5 h-6 bg-gray-500 rounded-r-full"></div>
-                  <div className="absolute inset-1 rounded-[1.1rem] overflow-hidden flex flex-col items-center justify-center gap-1" style={{ backgroundColor: '#0f172a' }}>
-                    <span className="text-lg">🏥</span>
-                    <p className="text-white font-bold text-[7px] tracking-wide">AFYACARE</p>
-                    <p className="text-white/40 text-[6px]">Coming Soon</p>
-                  </div>
-                </div>
-              </div>
             ) : (
               <div className="text-7xl opacity-30 group-hover:scale-110 transition-transform duration-300">
                 {project.icon}

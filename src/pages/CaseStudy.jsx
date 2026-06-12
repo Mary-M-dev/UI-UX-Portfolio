@@ -80,14 +80,10 @@ export default function CaseStudy() {
                     <div className="absolute -right-2 top-32 w-1.5 h-16 bg-gray-600 rounded-r-full"></div>
                     {/* Screen area */}
                     <div className="absolute inset-2 rounded-[2.3rem] overflow-hidden flex flex-col" style={{ backgroundColor: project.id === 'health-mobile' ? '#0f172a' : '#8B0000' }}>
-                      {/* Splash animation or Coming Soon */}
+                      {/* Splash animation or HF screen */}
                       <div className="flex-1 flex items-center justify-center">
                         {project.id === 'health-mobile' ? (
-                          <div className="flex flex-col items-center gap-3 px-4 text-center">
-                            <span className="text-3xl">🏥</span>
-                            <p className="text-white font-bold text-sm tracking-wide">AFYACARE</p>
-                            <p className="text-white/50 text-xs">Coming Soon</p>
-                          </div>
+                          <img src="/HF/O5.png" alt="AFYACARE consultation screen" className="w-full h-full object-cover" />
                         ) : (
                           <SplashAnimation />
                         )}
@@ -1167,7 +1163,7 @@ function GenericCaseStudy({ project }) {
             {c.keyInsights.map((insight, i) => (
               <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
                 <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                <span><span className="font-semibold text-black">{insight.title} — </span>{insight.desc}</span>
+                <span><span className="font-semibold text-black">{insight.title}: </span>{insight.desc}</span>
               </li>
             ))}
           </ul>
@@ -1183,7 +1179,7 @@ function GenericCaseStudy({ project }) {
             {c.designGoals.map((goal, i) => (
               <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
                 <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                <span><span className="font-semibold text-black">{goal.title} — </span>{goal.desc}</span>
+                <span><span className="font-semibold text-black">{goal.title}: </span>{goal.desc}</span>
               </li>
             ))}
           </ul>
@@ -1351,7 +1347,7 @@ function GenericCaseStudy({ project }) {
             {c.designPrinciples.map((p, i) => (
               <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
                 <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                <span><span className="font-semibold text-black">{p.title} — </span>{p.desc}</span>
+                <span><span className="font-semibold text-black">{p.title}: </span>{p.desc}</span>
               </div>
             ))}
           </div>
@@ -1387,7 +1383,7 @@ function GenericCaseStudy({ project }) {
             {c.userFlows.map((flow, i) => (
               <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
                 <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                <span><span className="font-semibold text-black">{flow.title} — </span>{flow.desc}</span>
+                <span><span className="font-semibold text-black">{flow.title}: </span>{flow.desc}</span>
               </div>
             ))}
           </div>
@@ -1396,6 +1392,85 @@ function GenericCaseStudy({ project }) {
               <img src="/uf.png" alt="User flow diagrams" className="w-full h-auto object-contain" />
             </div>
           )}
+        </motion.section>
+      )}
+
+      {/* Wireframes */}
+      {c.wireframes && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">Mid-Fidelity Wireframes</h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{c.wireframes.intro}</p>
+          <p className="text-sm font-semibold text-black mb-3">Key Decisions</p>
+          <ul className="space-y-2 mb-8">
+            {c.wireframes.decisions.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {project.id === 'health-mobile' && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {['/midf/k.png','/midf/k1.png','/midf/k2.png','/midf/k3.png','/midf/k4.png','/midf/k5.png','/midf/k6.png'].map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                  <img src={src} alt={`Wireframe screen ${i + 1}`} className="w-full h-auto object-contain" />
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.section>
+      )}
+
+      {/* High-Fidelity Design */}
+      {c.hifiDesign && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">High-Fidelity UI Design</h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{c.hifiDesign.intro}</p>
+          <p className="text-sm font-semibold text-black mb-3">Visual Direction</p>
+          <ul className="space-y-2 mb-8">
+            {c.hifiDesign.visualDirection.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {project.id === 'health-mobile' && (
+            <div className="mb-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm max-w-lg">
+              <img src="/DS/Screenshot 2026-06-12 152544.png" alt="AFYACARE design system" className="w-full h-auto object-contain" />
+            </div>
+          )}
+          <p className="text-sm font-semibold text-black mb-4">Key Screen Highlights</p>
+          <div className="space-y-3">
+            {c.hifiDesign.screenHighlights.map((screen, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{screen.title}: </span>{screen.desc}</span>
+              </div>
+            ))}
+          </div>
+          {project.id === 'health-mobile' && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8 items-start">
+              {['/HF/O.png','/HF/O1.png','/HF/O3.png','/HF/O4.png','/HF/O5.png','/HF/O6.png'].map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                  <img src={src} alt={`AFYACARE screen ${i + 1}`} className="w-full h-auto object-contain" />
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.section>
+      )}
+
+      {/* Design Tradeoffs */}
+      {c.designTradeoffs && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Design Tradeoffs</h2>
+          <div className="space-y-4">
+            {c.designTradeoffs.map((t, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                <span><span className="font-semibold text-black">{t.title} → </span>{t.desc}</span>
+              </div>
+            ))}
+          </div>
         </motion.section>
       )}
 
@@ -1468,7 +1543,7 @@ function GenericCaseStudy({ project }) {
           <ul className="space-y-2">
             {c.accessibilityFeatures.map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
-                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">✅</span><span>{item}</span>
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
               </li>
             ))}
           </ul>
