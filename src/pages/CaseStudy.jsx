@@ -122,7 +122,7 @@ export default function CaseStudy() {
 
       {/* Project Info Section - Light Mode */}
       <div className="bg-white text-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Project Title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,7 +203,7 @@ export default function CaseStudy() {
 
       {/* Main Content - Light Mode */}
       <div className="bg-white text-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div>
             <div className="space-y-16">
 
