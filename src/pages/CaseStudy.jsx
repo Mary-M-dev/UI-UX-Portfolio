@@ -1448,10 +1448,10 @@ function GenericCaseStudy({ project }) {
             ))}
           </div>
           {project.id === 'health-mobile' && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8 items-start">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 items-start">
               {['/HF/O.png','/HF/O1.png','/HF/O3.png','/HF/O4.png','/HF/O5.png','/HF/O6.png'].map((src, i) => (
-                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-                  <img src={src} alt={`AFYACARE screen ${i + 1}`} className="w-full h-auto object-contain" />
+                <div key={i} className="rounded-xl overflow-hidden">
+                  <img src={src} alt={`AFYACARE screen ${i + 1}`} className="w-full h-auto block" />
                 </div>
               ))}
             </div>
