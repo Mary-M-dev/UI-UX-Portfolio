@@ -13,13 +13,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-0 sm:px-0 lg:px-0 overflow-hidden pb-20">
         <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 items-center">
 
             {/* Left Column - Product Designer */}
             <motion.div
               animate={{ opacity: isHovering ? 0.15 : 1 }}
               transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center mb-8 md:mb-0"
+              className="md:col-span-3 flex flex-col justify-center order-2 md:order-1 mb-6 md:mb-0"
             >
               <div className="space-y-5">
                 <div>
@@ -44,7 +44,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:col-span-6 flex justify-center mb-8 md:mb-0"
+              className="md:col-span-6 flex justify-center order-1 md:order-2 mb-8 md:mb-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -122,7 +122,7 @@ export default function Home() {
             <motion.div
               animate={{ opacity: isHovering ? 1 : 1 }}
               transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center"
+              className="md:col-span-3 flex flex-col justify-center order-3"
             >
               <div className="space-y-5">
                 <div>

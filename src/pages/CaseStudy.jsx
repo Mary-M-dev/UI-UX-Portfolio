@@ -69,7 +69,7 @@ export default function CaseStudy() {
                   className="flex flex-col items-center"
                 >
                   {/* Phone shell */}
-                  <div className="relative" style={{ width: '220px', height: '440px' }}>
+                  <div className="relative" style={{ width: '200px', height: '400px' }}>
                     {/* Outer body */}
                     <div className="absolute inset-0 bg-gray-800 rounded-[2.8rem] border-4 border-gray-600 shadow-2xl"></div>
                     {/* Side buttons left */}
