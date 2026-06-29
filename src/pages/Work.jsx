@@ -22,10 +22,10 @@ export default function Work() {
                 portfolio<span className="text-pink-500">.</span>
               </h1>
               <p className="text-lg text-black/60 max-w-md leading-relaxed">
-                Check out some of my latest product design case studies.
+                Explore some of my recent product design work.
               </p>
               <p className="text-base text-black/40 max-w-sm leading-relaxed">
-                I've worked on digital products across EdTech, FinTech, and enterprise — focusing on experiences that are intuitive, meaningful, and human-centered.
+                From AI-powered product prototypes to digital transformation initiatives and user-centered experiences, each project showcases how I solve complex problems through strategy, research, and thoughtful design.
               </p>
             </motion.div>
 

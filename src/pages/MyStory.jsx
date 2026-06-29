@@ -9,7 +9,7 @@ const chapters = [
       'In 2019, I began exploring coding and software development to understand how digital products are built. I wanted to know what happened behind the screens we interact with every day.',
       'While I enjoyed learning the logic behind technology, I found myself drawn to something else. I wasn\'t just interested in how systems worked. I was fascinated by how people experienced them.',
       'Why does one product feel effortless while another feels frustrating? Why do some digital experiences make people feel confident while others leave them confused?',
-      'The more I learned, the more I realized my curiosity wasn\'t really about technology alone — it was about people.',
+      'The more I learned, the more I realized my curiosity wasn\'t really about technology alone, it was about people.',
     ],
   },
   {
