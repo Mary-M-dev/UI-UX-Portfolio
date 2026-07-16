@@ -280,6 +280,7 @@ export const projects = [
     icon: '🏥',
     role: 'UX/UI Designer',
     tags: ['Figma', 'Miro'],
+    comingSoon: true,
     caseStudyContent: {
       heroImage: '',
       overview: [
@@ -318,7 +319,7 @@ export const projects = [
         { title: 'Users Need Guidance', desc: 'Many elderly users are not frequent technology users and require voice instructions, clear onboarding, and step-by-step guidance.' },
         { title: 'Accessibility Cannot Be Optional', desc: 'Users need larger text, adjustable contrast, large touch targets, and clear visual hierarchy.' },
         { title: 'Confidence Matters More Than Speed', desc: 'Users need confirmation messages, appointment reminders, clear instructions, and error recovery support.' },
-        { title: 'Healthcare Often Involves Family Support', desc: 'In many Kenyan households, family members assist elderly relatives — sharing consultation summaries and caregiver support is essential.' },
+        { title: 'Healthcare Often Involves Family Support', desc: 'In many Kenyan households, family members assist elderly relatives: sharing consultation summaries and caregiver support is essential.' },
       ],
       designPrinciples: [
         { title: 'Simplicity Over Complexity', desc: 'Prioritize essential tasks and eliminate unnecessary decisions.' },

@@ -1370,7 +1370,7 @@ function GenericCaseStudy({ project }) {
       ) : c.showJourneyTitle ? (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
-          <p className="text-gray-700 text-base leading-relaxed">To understand the complete experience, I mapped the journey from account creation to post-consultation care — from the moment a user sets up their account through to managing follow-up care and sharing information with a caregiver.</p>
+          <p className="text-gray-700 text-base leading-relaxed">To understand the complete experience, I mapped the journey from account creation to post-consultation care, from the moment a user sets up their account through to managing follow-up care and sharing information with a caregiver.</p>
         </motion.section>
       ) : null}
 

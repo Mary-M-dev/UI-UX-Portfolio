@@ -135,6 +135,63 @@ export default function Work() {
                 whileHover={{ y: -4 }}
                 className="group"
               >
+                {project.comingSoon ? (
+                  <div className="cursor-not-allowed">
+                    {/* Paper Card */}
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 relative">
+
+                      {/* Pink Tape */}
+                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-5 bg-pink-400 opacity-80 rounded-sm z-10 rotate-1" />
+
+                      {/* Image Area */}
+                      <div
+                        className="relative h-52 overflow-hidden flex items-center justify-center"
+                        style={{ backgroundColor: project.cardBg || '#F3F4F6' }}
+                      >
+                        {project.id === 'health-mobile' ? (
+                          <div className="flex items-center justify-center h-full">
+                            <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>
+                              <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
+                              <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
+                              <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
+                              <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
+                              <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#f0fdf4' }}>
+                                <div className="text-center px-4">
+                                  <img src="/au/Afyacare logo.svg" alt="AFYACARE" className="w-20 h-auto mx-auto" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ) : project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className={`w-full h-full ${project.imageStyle === 'contain' ? 'object-contain p-4' : 'object-cover object-top'}`}
+                          />
+                        ) : (
+                          <div className="text-6xl opacity-20">
+                            {project.icon}
+                          </div>
+                        )}
+
+                        {/* Coming Soon Badge */}
+                        <div className="absolute top-3 right-3 flex items-center gap-1 bg-pink-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                          Coming Soon
+                        </div>
+                      </div>
+
+                      {/* Card Info */}
+                      <div className="p-5 pt-4">
+                        <p className="text-xs text-black/40 mb-1 uppercase tracking-widest">
+                          {project.category || project.tags?.[0] || 'Case Study'}
+                        </p>
+                        <h3 className="text-sm font-semibold text-black leading-snug">
+                          {project.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
                 <Link to={`/case-study/${project.id}`}>
                   {/* Paper Card */}
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 relative">
@@ -224,6 +281,7 @@ export default function Work() {
                     </div>
                   </div>
                 </Link>
+                )}
               </motion.div>
             ))}
           </div>
