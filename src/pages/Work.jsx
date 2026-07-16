@@ -157,7 +157,7 @@ export default function Work() {
                               <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
                               <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#f0fdf4' }}>
                                 <div className="text-center px-4">
-                                  <img src="/au/Afyacare logo.svg" alt="AFYACARE" className="w-20 h-auto mx-auto" />
+                                  <img src="/Afyacare logo.svg" alt="AFYACARE" className="w-20 h-auto mx-auto" />
                                 </div>
                               </div>
                             </div>
