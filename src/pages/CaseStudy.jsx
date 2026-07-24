@@ -1410,7 +1410,20 @@ function GenericCaseStudy({ project }) {
           </ul>
           {project.id === 'health-mobile' && (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {['/midf/k.png','/midf/k1.png','/midf/k2.png','/midf/k3.png','/midf/k4.png','/midf/k5.png','/midf/k6.png'].map((src, i) => (
+              {[
+                '/lofi/Welcome screen.png',
+                '/lofi/Create account screen.png',
+                '/lofi/Verify phone number.png',
+                '/lofi/Home screen.png',
+                '/lofi/Services screen.png',
+                '/lofi/Browse doctors.png',
+                '/lofi/Doctors profile.png',
+                '/lofi/Select date.png',
+                '/lofi/Confirm appointment.png',
+                '/lofi/Appointment details screen.png',
+                '/lofi/Video consultation.png',
+                '/lofi/Post consultation screen.png'
+              ].map((src, i) => (
                 <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                   <img src={src} alt={`Wireframe screen ${i + 1}`} className="w-full h-auto object-contain" />
                 </div>
@@ -1434,8 +1447,13 @@ function GenericCaseStudy({ project }) {
             ))}
           </ul>
           {project.id === 'health-mobile' && (
-            <div className="mb-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm max-w-lg">
-              <img src="/DS/Screenshot 2026-06-12 152544.png" alt="AFYACARE design system" className="w-full h-auto object-contain" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                <img src="/DS/Screenshot 2026-06-12 152544.png" alt="AFYACARE design system" className="w-full h-auto object-contain" />
+              </div>
+              <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                <img src="/hr/interaction.png" alt="AFYACARE interaction design" className="w-full h-auto object-contain" />
+              </div>
             </div>
           )}
           <p className="text-sm font-semibold text-black mb-4">Key Screen Highlights</p>
@@ -1449,7 +1467,23 @@ function GenericCaseStudy({ project }) {
           </div>
           {project.id === 'health-mobile' && (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 items-start">
-              {['/HF/O.png','/HF/O1.png','/HF/O3.png','/HF/O4.png','/HF/O5.png','/HF/O6.png'].map((src, i) => (
+              {[
+                '/hifi/Onboarding.png',
+                '/hifi/Onboarding 2.png',
+                '/hifi/Verify phone number 3.png',
+                '/hifi/Verify phone number 4.png',
+                '/hifi/Verify phone number 5.png',
+                '/hifi/Home Dashboard 6.png',
+                '/hifi/Choose Service 7.png',
+                '/hifi/Browse doctors 8.png',
+                '/hifi/Doctors details 9.png',
+                '/hifi/Select Date & Time 10.png',
+                '/hifi/Appointment confirmation 11.png',
+                '/hifi/Appointment confirmation 12.png',
+                '/hifi/Appointments 13.png',
+                '/hifi/Video Consultation 14.png',
+                '/hifi/Visit Summary 15.png'
+              ].map((src, i) => (
                 <div key={i} className="rounded-xl overflow-hidden">
                   <img src={src} alt={`AFYACARE screen ${i + 1}`} className="w-full h-auto block" />
                 </div>

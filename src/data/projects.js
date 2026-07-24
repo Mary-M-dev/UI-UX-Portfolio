@@ -280,7 +280,6 @@ export const projects = [
     icon: '🏥',
     role: 'UX/UI Designer',
     tags: ['Figma', 'Miro'],
-    comingSoon: true,
     caseStudyContent: {
       heroImage: '',
       overview: [
