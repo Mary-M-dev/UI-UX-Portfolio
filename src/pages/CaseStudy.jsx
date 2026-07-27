@@ -60,7 +60,7 @@ export default function CaseStudy() {
             </motion.div>
 
             {/* Device Mockup — centered in hero */}
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center w-full">
               {project.category === 'Mobile App' ? (
                 /* Phone mockup for mobile apps */
                 <motion.div
@@ -69,7 +69,7 @@ export default function CaseStudy() {
                   className="flex flex-col items-center"
                 >
                   {/* Phone shell */}
-                  <div className="relative" style={{ width: '200px', height: '400px' }}>
+                  <div className="relative w-[160px] h-[320px] sm:w-[200px] sm:h-[400px]">
                     {/* Outer body */}
                     <div className="absolute inset-0 bg-gray-800 rounded-[2.8rem] border-4 border-gray-600 shadow-2xl"></div>
                     {/* Side buttons left */}
@@ -100,9 +100,9 @@ export default function CaseStudy() {
                 <motion.div
                   animate={{ y: [0, -14, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex flex-col items-center"
+                  className="flex flex-col items-center w-full max-w-full px-4"
                 >
-                  <div className="bg-gray-800 rounded-2xl p-2 shadow-2xl border-4 border-gray-700" style={{ width: '660px' }}>
+                  <div className="bg-gray-800 rounded-2xl p-2 shadow-2xl border-4 border-gray-700 w-full max-w-[90vw] sm:max-w-[660px]">
                     <div className="overflow-hidden rounded-xl bg-black">
                       <img
                         src={project.caseStudyContent?.heroImage || '/hr/Screenshot 2026-06-05 153008.png'}
@@ -111,8 +111,8 @@ export default function CaseStudy() {
                       />
                     </div>
                   </div>
-                  <div className="bg-gray-700 rounded-b-lg" style={{ width: '700px', height: '6px' }}></div>
-                  <div className="bg-gray-800 rounded-b-2xl" style={{ width: '740px', height: '12px' }}></div>
+                  <div className="bg-gray-700 rounded-b-lg w-[calc(100%+8px)] max-w-[calc(90vw+8px)] sm:max-w-[700px] h-[6px]"></div>
+                  <div className="bg-gray-800 rounded-b-2xl w-[calc(100%+16px)] max-w-[calc(90vw+16px)] sm:max-w-[740px] h-[12px]"></div>
                 </motion.div>
               )}
             </div>
