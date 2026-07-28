@@ -96,32 +96,16 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ── Projects Grid with Textured Background ── */}
+      {/* ── Projects Grid with Background Image ── */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
-        style={{ backgroundColor: '#F2EFE9' }}
+        style={{ 
+          backgroundImage: 'url(/HF/Background.svg)',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#F2EFE9'
+        }}
       >
-        {/* UX Quote Watermarks */}
-        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-          <span className="absolute top-12 left-1/2 -translate-x-1/2 text-3xl md:text-4xl font-bold text-black/[0.03] whitespace-nowrap tracking-wide italic">
-            Don't Make Me Think
-          </span>
-          <span className="absolute top-1/2 left-8 -rotate-90 origin-left text-2xl font-bold text-black/[0.03] whitespace-nowrap tracking-widest italic">
-            Test early
-          </span>
-          <span className="absolute bottom-64 left-1/2 -translate-x-1/4 text-2xl md:text-3xl font-bold text-black/[0.03] whitespace-nowrap tracking-wide italic">
-            Friction is the enemy
-          </span>
-          <span className="absolute bottom-32 right-8 text-2xl md:text-3xl font-bold text-black/[0.03] whitespace-nowrap tracking-wide italic">
-            You are not your user
-          </span>
-          <span className="absolute bottom-8 left-1/2 -translate-x-1/2 text-4xl md:text-6xl font-black text-black/[0.03] whitespace-nowrap tracking-widest uppercase">
-            DESIGN
-          </span>
-          {/* Stars */}
-          <span className="absolute bottom-40 left-12 text-black/[0.04] text-3xl">★</span>
-          <span className="absolute bottom-20 right-40 text-black/[0.04] text-2xl">★</span>
-        </div>
-
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
