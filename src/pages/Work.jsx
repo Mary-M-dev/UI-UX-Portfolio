@@ -185,9 +185,14 @@ export default function Work() {
                         <p className="text-xs text-black/40 mb-1 uppercase tracking-widest">
                           {project.category || project.tags?.[0] || 'Case Study'}
                         </p>
-                        <h3 className="text-sm font-semibold text-black leading-snug">
+                        <h3 className="text-sm font-semibold text-black leading-snug mb-2">
                           {project.title}
                         </h3>
+                        {project.description && (
+                          <p className="text-xs text-gray-600 leading-relaxed">
+                            {project.description}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -275,9 +280,14 @@ export default function Work() {
                       <p className="text-xs text-black/40 mb-1 uppercase tracking-widest">
                         {project.category || project.tags?.[0] || 'Case Study'}
                       </p>
-                      <h3 className="text-sm font-semibold text-black leading-snug group-hover:text-pink-500 transition-colors">
+                      <h3 className="text-sm font-semibold text-black leading-snug group-hover:text-pink-500 transition-colors mb-2">
                         {project.title}
                       </h3>
+                      {project.description && (
+                        <p className="text-xs text-gray-600 leading-relaxed">
+                          {project.description}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </Link>

@@ -314,7 +314,7 @@ export default function CaseStudy() {
                       {[
                         'Learners often start courses with interest but lose momentum over time.',
                         'Most platforms focus heavily on content delivery, with little ongoing guidance.',
-                        'Support is usually reactive — only when learners ask for help.',
+                        'Support is usually reactive: only when learners ask for help.',
                         'Learners struggle to translate theory into real workplace application.',
                         'Learning feels isolated, with limited connection or reinforcement outside the platform.',
                         'Progress without feedback or encouragement leads to drop-off.',

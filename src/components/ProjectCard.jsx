@@ -96,9 +96,16 @@ export default function ProjectCard({ project }) {
         </p>
 
         {/* Title */}
-        <h3 className="text-base font-semibold text-black leading-snug group-hover:text-pink-500 transition-colors">
+        <h3 className="text-base font-semibold text-black leading-snug group-hover:text-pink-500 transition-colors mb-2">
           {project.title}
         </h3>
+
+        {/* Description */}
+        {project.description && (
+          <p className="text-sm text-gray-600 leading-relaxed">
+            {project.description}
+          </p>
+        )}
       </div>
     </div>
   );
