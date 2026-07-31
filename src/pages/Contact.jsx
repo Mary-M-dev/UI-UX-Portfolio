@@ -96,17 +96,18 @@ export default function Contact() {
             <form 
               name="contact" 
               method="POST" 
+              action="/contact?success=true"
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              data-netlify-honeypot="bot-field"
               className="space-y-5"
             >
               {/* Hidden fields for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
+              <div className="hidden">
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
                 </label>
-              </p>
+              </div>
 
               <div>
                 <label className="block text-sm text-black/60 mb-1">Full Name <span className="text-pink-500">*</span></label>
