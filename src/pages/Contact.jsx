@@ -93,11 +93,27 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2 className="text-xl font-bold text-black mb-8">Send a Message</h2>
-            <form className="space-y-5">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="space-y-5"
+            >
+              {/* Hidden fields for Netlify */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div>
                 <label className="block text-sm text-black/60 mb-1">Full Name <span className="text-pink-500">*</span></label>
                 <input
                   type="text"
+                  name="name"
+                  required
                   className="w-full px-4 py-3 bg-white border border-black/15 rounded-lg text-black placeholder-black/30 focus:outline-none focus:border-pink-500 transition-colors text-sm"
                   placeholder="Your name"
                 />
@@ -106,6 +122,8 @@ export default function Contact() {
                 <label className="block text-sm text-black/60 mb-1">Email <span className="text-pink-500">*</span></label>
                 <input
                   type="email"
+                  name="email"
+                  required
                   className="w-full px-4 py-3 bg-white border border-black/15 rounded-lg text-black placeholder-black/30 focus:outline-none focus:border-pink-500 transition-colors text-sm"
                   placeholder="your.email@example.com"
                 />
@@ -114,6 +132,8 @@ export default function Contact() {
                 <label className="block text-sm text-black/60 mb-1">Message <span className="text-pink-500">*</span></label>
                 <textarea
                   rows="6"
+                  name="message"
+                  required
                   className="w-full px-4 py-3 bg-white border border-black/15 rounded-lg text-black placeholder-black/30 focus:outline-none focus:border-pink-500 transition-colors resize-none text-sm"
                   placeholder="Tell me about your project..."
                 />
