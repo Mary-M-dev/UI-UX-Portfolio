@@ -101,7 +101,7 @@ export default function Work() {
         style={{ 
           backgroundImage: 'url(/HF/Background.svg)',
           backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 60%',
           backgroundRepeat: 'no-repeat',
           backgroundColor: '#F2EFE9'
         }}
@@ -279,6 +279,60 @@ export default function Work() {
               </motion.div>
             ))}
           </div>
+
+          {/* ── My Other Creative Work ── */}
+          <div className="mt-32">
+            {/* Section Header */}
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-black mb-3">
+                My Other Creative Work<span className="text-pink-500">.</span>
+              </h2>
+              <p className="text-base text-black/60 max-w-2xl">
+                Beyond UX/UI design, I explore visual design and creative expression through various mediums.
+              </p>
+            </div>
+
+            {/* Creative Work Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { src: '/creative/Instagram post - 16.svg', title: 'Instagram Post' },
+                { src: '/creative/Poster design 1.svg', title: 'Poster Design for a Travel Agency' },
+                { src: '/creative/mag 1.svg', title: 'Magazine Cover Interior Design Company' },
+                { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding' },
+                { src: '/creative/Banner ad  wire frame.svg', title: 'Banner Ad for a Language Learning App' },
+                { src: '/creative/Banner ad  wire frame (1).svg', title: 'Banner Ad for a Language Learning App' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -4 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-black/8">
+                    {/* Image Container */}
+                    <div className="aspect-square bg-gray-50 overflow-hidden">
+                      <img 
+                        src={item.src} 
+                        alt={item.title}
+                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    
+                    {/* Title */}
+                    <div className="p-4">
+                      <p className="text-sm font-semibold text-black group-hover:text-pink-500 transition-colors">
+                        {item.title}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
