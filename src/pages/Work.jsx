@@ -299,8 +299,8 @@ export default function Work() {
                 { src: '/creative/Poster design 1.svg', title: 'Poster Design for a Travel Agency' },
                 { src: '/creative/mag 1.svg', title: 'Magazine Cover Interior Design Company' },
                 { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding' },
-                { src: '/creative/Banner ad  wire frame.svg', title: 'Banner Ad for a Language Learning App' },
-                { src: '/creative/Banner ad  wire frame (1).svg', title: 'Banner Ad for a Language Learning App' },
+                { src: '/creative/Banner ad  wire frame.svg', title: 'An Animated Banner Ad' },
+                { src: '/creative/Banner ad  wire frame (1).svg', title: 'An Animated Banner Ad' },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
