@@ -323,7 +323,7 @@ export default function Work() {
                     
                     {/* Title */}
                     <div className="p-4">
-                      <p className="text-sm font-semibold text-black group-hover:text-pink-500 transition-colors">
+                      <p className="text-sm font-semibold text-black">
                         {item.title}
                       </p>
                     </div>
