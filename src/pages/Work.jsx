@@ -295,12 +295,15 @@ export default function Work() {
             {/* Creative Work Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { src: '/creative/Instagram post - 16.svg', title: 'Instagram Post' },
-                { src: '/creative/Poster design 1.svg', title: 'Poster Design for a Travel Agency' },
-                { src: '/creative/mag 1.svg', title: 'Magazine Cover Interior Design Company' },
-                { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding' },
-                { src: '/creative/Banner ad  wire frame.svg', title: 'An Animated Banner Ad' },
-                { src: '/creative/Banner ad  wire frame (1).svg', title: 'An Animated Banner Ad' },
+                { src: '/creative/Instagram post - 16.svg', title: 'Instagram Post', type: 'image' },
+                { src: '/creative/Poster design 1.svg', title: 'Poster Design for a Travel Agency', type: 'image' },
+                { src: '/creative/mag 1.svg', title: 'Magazine Cover Interior Design Company', type: 'image' },
+                { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding', type: 'image' },
+                { 
+                  src: 'https://embed.figma.com/proto/Uw4wP9D0QFUvkYFtA6bxLJ/banner-add-design?node-id=1502-360&scaling=min-zoom&content-scaling=fixed&page-id=1502%3A359&embed-host=share', 
+                  title: 'An Animated Banner Ad',
+                  type: 'figma'
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -312,13 +315,22 @@ export default function Work() {
                   className="group cursor-pointer"
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-black/8">
-                    {/* Image Container */}
+                    {/* Image/Figma Container */}
                     <div className="aspect-square bg-gray-50 overflow-hidden">
-                      <img 
-                        src={item.src} 
-                        alt={item.title}
-                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                      />
+                      {item.type === 'figma' ? (
+                        <iframe 
+                          src={item.src}
+                          className="w-full h-full border-0"
+                          allowFullScreen
+                          title={item.title}
+                        />
+                      ) : (
+                        <img 
+                          src={item.src} 
+                          alt={item.title}
+                          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
                     </div>
                     
                     {/* Title */}
