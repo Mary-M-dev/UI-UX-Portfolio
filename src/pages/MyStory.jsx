@@ -163,6 +163,12 @@ export default function MyStory() {
                         <img src="/hl.jpg" alt="Discovering Product Design" className="w-full h-auto object-contain" />
                       </div>
                     )}
+                    {/* Image after Beyond Design */}
+                    {chapter.title === 'Beyond Design' && (
+                      <div className="mt-6 rounded-2xl overflow-hidden shadow-lg">
+                        <img src="/hike.jpeg" alt="Hiking" className="w-full h-auto object-cover grayscale" />
+                      </div>
+                    )}
                   </>
                 )}
               </motion.div>
