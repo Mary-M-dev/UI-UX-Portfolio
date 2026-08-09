@@ -23,18 +23,24 @@ export default function Home() {
             >
               <div className="space-y-5">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
+                  <h2 className="text-3xl md:text-4xl font-semibold text-black mb-3">
                     Product<br />Designer
                   </h2>
-                  <div className="w-12 h-1 bg-pink-500"></div>
+                  <div className="w-12 h-1 bg-gradient-to-r from-pink-300 to-pink-500"></div>
                 </div>
                 <ul className="space-y-3">
-                  {['UI/UX Design', 'Design Systems', 'User Research'].map((skill) => (
-                    <li key={skill} className="text-gray-700 flex items-center gap-3">
-                      <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                      <span className="text-base">{skill}</span>
-                    </li>
-                  ))}
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">UI/UX Design</span>
+                  </li>
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">Design Systems</span>
+                  </li>
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">User Research</span>
+                  </li>
                 </ul>
               </div>
             </motion.div>
@@ -56,7 +62,13 @@ export default function Home() {
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <g fill="#BFFF00" opacity="0.7">
+                  <defs>
+                    <linearGradient id="pinkGradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ec4899" />
+                      <stop offset="100%" stopColor="#f9a8d4" />
+                    </linearGradient>
+                  </defs>
+                  <g fill="url(#pinkGradientLeft)" opacity="0.7">
                     <circle cx="30" cy="20" r="8" />
                     <circle cx="50" cy="15" r="6" />
                     <circle cx="40" cy="35" r="7" />
@@ -74,7 +86,13 @@ export default function Home() {
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
-                  <g fill="#EC4899" opacity="0.6">
+                  <defs>
+                    <linearGradient id="pinkGradientRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f9a8d4" />
+                      <stop offset="100%" stopColor="#ec4899" />
+                    </linearGradient>
+                  </defs>
+                  <g fill="url(#pinkGradientRight)" opacity="0.6">
                     <circle cx="70" cy="30" r="7" />
                     <circle cx="85" cy="45" r="6" />
                     <circle cx="75" cy="60" r="5" />
@@ -126,18 +144,24 @@ export default function Home() {
             >
               <div className="space-y-5">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
+                  <h2 className="text-3xl md:text-4xl font-semibold text-black mb-3">
                     Product<br />Owner
                   </h2>
-                  <div className="w-12 h-1 bg-pink-500"></div>
+                  <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-pink-300"></div>
                 </div>
                 <ul className="space-y-3">
-                  {['Product Strategy', 'Agile Architecture', 'Stakeholder Management'].map((skill) => (
-                    <li key={skill} className="text-gray-700 flex items-center gap-3">
-                      <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                      <span className="text-base">{skill}</span>
-                    </li>
-                  ))}
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">Product Strategy</span>
+                  </li>
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">Agile Architecture</span>
+                  </li>
+                  <li className="text-gray-700 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
+                    <span className="text-base">Stakeholder Management</span>
+                  </li>
                 </ul>
               </div>
             </motion.div>

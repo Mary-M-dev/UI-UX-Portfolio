@@ -124,13 +124,6 @@ export default function Work() {
                     {/* Paper Card */}
                     <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 relative">
 
-                      {/* Pink Tape */}
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-7 bg-pink-400 opacity-90 rounded-sm z-10 rotate-1 shadow-sm" 
-                        style={{ 
-                          boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.05)'
-                        }} 
-                      />
-
                       {/* Image Area */}
                       <div
                         className="relative h-52 overflow-hidden flex items-center justify-center"
@@ -189,13 +182,6 @@ export default function Work() {
                   {/* Paper Card */}
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 relative">
 
-                    {/* Pink Tape */}
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-7 bg-pink-400 opacity-90 rounded-sm z-10 rotate-1 shadow-sm" 
-                      style={{ 
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.05)'
-                      }} 
-                    />
-
                     {/* Image Area */}
                     <div
                       className="relative h-52 overflow-hidden flex items-center justify-center"
@@ -242,8 +228,10 @@ export default function Work() {
                             <div className="absolute -left-1.5 top-14 w-1 h-6 bg-gray-600 rounded-l-full"></div>
                             <div className="absolute -left-1.5 top-24 w-1 h-8 bg-gray-600 rounded-l-full"></div>
                             <div className="absolute -right-1.5 top-20 w-1 h-10 bg-gray-600 rounded-r-full"></div>
-                            <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
-                              <img src="/HF/O5.png" alt="AFYACARE screen" className="w-full h-full object-cover" />
+                            <div className="absolute inset-1.5 rounded-[1.6rem] overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#f0fdf4' }}>
+                              <div className="text-center px-4">
+                                <img src="/Afyacare logo.svg" alt="AFYACARE" className="w-20 h-auto mx-auto" />
+                              </div>
                             </div>
                           </div>
                         </div>

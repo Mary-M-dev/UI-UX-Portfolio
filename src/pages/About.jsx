@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Users, Target, Sparkles, Palette, Users2, Wrench, BarChart3 } from 'lucide-react';
 
 export default function About() {
   return (
@@ -48,7 +49,13 @@ export default function About() {
                     className="absolute w-40 h-40 left-20 top-0"
                     viewBox="0 0 100 100"
                   >
-                    <g fill="#BFFF00" opacity="0.5">
+                    <defs>
+                      <linearGradient id="pinkGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#ec4899" />
+                        <stop offset="100%" stopColor="#f9a8d4" />
+                      </linearGradient>
+                    </defs>
+                    <g fill="url(#pinkGradient1)" opacity="0.5">
                       <circle cx="30" cy="20" r="8" />
                       <circle cx="50" cy="15" r="6" />
                       <circle cx="40" cy="35" r="7" />
@@ -115,19 +122,19 @@ export default function About() {
               {
                 title: 'Human-Centered',
                 description: 'Every design decision starts with understanding real user needs and pain points.',
-                icon: '👥',
+                icon: Users,
                 color: 'from-pink-500/20 to-pink-500/5'
               },
               {
                 title: 'Strategic Thinking',
                 description: 'Balancing user desires with business goals to create sustainable solutions.',
-                icon: '🎯',
+                icon: Target,
                 color: 'from-pink-500/15 to-pink-500/0'
               },
               {
                 title: 'AI-Augmented',
                 description: 'Leveraging technology to create smarter, more personalized experiences.',
-                icon: '✨',
+                icon: Sparkles,
                 color: 'from-pink-500/10 to-pink-500/0'
               },
             ].map((item, idx) => (
@@ -140,8 +147,8 @@ export default function About() {
                 className="flex flex-col"
               >
                 {/* Icon/Visual Element */}
-                <div className="mb-8 text-2xl">
-                  {item.icon}
+                <div className="mb-8">
+                  <item.icon className="w-8 h-8 text-gray-700" />
                 </div>
 
                 {/* Content */}
@@ -179,7 +186,13 @@ export default function About() {
                   className="absolute w-40 h-40 left-0 top-0"
                   viewBox="0 0 100 100"
                 >
-                  <g fill="#BFFF00" opacity="0.5">
+                  <defs>
+                    <linearGradient id="pinkGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ec4899" />
+                      <stop offset="100%" stopColor="#f9a8d4" />
+                    </linearGradient>
+                  </defs>
+                  <g fill="url(#pinkGradient2)" opacity="0.5">
                     <circle cx="30" cy="20" r="8" />
                     <circle cx="50" cy="15" r="6" />
                     <circle cx="40" cy="35" r="7" />
@@ -202,22 +215,22 @@ export default function About() {
                   {
                     title: 'Product Design',
                     description: 'End-to-end product design from user flows and wireframes to high-fidelity prototypes, applying design thinking and accessibility principles.',
-                    icon: '✏️'
+                    icon: Palette
                   },
                   {
                     title: 'User Research',
                     description: 'Conducting stakeholder interviews, usability testing, and journey mapping to synthesise insights that drive design decisions.',
-                    icon: '👥'
+                    icon: Users2
                   },
                   {
                     title: 'Prototyping',
                     description: 'Building interactive prototypes and design systems, standardising interaction patterns, typography, and component states.',
-                    icon: '🔧'
+                    icon: Wrench
                   },
                   {
                     title: 'Product Ownership',
                     description: 'Shaping product direction, defining features, prioritising work, and ensuring execution aligns with user needs and business goals.',
-                    icon: '📊'
+                    icon: BarChart3
                   },
                 ].map((item, idx) => (
                   <motion.div
@@ -229,7 +242,9 @@ export default function About() {
                     className="flex flex-col gap-3"
                   >
                     {/* Icon */}
-                    <div className="text-2xl mb-1">{item.icon}</div>
+                    <div className="mb-1">
+                      <item.icon className="w-7 h-7 text-gray-700" />
+                    </div>
                     {/* Title */}
                     <h3 className="text-base font-bold text-black">{item.title}</h3>
                     {/* Description */}
