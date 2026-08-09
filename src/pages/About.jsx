@@ -148,7 +148,7 @@ export default function About() {
               >
                 {/* Icon/Visual Element */}
                 <div className="mb-8">
-                  <item.icon className="w-8 h-8 text-gray-700" />
+                  <item.icon className="w-8 h-8 text-gray-700 opacity-50" />
                 </div>
 
                 {/* Content */}
@@ -243,7 +243,7 @@ export default function About() {
                   >
                     {/* Icon */}
                     <div className="mb-1">
-                      <item.icon className="w-7 h-7 text-gray-700" />
+                      <item.icon className="w-7 h-7 text-gray-700 opacity-50" />
                     </div>
                     {/* Title */}
                     <h3 className="text-base font-bold text-black">{item.title}</h3>
