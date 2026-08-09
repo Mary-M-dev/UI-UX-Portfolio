@@ -301,7 +301,7 @@ export default function Work() {
                 { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding', type: 'image' },
                 { 
                   src: '/creative/Banner ad  wire frame.svg',
-                  figmaSrc: 'https://embed.figma.com/proto/Uw4wP9D0QFUvkYFtA6bxLJ/banner-add-design?node-id=1502-360&scaling=min-zoom&content-scaling=fixed&page-id=1502%3A359&embed-host=share',
+                  figmaSrc: 'https://embed.figma.com/proto/Uw4wP9D0QFUvkYFtA6bxLJ/banner-add-design?node-id=1502-360&scaling=min-zoom&content-scaling=fixed&page-id=1502%3A359&embed-host=share&hide-ui=1',
                   title: 'An Animated Banner Ad',
                   type: 'hover-figma'
                 },
