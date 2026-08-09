@@ -300,9 +300,10 @@ export default function Work() {
                 { src: '/creative/mag 1.svg', title: 'Magazine Cover Interior Design Company', type: 'image' },
                 { src: '/creative/Branding.svg', title: 'Dubai Taxi Branding', type: 'image' },
                 { 
-                  src: 'https://embed.figma.com/proto/Uw4wP9D0QFUvkYFtA6bxLJ/banner-add-design?node-id=1502-360&scaling=min-zoom&content-scaling=fixed&page-id=1502%3A359&embed-host=share', 
+                  src: '/creative/Banner ad  wire frame.svg',
+                  figmaSrc: 'https://embed.figma.com/proto/Uw4wP9D0QFUvkYFtA6bxLJ/banner-add-design?node-id=1502-360&scaling=min-zoom&content-scaling=fixed&page-id=1502%3A359&embed-host=share',
                   title: 'An Animated Banner Ad',
-                  type: 'figma'
+                  type: 'hover-figma'
                 },
               ].map((item, idx) => (
                 <motion.div
@@ -316,14 +317,23 @@ export default function Work() {
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-black/8">
                     {/* Image/Figma Container */}
-                    <div className="aspect-square bg-gray-50 overflow-hidden">
-                      {item.type === 'figma' ? (
-                        <iframe 
-                          src={item.src}
-                          className="w-full h-full border-0"
-                          allowFullScreen
-                          title={item.title}
-                        />
+                    <div className="aspect-square bg-gray-50 overflow-hidden relative">
+                      {item.type === 'hover-figma' ? (
+                        <>
+                          {/* Static Image (default) */}
+                          <img 
+                            src={item.src} 
+                            alt={item.title}
+                            className="w-full h-full object-contain p-4 transition-opacity duration-300 group-hover:opacity-0 absolute inset-0"
+                          />
+                          {/* Figma Embed (on hover) */}
+                          <iframe 
+                            src={item.figmaSrc}
+                            className="w-full h-full border-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute inset-0"
+                            allowFullScreen
+                            title={item.title}
+                          />
+                        </>
                       ) : (
                         <img 
                           src={item.src} 
