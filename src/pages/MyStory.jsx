@@ -155,18 +155,20 @@ export default function MyStory() {
                   <>
                     <h2 className="text-2xl font-bold text-black">{chapter.title}</h2>
                     {chapter.paragraphs.map((para, pIdx) => (
-                      <p key={pIdx} className="text-base text-black/65 leading-relaxed">{para}</p>
+                      <div key={pIdx}>
+                        <p className="text-base text-black/65 leading-relaxed">{para}</p>
+                        {/* Image after first paragraph in Beyond Design */}
+                        {chapter.title === 'Beyond Design' && pIdx === 0 && (
+                          <div className="mt-6 mb-4 rounded-2xl overflow-hidden shadow-lg" style={{ height: '450px' }}>
+                            <img src="/hike.jpeg" alt="Hiking" className="w-full h-full object-cover object-top grayscale" />
+                          </div>
+                        )}
+                      </div>
                     ))}
                     {/* Image after Discovering Product Design */}
                     {chapter.title === 'Discovering Product Design' && (
                       <div className="mt-6 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
                         <img src="/hl.jpg" alt="Discovering Product Design" className="w-full h-auto object-contain" />
-                      </div>
-                    )}
-                    {/* Image after Beyond Design */}
-                    {chapter.title === 'Beyond Design' && (
-                      <div className="mt-6 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="/hike.jpeg" alt="Hiking" className="w-full h-auto object-cover grayscale" />
                       </div>
                     )}
                   </>
