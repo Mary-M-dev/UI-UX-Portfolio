@@ -125,7 +125,11 @@ export default function Work() {
                     <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 relative">
 
                       {/* Pink Tape */}
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-5 bg-pink-400 opacity-80 rounded-sm z-10 rotate-1" />
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-7 bg-pink-400 opacity-90 rounded-sm z-10 rotate-1 shadow-sm" 
+                        style={{ 
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.05)'
+                        }} 
+                      />
 
                       {/* Image Area */}
                       <div
@@ -186,7 +190,11 @@ export default function Work() {
                   <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 relative">
 
                     {/* Pink Tape */}
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-5 bg-pink-400 opacity-80 rounded-sm z-10 rotate-1" />
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-7 bg-pink-400 opacity-90 rounded-sm z-10 rotate-1 shadow-sm" 
+                      style={{ 
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.05)'
+                      }} 
+                    />
 
                     {/* Image Area */}
                     <div
