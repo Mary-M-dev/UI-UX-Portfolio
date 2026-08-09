@@ -99,13 +99,20 @@ export default function Work() {
       {/* ── Projects Grid with Background Image ── */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ 
-          backgroundImage: 'url(/HF/Background.svg)',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center 60%',
-          backgroundRepeat: 'no-repeat',
           backgroundColor: '#F2EFE9'
         }}
       >
+        {/* Background Image with Reduced Opacity */}
+        <div 
+          className="absolute inset-0 opacity-50"
+          style={{ 
+            backgroundImage: 'url(/HF/Background.svg)',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center 60%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -341,7 +348,7 @@ export default function Work() {
                     
                     {/* Title */}
                     <div className="p-4">
-                      <p className="text-sm font-semibold text-black">
+                      <p className="text-sm font-light text-black">
                         {item.title}
                       </p>
                     </div>
