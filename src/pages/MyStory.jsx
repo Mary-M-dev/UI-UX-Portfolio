@@ -159,7 +159,7 @@ export default function MyStory() {
                         <p className="text-base text-black/65 leading-relaxed">{para}</p>
                         {/* Image after first paragraph in Beyond Design */}
                         {chapter.title === 'Beyond Design' && pIdx === 0 && (
-                          <div className="mt-6 mb-4 rounded-2xl overflow-hidden shadow-lg" style={{ height: '450px' }}>
+                          <div className="mt-6 mb-4 rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 md:h-[450px]">
                             <img src="/hike.jpeg" alt="Hiking" className="w-full h-full object-cover object-top grayscale" />
                           </div>
                         )}

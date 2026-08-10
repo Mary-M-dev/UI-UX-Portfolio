@@ -107,8 +107,8 @@ export default function Work() {
           className="absolute inset-0 opacity-50"
           style={{ 
             backgroundImage: 'url(/HF/Background.svg)',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center 60%',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         />
