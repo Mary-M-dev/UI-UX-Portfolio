@@ -11,35 +11,35 @@ export default function Home() {
   return (
     <div className="bg-white text-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-0 sm:px-0 lg:px-0 overflow-hidden pb-20">
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 items-center">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-12 sm:py-20">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
 
             {/* Left Column - Product Designer */}
             <motion.div
               animate={{ opacity: isHovering ? 0.15 : 1 }}
               transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center order-2 md:order-1 mb-6 md:mb-0"
+              className="md:col-span-3 flex flex-col justify-center order-2 md:order-1"
             >
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-semibold text-black mb-3">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black mb-2 sm:mb-3">
                     Product<br />Designer
                   </h2>
                   <div className="w-12 h-1 bg-gradient-to-r from-pink-300 to-pink-500"></div>
                 </div>
-                <ul className="space-y-3">
-                  <li className="text-gray-700 flex items-center gap-3">
+                <ul className="space-y-2 sm:space-y-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">UI/UX Design</span>
+                    <span className="text-sm sm:text-base">UI/UX Design</span>
                   </li>
-                  <li className="text-gray-700 flex items-center gap-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">Design Systems</span>
+                    <span className="text-sm sm:text-base">Design Systems</span>
                   </li>
-                  <li className="text-gray-700 flex items-center gap-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">User Research</span>
+                    <span className="text-sm sm:text-base">User Research</span>
                   </li>
                 </ul>
               </div>
@@ -50,14 +50,14 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:col-span-6 flex justify-center order-1 md:order-2 mb-8 md:mb-0"
+              className="md:col-span-6 flex justify-center order-1 md:order-2 mb-6 md:mb-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <div className="relative w-full max-w-xs">
+              <div className="relative w-full max-w-[280px] sm:max-w-xs">
                 {/* Left Paint Splash */}
                 <motion.svg
-                  className="absolute w-28 h-28 -left-8 top-1/3"
+                  className="absolute w-20 h-20 sm:w-28 sm:h-28 -left-6 sm:-left-8 top-1/3 hidden sm:block"
                   viewBox="0 0 100 100"
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4 }}
@@ -81,7 +81,7 @@ export default function Home() {
 
                 {/* Right Paint Splash */}
                 <motion.svg
-                  className="absolute w-24 h-24 -right-6 bottom-1/3"
+                  className="absolute w-20 h-20 sm:w-24 sm:h-24 -right-4 sm:-right-6 bottom-1/3 hidden sm:block"
                   viewBox="0 0 100 100"
                   animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
@@ -142,25 +142,25 @@ export default function Home() {
               transition={{ duration: 0.4 }}
               className="md:col-span-3 flex flex-col justify-center order-3"
             >
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-semibold text-black mb-3">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black mb-2 sm:mb-3">
                     Product<br />Owner
                   </h2>
                   <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-pink-300"></div>
                 </div>
-                <ul className="space-y-3">
-                  <li className="text-gray-700 flex items-center gap-3">
+                <ul className="space-y-2 sm:space-y-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">Product Strategy</span>
+                    <span className="text-sm sm:text-base">Product Strategy</span>
                   </li>
-                  <li className="text-gray-700 flex items-center gap-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">Agile Architecture</span>
+                    <span className="text-sm sm:text-base">Agile Architecture</span>
                   </li>
-                  <li className="text-gray-700 flex items-center gap-3">
+                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
                     <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-base">Stakeholder Management</span>
+                    <span className="text-sm sm:text-base">Stakeholder Management</span>
                   </li>
                 </ul>
               </div>

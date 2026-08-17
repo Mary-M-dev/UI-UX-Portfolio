@@ -105,7 +105,7 @@ export default function CaseStudy() {
                   <div className="bg-gray-800 rounded-2xl p-2 shadow-2xl border-4 border-gray-700 w-full max-w-[90vw] sm:max-w-[660px]">
                     <div className="overflow-hidden rounded-xl bg-black">
                       <img
-                        src={project.caseStudyContent?.heroImage || '/hr/Screenshot 2026-06-05 153008.png'}
+                        src={project.id === 'dtma' ? '/hero dtma/desk.png' : (project.caseStudyContent?.heroImage || '/hr/Screenshot 2026-06-05 153008.png')}
                         alt={`${project.title} screen`}
                         className="w-full h-auto object-contain block"
                       />
