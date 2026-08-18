@@ -51,8 +51,23 @@ export default function Work() {
                 </div>
               </div>
 
-              {/* Card 2 — Reserve Me (phone, center) */}
-              <div className="absolute top-8 left-36 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-2 hover:rotate-0 transition-transform duration-300 z-10">
+              {/* Card 2 — Reserve Me Management (laptop, center-left) */}
+              <div className="absolute top-6 left-28 w-56 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-1 hover:rotate-0 transition-transform duration-300 z-10">
+                <div className="w-full h-28 rounded-xl overflow-hidden mb-2" style={{ backgroundColor: '#FFF5F5' }}>
+                  <div className="flex flex-col items-center justify-center h-full scale-[0.45] origin-center">
+                    <div className="bg-gray-800 rounded-lg p-1 border border-gray-700 shadow-lg" style={{ width: '300px' }}>
+                      <img src="/Dash board.png" alt="Reserve Me Management" className="w-full h-auto object-cover rounded-md block" />
+                    </div>
+                  </div>
+                </div>
+                <div className="px-1 pb-1">
+                  <p className="text-[9px] text-black/40 uppercase tracking-widest mb-0.5">Web App</p>
+                  <p className="text-xs font-bold text-black">Reserve Me Management</p>
+                </div>
+              </div>
+
+              {/* Card 3 — Reserve Me (phone, center) */}
+              <div className="absolute top-8 left-56 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-2 hover:rotate-0 transition-transform duration-300 z-20">
                 <div className="w-full h-28 rounded-xl overflow-hidden mb-2 flex items-center justify-center" style={{ backgroundColor: '#FDE8E8' }}>
                   <div className="relative scale-[0.38] origin-center" style={{ width: '140px', height: '280px' }}>
                     <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>
@@ -75,8 +90,8 @@ export default function Work() {
                 </div>
               </div>
 
-              {/* Card 3 — AFYACARE (phone, front-right) */}
-              <div className="absolute top-20 left-72 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-1 hover:rotate-0 transition-transform duration-300 z-20">
+              {/* Card 4 — AFYACARE (phone, front-right) */}
+              <div className="absolute top-20 left-80 w-52 bg-white rounded-2xl shadow-xl border border-black/8 p-2 rotate-1 hover:rotate-0 transition-transform duration-300 z-30">
                 <div className="w-full h-28 rounded-xl overflow-hidden mb-2 flex items-center justify-center" style={{ backgroundColor: '#E0F2F1' }}>
                   <div className="relative scale-[0.38] origin-center" style={{ width: '140px', height: '280px' }}>
                     <div className="absolute inset-0 bg-gray-800 rounded-[2rem] border-4 border-gray-600 shadow-2xl"></div>

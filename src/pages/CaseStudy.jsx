@@ -1268,13 +1268,120 @@ function GenericCaseStudy({ project }) {
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-4 text-black">The Challenge</h2>
           <p className="text-gray-700 text-base mb-4">{c.challenge.intro}</p>
-          <ul className="space-y-2">
-            {c.challenge.points.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
-                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
-              </li>
+          {c.challenge.flowImage ? (
+            <>
+              <p className="text-sm font-semibold text-black mb-3">The Opportunity</p>
+              <p className="text-gray-700 text-base mb-4">Create a self-service experience where a restaurant owner can go from:</p>
+              <div className="mb-4">
+                <img src={c.challenge.flowImage} alt="Restaurant owner flow" className="w-full h-auto" />
+              </div>
+            </>
+          ) : c.challenge.points && (
+            <>
+              <p className="text-sm font-semibold text-black mb-3">The Opportunity</p>
+              <p className="text-gray-700 text-base mb-3">Create a self-service experience where a restaurant owner can go from:</p>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {c.challenge.points.map((step, i, arr) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="bg-pink-50 border border-pink-200 text-pink-700 font-semibold px-3 py-1.5 rounded-lg text-sm">{step}</span>
+                    {i < arr.length - 1 && <span className="text-pink-300">→</span>}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+          {c.challenge.closing && <p className="text-gray-600 text-base mb-6">{c.challenge.closing}</p>}
+          {c.challenge.image && (
+            <div className="mt-6 overflow-hidden border border-gray-200 shadow-sm">
+              <img src={c.challenge.image} alt="User flows" className="w-full h-auto object-contain" />
+            </div>
+          )}
+        </motion.section>
+      )}
+
+      {/* Sections (for Reserve Me Management) */}
+      {c.sections && c.sections.map((section, idx) => (
+        <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">{section.title}</h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{section.intro}</p>
+          
+          {section.subsections && (
+            <div className="space-y-6 mb-6">
+              {section.subsections.map((sub, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{sub.title}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{sub.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {section.flowImage ? (
+            <div className="mb-6">
+              <img src={section.flowImage} alt="Onboarding flow" className="w-full h-auto" />
+            </div>
+          ) : section.flow && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Onboarding Flow</p>
+              <p className="text-gray-800 text-base font-medium">{section.flow}</p>
+            </div>
+          )}
+
+          {section.hifiScreens && (
+            <div className="mb-6">
+              <h3 className="text-sm font-semibold text-black mb-4">High-Fidelity Onboarding Designs</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {section.hifiScreens.map((screen, i) => (
+                  <div key={i} className="overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                    <img src={screen} alt={`Onboarding screen ${i + 1}`} className="w-full h-auto object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {section.image && (
+            <div className="mb-6 overflow-hidden border border-gray-200 shadow-sm">
+              <img src={section.image} alt={`${section.title} diagram`} className="w-full h-auto object-contain" />
+            </div>
+          )}
+
+          {section.capabilities && (
+            <div className="mb-4">
+              <p className="text-gray-700 text-base mb-3">Depending on the area of the platform, restaurant owners can manage things such as:</p>
+              <ul className="space-y-2">
+                {section.capabilities.map((cap, i) => (
+                  <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                    <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {section.closing && (
+            <p className="text-gray-600 text-base italic">{section.closing}</p>
+          )}
+        </motion.section>
+      ))}
+
+      {/* Design Decisions */}
+      {c.designDecisions && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Key Design Decisions</h2>
+          <div className="space-y-6">
+            {c.designDecisions.map((item, i) => (
+              <div key={i}>
+                <h3 className="text-lg font-semibold text-black mb-2">{item.title}</h3>
+                <p className="text-gray-700 text-base leading-relaxed">{item.desc}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+          {c.designDecisionsImage && (
+            <div className="mt-8 overflow-hidden border border-gray-200 shadow-sm">
+              <img src={c.designDecisionsImage} alt="Design decisions overview" className="w-full h-auto object-contain" />
+            </div>
+          )}
         </motion.section>
       )}
 
