@@ -219,6 +219,16 @@ export default function Work() {
                           <div className="bg-gray-700 rounded-b-md" style={{ width: '500px', height: '4px' }}></div>
                           <div className="bg-gray-800 rounded-b-lg" style={{ width: '520px', height: '8px' }}></div>
                         </div>
+                      ) : project.id === 'reserve-me-management' ? (
+                        <div className="flex flex-col items-center scale-[0.55] origin-center">
+                          <div className="bg-gray-800 rounded-xl p-1.5 shadow-xl border-2 border-gray-700" style={{ width: '480px' }}>
+                            <div className="overflow-hidden rounded-lg bg-black">
+                              <img src={project.image} alt="Reserve Me Management" className="w-full h-auto object-cover block" />
+                            </div>
+                          </div>
+                          <div className="bg-gray-700 rounded-b-md" style={{ width: '500px', height: '4px' }}></div>
+                          <div className="bg-gray-800 rounded-b-lg" style={{ width: '520px', height: '8px' }}></div>
+                        </div>
                       ) : project.id === 'reserve-me' ? (
                         <div className="flex items-center justify-center h-full">
                           <div className="relative scale-[0.65] origin-center" style={{ width: '140px', height: '280px' }}>

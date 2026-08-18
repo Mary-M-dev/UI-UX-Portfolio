@@ -22,7 +22,7 @@ export default function ProjectCard({ project }) {
             <div className="bg-gray-800 rounded-b-lg" style={{ width: '520px', height: '8px' }}></div>
           </div>
         ) : project.id === 'reserve-me-management' ? (
-          /* Laptop mockup for Reserve Me Management */
+          /* Laptop mockup for Reserve Me Management Dashboard */
           <div className="flex flex-col items-center scale-[0.55] origin-center">
             <div className="bg-gray-800 rounded-xl p-1.5 shadow-xl border-2 border-gray-700" style={{ width: '480px' }}>
               <div className="overflow-hidden rounded-lg bg-black">
