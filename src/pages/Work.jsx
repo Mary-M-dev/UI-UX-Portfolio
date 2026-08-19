@@ -340,10 +340,8 @@ export default function Work() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -4 }}
-                  className="group cursor-pointer"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-black/8">
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-black/8">
                     {/* Image/Figma Container */}
                     <div className="aspect-square bg-gray-50 overflow-hidden relative">
                       {item.type === 'hover-figma' ? (
@@ -366,7 +364,7 @@ export default function Work() {
                         <img 
                           src={item.src} 
                           alt={item.title}
-                          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain p-4"
                         />
                       )}
                     </div>

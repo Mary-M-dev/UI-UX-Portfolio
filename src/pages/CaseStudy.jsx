@@ -884,7 +884,7 @@ export default function CaseStudy() {
                     <h3 className="text-xl font-bold mb-2 text-black">Interested in working together?</h3>
                     <p className="text-gray-600">Let's discuss how I can help with your next project</p>
                   </div>
-                  <Link to="/#contact">
+                  <Link to="/contact">
                     <Button variant="primary" size="lg">
                       Get in Touch
                     </Button>
@@ -1723,7 +1723,7 @@ function GenericCaseStudy({ project }) {
             <h3 className="text-xl font-bold mb-2 text-black">Interested in working together?</h3>
             <p className="text-gray-600">Let's discuss how I can help with your next project</p>
           </div>
-          <Link to="/#contact">
+          <Link to="/contact">
             <Button variant="primary" size="lg">Get in Touch</Button>
           </Link>
         </div>
