@@ -242,109 +242,20 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-8 text-black">The Problem</h2>
+                <h2 className="text-3xl font-bold mb-8 text-black">The Challenge</h2>
 
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  While online learning platforms make knowledge accessible, many learners struggle to stay engaged and apply what they learn effectively.
+                <p className="text-gray-700 leading-relaxed mb-10">
+                  Existing LMS experiences often focus primarily on delivering course content. Supporting resources, guidance, and learning tools can sit outside the core learning experience, creating friction for learners.
                 </p>
-
-                <p className="text-gray-700 leading-relaxed mb-4">Common challenges include:</p>
-
-                <ul className="space-y-3 mb-10">
-                  {[
-                    'Low learner engagement',
-                    'Passive content consumption',
-                    'Limited support during learning',
-                    'Poor knowledge retention',
-                    'Weak connection between learning and real-world application',
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-700">
-                      <span className="text-pink-500 font-bold mt-0.5">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
 
                 <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-2xl p-8">
-                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-4">For DTMA, the challenge was</p>
-                  <p className="text-gray-800 text-base leading-relaxed">
-                    "How might we create an engaging learning experience that helps learners understand complex digital transformation concepts while providing continuous support and motivation throughout their learning journey?"
+                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-4">For DTMA, the design challenge was:</p>
+                  <p className="text-gray-800 text-base leading-relaxed mb-4">
+                    How might we create a guided learning experience that makes complex digital transformation concepts easier to understand while keeping support and resources within the learner's journey?
                   </p>
-                </div>
-              </motion.section>
-
-              {/* Understanding the Problem */}
-              <motion.section
-                id="understanding-problem"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-3xl font-bold mb-4 text-black">Understanding the Problem</h2>
-                <p className="text-gray-700 leading-relaxed mb-8">
-                  Before designing the platform experience, I focused on understanding how people learn in online environments and where they typically struggle when trying to apply new knowledge in real work settings.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  {/* What I Looked Into */}
-                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-4">What I Looked Into</p>
-                    <ul className="space-y-3">
-                      {[
-                        'How learners interact with existing e-learning platforms',
-                        'Where learners tend to lose motivation or drop off',
-                        'How complex topics like digital transformation are currently taught online',
-                        'The role of support during self-paced learning',
-                        'How learners retain and apply what they learn in real situations',
-                        'What makes learners feel guided versus left alone in digital learning environments',
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                          <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Key Observations */}
-                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-4">Key Observations</p>
-                    <ul className="space-y-3">
-                      {[
-                        'Learners often start courses with interest but lose momentum over time.',
-                        'Most platforms focus heavily on content delivery, with little ongoing guidance.',
-                        'Support is usually reactive: only when learners ask for help.',
-                        'Learners struggle to translate theory into real workplace application.',
-                        'Learning feels isolated, with limited connection or reinforcement outside the platform.',
-                        'Progress without feedback or encouragement leads to drop-off.',
-                      ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                          <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Design Focus */}
-                <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
-                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-4">Design Focus That Emerged</p>
-                  <p className="text-gray-700 text-sm mb-3">From these observations, the core focus became:</p>
-                  <ul className="space-y-3">
-                    {[
-                      'How might we keep learners engaged throughout the full learning journey?',
-                      'How might we make complex concepts easier to understand and apply?',
-                      'How might we provide continuous guidance without overwhelming the learner?',
-                      'How might we support learning beyond the platform environment?',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-800 text-sm">
-                        <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-gray-800 text-base leading-relaxed">
+                    This meant thinking beyond individual screens and designing the complete experience from discovery → learning → reinforcement → certification.
+                  </p>
                 </div>
               </motion.section>
 
@@ -356,22 +267,22 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-4 text-black">Research & Discovery</h2>
-                <p className="text-gray-700 text-base leading-relaxed mb-8">
-                  After defining the problem, I explored how learners interact with e-learning platforms and what affects their ability to stay engaged and complete courses.
+                <h2 className="text-3xl font-bold mb-8 text-black">01: Discovery & Research</h2>
+                <p className="text-gray-700 text-base leading-relaxed mb-10">
+                  I combined stakeholder sessions with a competitive review of existing LMS platforms to understand the product requirements, common learning patterns, and opportunities to improve the learner experience.
                 </p>
 
-                {/* Approach */}
-                <div className="mb-6">
-                  <h3 className="text-base font-semibold text-black mb-3">Approach</h3>
-                  <p className="text-gray-700 text-base mb-3">I focused on:</p>
+                {/* What I Investigated */}
+                <div className="mb-8">
+                  <h3 className="text-base font-semibold text-black mb-4">What I Investigated</h3>
                   <ul className="space-y-2">
                     {[
-                      'Reviewing existing e-learning platforms and learning flows',
-                      'Analyzing learner behavior in self-paced courses',
-                      'Studying how complex topics are delivered online',
-                      'Mapping typical learner journeys from onboarding to certification',
-                      'Identifying gaps in support, engagement, and retention',
+                      'How existing LMS platforms structure course discovery and consumption',
+                      'How learners navigate self-paced courses',
+                      'How supporting resources are presented',
+                      'How progress and assessments are handled',
+                      'Where AI could provide contextual learning support',
+                      'How learners move from course discovery to certification',
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
                         <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
@@ -381,65 +292,46 @@ export default function CaseStudy() {
                   </ul>
                 </div>
 
-                {/* Three sections stacked vertically */}
-                <div className="space-y-8 mb-6">
-                  {[
-                    {
-                      title: 'What I Learned from Existing Platforms',
-                      items: [
-                        'Most platforms are content-heavy but lack engaging learning experiences',
-                        'Learning is often linear, with limited personalization or adaptation',
-                        'Support is disconnected from the actual learning flow',
-                        'Learners are expected to self-navigate with minimal guidance',
-                        'There is little reinforcement after completing lessons',
-                      ]
-                    },
-                    {
-                      title: 'Learner Behavior Insights',
-                      items: [
-                        'Learners often start strong but lose motivation mid-course',
-                        'Complex concepts need repetition and simpler explanations to be understood',
-                        'Learners benefit from reminders and consistent prompts',
-                        'Understanding improves when content is broken into small, conversational parts',
-                        'Practice and reinforcement are key to retention',
-                      ]
-                    },
-                    {
-                      title: 'Key Opportunity Areas',
-                      items: [
-                        'Design a guided end-to-end learning journey',
-                        'Introduce continuous engagement throughout learning',
-                        'Provide contextual support when learners are stuck',
-                        'Reinforce learning through practice and repetition',
-                        'Make learning more conversational and easy to follow',
-                      ]
-                    },
-                  ].map((section, idx) => (
-                    <div key={idx}>
-                      <p className="text-sm font-semibold text-black mb-3">{section.title}</p>
-                      <ul className="space-y-2">
-                        {section.items.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
-                            <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                {/* What I Observed */}
+                <div className="mb-10">
+                  <h3 className="text-base font-semibold text-black mb-4">What I Observed</h3>
+                  <p className="text-gray-700 text-base leading-relaxed mb-4">
+                    The review highlighted several opportunities:
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-gray-800 font-medium mb-1">Content was often separated from support</p>
+                      <p className="text-gray-600 text-sm">Learning resources and additional materials were frequently treated as separate experiences.</p>
                     </div>
-                  ))}
+                    
+                    <div>
+                      <p className="text-gray-800 font-medium mb-1">Learning journeys could feel linear</p>
+                      <p className="text-gray-600 text-sm">Learners were often expected to navigate the platform independently without much contextual guidance.</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-gray-800 font-medium mb-1">Support was often reactive</p>
+                      <p className="text-gray-600 text-sm">Help typically became available only after a learner actively looked for it.</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-gray-800 font-medium mb-1">Complex concepts require reinforcement</p>
+                      <p className="text-gray-600 text-sm">Digital transformation involves interconnected concepts, making opportunities for repetition, explanation, and contextual support particularly valuable.</p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Direction for Design */}
+                {/* Design Opportunity */}
                 <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
-                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">Direction for Design</p>
-                  <p className="text-gray-700 text-sm mb-3">These insights shaped the foundation of DTMA:</p>
+                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-4">Design Opportunity</p>
+                  <p className="text-gray-700 text-sm mb-3">These observations led to four design priorities:</p>
                   <ul className="space-y-2">
                     {[
-                      'A structured learner journey from discovery to certification',
-                      'AI-assisted learning for real-time support',
-                      'Conversational learning to simplify complex concepts',
-                      'Continuous engagement beyond the platform (e.g., WhatsApp learning)',
-                      'Strong focus on progression, reinforcement, and completion',
+                      'Create a guided end-to-end learning journey',
+                      'Keep support within the learning experience',
+                      'Make complex content easier to consume in different ways',
+                      'Use AI to provide contextual assistance rather than treating it as a standalone feature',
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-gray-800 text-sm">
                         <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
@@ -458,18 +350,61 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-4 text-black">Understanding the Learner Journey</h2>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Before designing solutions, I mapped the learner's end-to-end experience.
+                <h2 className="text-3xl font-bold mb-8 text-black">02: Mapping the Learning Journey</h2>
+                <p className="text-gray-700 text-base leading-relaxed mb-10">
+                  Before designing individual screens, I mapped the learner's journey across the platform.
                 </p>
 
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Key Journey Stages</h3>
+                <div className="mb-8">
+                  <h3 className="text-base font-semibold text-black mb-4">The journey</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed font-medium">
+                    Discover → Explore → Enroll → Learn → Get Support → Practice → Assess → Certify
+                  </p>
+                </div>
+
+                <p className="text-gray-700 text-base leading-relaxed mb-10">
+                  This helped me think about the LMS as one connected experience rather than a collection of separate features.
+                </p>
+
+                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                  Each stage had a different user need.
+                </p>
+
+                {/* Journey Table */}
+                <div className="overflow-x-auto mb-6">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b-2 border-gray-300">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700 uppercase tracking-wider">Stage</th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700 uppercase tracking-wider">Learner need</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { stage: 'Discovery', need: 'Find relevant learning' },
+                        { stage: 'Exploration', need: 'Understand what a course offers' },
+                        { stage: 'Enrollment', need: 'Start with minimal friction' },
+                        { stage: 'Learning', need: 'Understand and consume content' },
+                        { stage: 'Support', need: 'Get help when stuck' },
+                        { stage: 'Practice', need: 'Reinforce understanding' },
+                        { stage: 'Assessment', need: 'Validate knowledge' },
+                        { stage: 'Certification', need: 'See progress and achievement' },
+                      ].map((row, idx) => (
+                        <tr key={idx} className="border-b border-gray-200 hover:bg-gray-50">
+                          <td className="py-3 px-4 text-gray-800 font-medium">{row.stage}</td>
+                          <td className="py-3 px-4 text-gray-700">{row.need}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
                 <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                   <img
                     src="/Screenshots/2.png"
                     alt="Learner journey flow"
                     className="w-full h-auto object-contain block"
+                    loading="lazy"
                   />
                 </div>
               </motion.section>
@@ -482,7 +417,7 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-10 text-black">Designing the Learning Journey</h2>
+                <h2 className="text-3xl font-bold mb-10 text-black">03: Designing the Learning Experience</h2>
 
                 {/* Stage 1 */}
                 <div className="mb-12">
@@ -491,27 +426,35 @@ export default function CaseStudy() {
                     <h3 className="text-xl font-bold text-black">Course Discovery</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5">
-                      <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Goal</p>
-                      <p className="text-gray-800 leading-relaxed">Help learners easily find relevant digital transformation programs.</p>
-                    </div>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Solution</p>
-                      <ul className="space-y-2">
-                        {['Course marketplace', 'Audience-specific landing pages', 'Search and filtering', 'Faculty marketplace', 'Digital perspectives exploration'].map((s, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                            <span className="text-pink-500 font-bold mt-0.5">•</span>
-                            <span>{s}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Outcome</p>
-                      <p className="text-gray-800 leading-relaxed text-sm">Learners can identify learning pathways relevant to their role and transformation goals.</p>
-                    </div>
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Goal</p>
+                    <p className="text-gray-800 leading-relaxed">
+                      Help learners find learning opportunities relevant to their role, interests, and digital transformation goals.
+                    </p>
                   </div>
+
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Design Response</p>
+                    <ul className="space-y-2">
+                      {[
+                        'Course marketplace',
+                        'Audience-specific landing pages',
+                        'Search and filtering',
+                        'Digital Perspectives exploration',
+                        'Faculty discovery',
+                        'Programme and learning-pathway structures',
+                      ].map((s, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                          <span className="text-pink-500 font-bold mt-0.5">•</span>
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    Rather than relying on a single generic catalogue, I designed multiple entry points so learners could discover learning based on different needs and contexts.
+                  </p>
 
                   {/* Course Discovery Screenshots */}
                   <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -520,7 +463,7 @@ export default function CaseStudy() {
                       '/dis/Screenshot 2026-06-05 144119.png',
                     ].map((src, i) => (
                       <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                        <img src={src} alt={`Course discovery screenshot ${i + 1}`} className="w-full h-auto object-cover" />
+                        <img src={src} alt={`Course discovery screenshot ${i + 1}`} className="w-full h-auto object-cover" loading="lazy" />
                       </div>
                     ))}
                   </div>
@@ -533,27 +476,33 @@ export default function CaseStudy() {
                     <h3 className="text-xl font-bold text-black">Enrollment</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5">
-                      <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Goal</p>
-                      <p className="text-gray-800 leading-relaxed">Reduce friction during registration and course enrollment.</p>
-                    </div>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Solution</p>
-                      <ul className="space-y-2">
-                        {['Sign up from navigation', 'Enrollment directly from course pages', 'Guided onboarding'].map((s, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                            <span className="text-pink-500 font-bold mt-0.5">•</span>
-                            <span>{s}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Outcome</p>
-                      <p className="text-gray-800 leading-relaxed text-sm">A seamless transition from interest to enrollment.</p>
-                    </div>
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Goal</p>
+                    <p className="text-gray-800 leading-relaxed">
+                      Create a clear transition from discovering a course to beginning the learning journey.
+                    </p>
                   </div>
+
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Design Response</p>
+                    <ul className="space-y-2">
+                      {[
+                        'Sign-up from the main navigation',
+                        'Enrollment directly from course pages',
+                        'Guided onboarding',
+                        'Clear course information before enrollment',
+                      ].map((s, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                          <span className="text-pink-500 font-bold mt-0.5">•</span>
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    The experience was designed to reduce unnecessary steps between interest and action.
+                  </p>
 
                   {/* Enrollment Screenshots */}
                   <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -564,7 +513,7 @@ export default function CaseStudy() {
                       '/en/Screenshot 2026-06-05 141110.png',
                     ].map((src, i) => (
                       <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                        <img src={src} alt={`Enrollment screenshot ${i + 1}`} className="w-full h-auto object-cover" />
+                        <img src={src} alt={`Enrollment screenshot ${i + 1}`} className="w-full h-auto object-cover" loading="lazy" />
                       </div>
                     ))}
                   </div>
@@ -611,7 +560,7 @@ export default function CaseStudy() {
                 </div>
 
                 {/* Screenshots Gallery */}
-                <div className="mt-8">
+                <div className="mt-8 mb-12">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                       '/Screenshots/Screenshot 2026-06-05 115131.png',
@@ -627,9 +576,83 @@ export default function CaseStudy() {
                           src={src}
                           alt={`DTMA screenshot ${i + 1}`}
                           className="w-full h-auto object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ))}
+                  </div>
+                </div>
+              </motion.section>
+
+              {/* 04 — A Key Design Pivot */}
+              <motion.section
+                id="design-pivot"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl font-bold mb-8 text-black">04: A Key Design Pivot</h2>
+                
+                <h3 className="text-xl font-bold text-black mb-6">Keeping Learners Inside the Learning Experience</h3>
+                
+                <p className="text-gray-700 text-base leading-relaxed mb-8">
+                  One of the most important design decisions came from looking closely at how course resources were originally structured.
+                </p>
+
+                <p className="text-gray-700 text-base leading-relaxed mb-8">
+                  The initial approach linked learners to a separate resource document outside the platform.
+                </p>
+
+                <div className="mb-8">
+                  <h4 className="text-base font-semibold text-black mb-4">The problem</h4>
+                  <p className="text-gray-700 text-base leading-relaxed mb-4">
+                    To access supporting material, learners would have to:
+                  </p>
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    Leave the course → Open the external resource → Consume the content → Return to the platform
+                  </p>
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    This created a break in the learning flow.
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="text-base font-semibold text-black mb-4">The design shift</h4>
+                  <p className="text-gray-700 text-base leading-relaxed mb-4">
+                    I redesigned the experience to bring the resource directly into the platform.
+                  </p>
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    Instead of treating the resource as an external document, it became part of the course experience.
+                  </p>
+                  <p className="text-gray-700 text-base leading-relaxed mb-4">
+                    Learners could now:
+                  </p>
+                  <div className="space-y-3 mb-6">
+                    <div>
+                      <p className="text-gray-800 font-medium">Read</p>
+                      <p className="text-gray-600 text-sm">Access the material directly within the course.</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-800 font-medium">Listen</p>
+                      <p className="text-gray-600 text-sm">Have the content read to them when they preferred an audio-based experience.</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-800 font-medium">Take Notes</p>
+                      <p className="text-gray-600 text-sm">Capture important information without leaving the learning environment.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="text-base font-semibold text-black mb-4">Why this mattered</h4>
+                  <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    The goal was to reduce the distance between learning content and learning support.
+                  </p>
+                  <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
+                    <p className="text-gray-800 text-base leading-relaxed">
+                      This became an important principle across the broader DTMA experience: If a learner needs something to continue learning, wherever possible, it should be available within the learning journey.
+                    </p>
                   </div>
                 </div>
               </motion.section>
@@ -642,43 +665,55 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-3 text-black">AI-Supported Learning Experience</h2>
-                <p className="text-gray-500 text-lg mb-8 italic">This is where DTMA becomes differentiated.</p>
-
-                {/* Problem */}
-                <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5 mb-8">
-                  <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Problem</p>
-                  <p className="text-gray-800 leading-relaxed">Learners often leave platforms when they become confused or need clarification.</p>
-                </div>
+                <h2 className="text-3xl font-bold mb-8 text-black">05: Designing AI Into the Learning Journey</h2>
+                
+                <p className="text-gray-700 text-base leading-relaxed mb-10">
+                  AI was not treated as a standalone feature. I explored how it could support learners at specific moments of friction.
+                </p>
 
                 {/* AI Tutor */}
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-black mb-2">AI Tutor</h3>
-                  <p className="text-gray-700 leading-relaxed mb-6">The AI Tutor acts as an on-demand learning assistant.</p>
+                <div className="mb-10">
+                  <h3 className="text-xl font-bold text-black mb-6">AI Tutor</h3>
+                  
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Problem</p>
+                    <p className="text-gray-800 leading-relaxed">
+                      A learner may encounter a difficult concept while progressing through a lesson. Traditionally, they would need to leave the platform and search elsewhere for an explanation.
+                    </p>
+                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Capabilities</p>
-                      <ul className="space-y-2">
-                        {[
-                          'Summarize content',
-                          'Explain concepts',
-                          'Generate notes',
-                          'Highlight key references',
-                          'Answer learner questions',
-                        ].map((s, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                            <span className="text-pink-500 font-bold mt-0.5">•</span>
-                            <span>{s}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="mb-6">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Design Response</p>
+                    <p className="text-gray-700 text-base leading-relaxed mb-4">
+                      The AI Tutor was embedded within the learning environment so learners could ask questions and receive assistance without interrupting their course.
+                    </p>
+                    <p className="text-gray-700 text-base leading-relaxed mb-3">
+                      The AI Tutor could help learners:
+                    </p>
+                    <ul className="space-y-2 mb-6">
+                      {[
+                        'Explain complex concepts',
+                        'Summarize content',
+                        'Answer questions',
+                        'Generate notes',
+                        'Surface relevant references',
+                      ].map((s, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                          <span className="text-pink-500 font-bold mt-0.5">•</span>
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                      <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Design Decision</p>
-                      <p className="text-gray-800 leading-relaxed text-sm">Instead of requiring learners to leave the platform to search for answers, support is embedded directly into the learning experience.</p>
-                    </div>
+                  <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-8">
+                    <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">Design Principle</p>
+                    <p className="text-gray-800 text-base leading-relaxed mb-3">
+                      Reduce the distance between confusion and understanding.
+                    </p>
+                    <p className="text-gray-800 text-base leading-relaxed">
+                      Instead of asking learners to leave the learning environment when they get stuck, support becomes part of the experience itself.
+                    </p>
                   </div>
                 </div>
 
@@ -694,10 +729,78 @@ export default function CaseStudy() {
                           src={src}
                           alt={`AI Learning screenshot ${i + 1}`}
                           className="w-full h-auto object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ))}
                   </div>
+                </div>
+              </motion.section>
+
+              {/* 06 — Designing for Different Learning Modes */}
+              <motion.section
+                id="learning-modes"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl font-bold mb-8 text-black">06: Designing for Different Learning Modes</h2>
+                
+                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                  Not every learning moment looks the same.
+                </p>
+
+                <p className="text-gray-700 text-base leading-relaxed mb-10">
+                  I therefore explored a multi-modal experience where learners could choose how they interact with content.
+                </p>
+
+                <div className="space-y-6 mb-10">
+                  <div>
+                    <p className="text-gray-800 font-semibold text-lg mb-2">Read</p>
+                    <p className="text-gray-600">For focused study and detailed reference material.</p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-800 font-semibold text-lg mb-2">Watch</p>
+                    <p className="text-gray-600">For visual explanations and structured lessons.</p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-800 font-semibold text-lg mb-2">Listen</p>
+                    <p className="text-gray-600">For learners who prefer audio or want to continue learning away from the screen.</p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-800 font-semibold text-lg mb-2">Take Notes</p>
+                    <p className="text-gray-600">For capturing important concepts while learning.</p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-800 font-semibold text-lg mb-2">Practice & Reinforce</p>
+                    <p className="text-gray-600">Through quizzes, flashcards, and other reinforcement mechanisms.</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 text-base leading-relaxed mb-8">
+                  This allowed the platform to support different learning contexts rather than forcing every learner through one consumption pattern.
+                </p>
+
+                {/* Learning Modes Screenshots */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    '/Screenshots/Screenshot 2026-06-05 115131.png',
+                    '/Screenshots/Screenshot 2026-06-05 115533.png',
+                  ].map((src, i) => (
+                    <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                      <img
+                        src={src}
+                        alt={`Learning modes screenshot ${i + 1}`}
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
               </motion.section>
 
@@ -709,7 +812,7 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-8 text-black">Assessment & Reinforcement</h2>
+                <h2 className="text-3xl font-bold mb-8 text-black">07: Assessment & Reinforcement</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5">
@@ -753,6 +856,7 @@ export default function CaseStudy() {
                           src={src}
                           alt={`Assessment screenshot ${i + 1}`}
                           className="w-full h-auto object-cover"
+                          loading="lazy"
                         />
                       </div>
                     ))}
@@ -768,7 +872,7 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-8 text-black">Certification Experience</h2>
+                <h2 className="text-3xl font-bold mb-8 text-black">08: Certification</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                   <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5">
@@ -805,6 +909,7 @@ export default function CaseStudy() {
                         src={src}
                         alt={`Certificate screen ${i + 1}`}
                         className="w-full h-auto object-cover"
+                        loading="lazy"
                       />
                     </div>
                   ))}
@@ -819,7 +924,7 @@ export default function CaseStudy() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-8 text-black">Final Experience Flow</h2>
+                <h2 className="text-xl font-bold mb-8 text-black">Final Experience Flow</h2>
 
                 <div className="flex flex-col items-center gap-0">
                   <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm w-full">
@@ -827,6 +932,7 @@ export default function CaseStudy() {
                       src="/Screenshots/3.png"
                       alt="Final experience flow"
                       className="w-full h-auto object-contain block"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -863,10 +969,21 @@ export default function CaseStudy() {
                   ))}
                 </ul>
 
+                <h2 className="text-3xl font-bold mb-4 text-black">Outcome</h2>
+                <p className="text-gray-700 text-base leading-relaxed mb-4">
+                  The LMS experience received strong stakeholder and leadership approval and was retained by DigitalQatalyst as a reusable LMS design foundation for future learning-platform and client projects.
+                </p>
+                <p className="text-gray-700 text-base leading-relaxed mb-12">
+                  Although the first DTMA MVP used Open edX due to budget constraints, the custom LMS was preserved as a reusable product asset for future implementation.
+                </p>
+
                 <h2 className="text-3xl font-bold mb-4 text-black">Reflection</h2>
                 <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
+                  <p className="text-gray-800 text-base leading-relaxed mb-4">
+                    This project taught me to treat AI as part of the learning journey, rather than as a standalone feature. I focused on identifying moments of friction and designing support directly into the experience.
+                  </p>
                   <p className="text-gray-800 text-base leading-relaxed">
-                    Through DTMA, I explored how AI can be integrated into learning experiences to improve engagement, reduce learner friction, and provide contextual support throughout the learning journey. The project challenged me to design not only for content consumption, but for learner confidence, progression, and successful course completion.
+                    It also reinforced the importance of creating scalable design solutions that can deliver value beyond a single product or project.
                   </p>
                 </div>
               </motion.section>
@@ -957,6 +1074,7 @@ function FFScrollingCollage() {
               src={src}
               alt={`Redesign screen ${(i % images.length) + 1}`}
               className="w-full h-auto block rounded-2xl"
+              loading="lazy"
             />
           </div>
         ))}
