@@ -223,13 +223,13 @@ export default function CaseStudy() {
                 <h2 className="text-3xl font-bold mb-6 text-black">Project Overview</h2>
                 <div className="space-y-4">
                   <p className="text-gray-700 text-base leading-relaxed">
-                    Digital transformation is a priority for many organizations, yet professionals often struggle to find practical learning resources that help them apply transformation concepts in their day-to-day work. Existing training is frequently fragmented, overly theoretical, and disconnected from real workplace challenges.
+                    Digital Transformation Management Academy (DTMA) is an AI-enabled learning platform designed to help professionals build practical digital transformation capabilities.
                   </p>
                   <p className="text-gray-700 text-base leading-relaxed">
-                    To address this gap, DigitalQatalyst is building the Digital Transformation Management Academy (DTMA), an AI-powered e-learning platform that helps professionals learn and apply digital transformation through structured courses, real-time support, assessments, and certification.
+                    I designed the learner experience across the end-to-end journey: from discovering learning pathways and enrolling in courses to learning, accessing AI support, completing assessments, and earning certification.
                   </p>
                   <p className="text-gray-700 text-base leading-relaxed">
-                    In this case study, I showcase how I designed the end-to-end learner experience, covering the journey from course discovery and enrollment to learning, AI-powered support, assessments, and certification.
+                    The goal was not simply to design another LMS. It was to create a learning environment that could make complex topics easier to navigate, provide support within the learning flow, and help learners stay oriented throughout their journey.
                   </p>
                 </div>
               </motion.section>
