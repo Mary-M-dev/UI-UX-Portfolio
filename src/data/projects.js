@@ -133,33 +133,45 @@ export const projects = [
       heroImageStyle: 'cover',
       overview: [
         'Reserve Me is a restaurant discovery and reservation platform connecting diners with restaurants across Kenya.',
-        'For the platform to grow, restaurants need to be able to join Reserve Me and manage their presence independently.',
-        'I redesigned the restaurant-side experience to move from a founder-led restaurant registration process to a self-service experience, allowing restaurant owners to register, onboard, and manage their restaurants themselves.',
+        'As the platform grew, restaurant onboarding became increasingly dependent on the founder. Restaurant owners could not independently join the platform or manage their business information.',
+        'I redesigned the restaurant-side experience to shift Reserve Me from a founder-led registration process to a self-service model, allowing restaurant owners to register, onboard, and manage their restaurants themselves.',
       ],
       challenge: {
-        intro: 'The existing process relied heavily on the Reserve Me founder to recruit restaurants and register them on the platform. While this approach could work when onboarding restaurants individually, it created a scalability challenge: restaurant owners could not independently discover the platform and set up their own businesses.',
-        closing: 'This would reduce the dependency on manual restaurant registration while giving restaurant owners more ownership of their presence on the platform.',
+        intro: 'The existing process looked like: Founder recruits → Founder registers restaurant → Restaurant provides information → Restaurant goes live. While this worked when onboarding restaurants individually, it created an operational bottleneck. When I helped with restaurant onboarding on the previous platform, I experienced this firsthand. I often didn\'t have all the information needed to register a restaurant, which meant contacting the restaurant, waiting for the missing details, and returning to complete the setup.',
+        closing: 'The person responsible for entering the information wasn\'t always the person who had it. This created an opportunity to move information collection and restaurant setup closer to its source: the restaurant owner.',
         flowImage: '/Userflows/1.png',
       },
       sections: [
         {
-          title: '01: Restaurant Onboarding',
-          intro: 'The first part of the redesign focused on creating a dedicated onboarding journey for restaurant owners. Instead of the founder registering the restaurant on their behalf, owners can now start the process themselves and provide the information needed to establish their restaurant on Reserve Me.',
+          title: '01: Discovery',
+          intro: 'I spoke with the Reserve Me founder to understand the existing onboarding process and supplemented those conversations with my own experience helping register restaurants.',
+          observations: [
+            'Restaurant registration depended on the founder.',
+            'Restaurant information often had to be collected manually.',
+            'Missing details could pause the onboarding process.',
+            'Restaurant owners had limited control over their presence on the platform.',
+            'As more restaurants joined, the manual process would become increasingly difficult to sustain.',
+          ],
+          designOpportunity: {
+            question: 'Instead of asking: How can the founder register restaurants faster? I reframed the problem as: How might we enable restaurants to register and manage themselves?',
+            flow: 'Restaurant discovers → Registers → Onboards → Manages',
+          },
+        },
+        {
+          title: '02: Designing Self-Service Onboarding',
+          intro: 'The first part of the redesign focused on giving restaurant owners everything they needed to establish their presence on Reserve Me without relying on the founder.',
           subsections: [
             {
               title: 'Registration',
-              desc: 'Restaurant owners create an account and begin their restaurant registration journey.',
+              desc: 'Restaurant owners can create an account and start their restaurant setup themselves. The registration flow establishes the account before moving into the more detailed restaurant onboarding process.',
             },
             {
-              title: 'Restaurant Setup',
-              desc: 'The onboarding flow guides owners through the essential information required to establish their restaurant. The information is structured into manageable steps rather than asking owners to complete everything at once.',
-            },
-            {
-              title: 'Completion',
-              desc: 'Once the onboarding process is complete, the restaurant owner is taken into the management dashboard where they can continue updating and managing their restaurant.',
+              title: 'Guided Restaurant Setup',
+              desc: 'Rather than presenting all required information at once, I structured the onboarding experience into manageable steps. This allowed restaurant owners to progressively provide the information needed to establish their restaurant.',
             },
           ],
-          flow: 'Register → Restaurant Setup → Complete → Dashboard',
+          flow: 'Create account → Add restaurant information → Complete setup → Enter dashboard',
+          flowClosing: 'The goal was to make the process clear enough for an owner to complete independently without needing someone from Reserve Me to guide them through it.',
           flowImage: '/Userflows/2.png',
           hifiScreens: [
             '/Hifionboard/Sign up.png',
@@ -177,9 +189,21 @@ export const projects = [
           ],
         },
         {
-          title: '02: Restaurant Management Dashboard',
-          intro: 'Once a restaurant has completed onboarding, the owner moves into the restaurant management dashboard. The dashboard is designed for ongoing management, allowing owners to maintain and update their presence on Reserve Me.',
-          closing: 'This creates a clear separation between joining Reserve Me and managing your restaurant on Reserve Me.',
+          title: '03: Designing the Restaurant Management Dashboard',
+          intro: 'Onboarding and ongoing management serve different purposes.',
+          paragraph2: 'I therefore separated the two experiences:',
+          purposeBoxes: [
+            {
+              title: 'Onboarding',
+              desc: '"Help me get my restaurant onto Reserve Me."'
+            },
+            {
+              title: 'Management',
+              desc: '"Help me manage my restaurant on Reserve Me."'
+            }
+          ],
+          paragraph3: 'Once onboarding is complete, restaurant owners enter a dedicated management dashboard where they can continue maintaining their restaurant presence.',
+          closing: 'The dashboard provides a central place for restaurant owners to manage their information and activity rather than relying on the Reserve Me team for routine updates.',
           hifiScreens: [
             '/Hifisc/Dash board.png',
             '/Hifisc/View menu page.png',
@@ -203,31 +227,41 @@ export const projects = [
       designDecisions: [
         {
           title: 'Self-Service Registration',
-          desc: 'The experience allows restaurant owners to join Reserve Me without requiring the founder to manually register their business.',
+          desc: 'Restaurant owners can create their accounts and begin the onboarding process without requiring the founder to register the business on their behalf.',
         },
         {
           title: 'Guided Onboarding',
-          desc: 'Restaurant setup is structured into a clear flow so owners understand what information they need to provide before accessing the management experience.',
+          desc: 'Restaurant setup is broken into manageable steps, making it easier for owners to understand what information is required.',
         },
         {
           title: 'Separate Onboarding & Management',
-          desc: 'Initial setup is separated from ongoing restaurant management, giving each experience a clear purpose.',
+          desc: 'Initial setup is kept distinct from ongoing restaurant management so each experience has a clear purpose.',
+        },
+        {
+          title: 'Owner-Controlled Information',
+          desc: 'The restaurant owner becomes the source of truth for their business information, reducing the dependency on manual information collection.',
         },
         {
           title: 'Designed for Scale',
-          desc: 'Moving restaurant registration into a self-service experience creates a foundation for Reserve Me to onboard more restaurants without relying entirely on manual recruitment and setup.',
+          desc: 'The new model allows Reserve Me to onboard restaurants without requiring the founder to personally complete every registration.',
         },
       ],
       designDecisionsImage: '/image.png',
-      outcome: [
-        'Self-service restaurant registration',
-        'Scalable onboarding process',
-        'Owner-controlled restaurant management',
-        'Foundation for platform growth',
+      result: {
+        intro: 'The redesigned experience was built and launched, shifting restaurant onboarding from a founder-led process to a self-service experience.',
+        context: 'At the time of the redesign, Reserve Me had 2 restaurants on the platform. Following the launch, the platform grew to 9 restaurants.',
+        metrics: [
+          { label: '2 → 9', desc: 'Restaurants on Reserve Me' },
+          { label: '+7', desc: 'Additional restaurants' },
+          { label: '4.5×', desc: 'Growth in restaurants on the platform' }
+        ],
+        closing: 'The redesign established a more scalable onboarding model while giving restaurant owners greater control over their presence on Reserve Me.'
+      },
+      reflection: [
+        'This project showed me how a seemingly simple onboarding problem can reveal a deeper product constraint.',
+        'The solution wasn\'t just to make restaurant registration easier. It was to change who owns the process, moving it from the Reserve Me founder to the restaurant itself.',
+        'That shift turned a manual operational task into a self-service product experience and created a foundation that could support the platform as more restaurants joined.'
       ],
-      outcomeIntro: 'The redesign shifted Reserve Me\'s restaurant acquisition experience from "Founder recruits → Founder registers restaurant" to "Restaurant discovers → Restaurant registers → Restaurant onboards → Restaurant manages".',
-      outcomeClosing: 'This created a more scalable way for restaurants to join the platform while giving restaurant owners greater control over their business presence. The management dashboard then provides the tools they need to continue updating their restaurant and managing their activity on Reserve Me.',
-      reflection: 'This project showed me how a seemingly simple onboarding flow can have a much bigger impact on a product\'s ability to scale. The challenge wasn\'t only about improving the interface. It was about changing who owns the onboarding process: from the Reserve Me founder to the restaurant itself. That shift turned restaurant registration from a manual operational process into a self-service product experience.',
     },
     featured: true,
   },

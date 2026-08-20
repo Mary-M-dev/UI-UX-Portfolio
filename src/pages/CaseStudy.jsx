@@ -1408,7 +1408,12 @@ function GenericCaseStudy({ project }) {
               </div>
             </>
           )}
-          {c.challenge.closing && <p className="text-gray-600 text-base mb-6">{c.challenge.closing}</p>}
+          {c.challenge.closing && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">The underlying problem</p>
+              <p className="text-gray-800 text-base leading-relaxed">{c.challenge.closing}</p>
+            </div>
+          )}
           {c.challenge.image && (
             <div className="mt-6 overflow-hidden border border-gray-200 shadow-sm">
               <img src={c.challenge.image} alt="User flows" className="w-full h-auto object-contain" />
@@ -1422,6 +1427,53 @@ function GenericCaseStudy({ project }) {
         <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-4 text-black">{section.title}</h2>
           <p className="text-gray-700 text-base leading-relaxed mb-6">{section.intro}</p>
+          
+          {/* Additional paragraph 2 */}
+          {section.paragraph2 && (
+            <p className="text-gray-700 text-base leading-relaxed mb-6">{section.paragraph2}</p>
+          )}
+
+          {/* Purpose boxes (for section 03) */}
+          {section.purposeBoxes && (
+            <div className="space-y-6 mb-6">
+              {section.purposeBoxes.map((box, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{box.title}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{box.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Additional paragraph 3 */}
+          {section.paragraph3 && (
+            <p className="text-gray-700 text-base leading-relaxed mb-6">{section.paragraph3}</p>
+          )}
+          
+          {/* Discovery section observations */}
+          {section.observations && (
+            <div className="mb-6">
+              <h3 className="text-base font-semibold text-black mb-4">What I observed</h3>
+              <ul className="space-y-2">
+                {section.observations.map((obs, i) => (
+                  <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                    <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                    <span>{obs}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Discovery section design opportunity */}
+          {section.designOpportunity && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">Design Opportunity</p>
+              <p className="text-gray-800 text-base leading-relaxed mb-4">{section.designOpportunity.question}</p>
+              <p className="text-gray-700 text-base mb-2">This led to a new onboarding model:</p>
+              <p className="text-gray-800 text-base font-medium">{section.designOpportunity.flow}</p>
+            </div>
+          )}
           
           {section.subsections && (
             <div className="space-y-6 mb-6">
@@ -1440,18 +1492,24 @@ function GenericCaseStudy({ project }) {
             </div>
           ) : section.flow && (
             <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5 mb-6">
-              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Onboarding Flow</p>
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">The flow</p>
               <p className="text-gray-800 text-base font-medium">{section.flow}</p>
             </div>
           )}
 
+          {section.flowClosing && (
+            <p className="text-gray-700 text-base leading-relaxed mb-6">{section.flowClosing}</p>
+          )}
+
           {section.hifiScreens && (
             <div className="mb-6">
-              <h3 className="text-sm font-semibold text-black mb-4">High-Fidelity Onboarding Designs</h3>
+              <h3 className="text-sm font-semibold text-black mb-4">
+                {section.title.includes('03') ? 'High-Fidelity Dashboard Designs' : 'High-Fidelity Onboarding Designs'}
+              </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {section.hifiScreens.map((screen, i) => (
                   <div key={i} className="overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src={screen} alt={`Onboarding screen ${i + 1}`} className="w-full h-auto object-contain" />
+                    <img src={screen} alt={`${section.title.includes('03') ? 'Dashboard' : 'Onboarding'} screen ${i + 1}`} className="w-full h-auto object-contain" />
                   </div>
                 ))}
               </div>
@@ -1486,7 +1544,7 @@ function GenericCaseStudy({ project }) {
       {/* Design Decisions */}
       {c.designDecisions && (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-6 text-black">Key Design Decisions</h2>
+          <h2 className="text-3xl font-bold mb-6 text-black">04: Key Design Decisions</h2>
           <div className="space-y-6">
             {c.designDecisions.map((item, i) => (
               <div key={i}>
@@ -1824,12 +1882,43 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
+      {/* The Result (Reserve Me Management) */}
+      {c.result && (
+        <motion.section id="result" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">05: The Result</h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{c.result.intro}</p>
+          <p className="text-gray-700 text-base leading-relaxed mb-8">{c.result.context}</p>
+          
+          {/* Metrics */}
+          {c.result.metrics && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {c.result.metrics.map((metric, i) => (
+                <div key={i} className="text-center">
+                  <p className="text-4xl font-bold text-pink-600 mb-2">{metric.label}</p>
+                  <p className="text-gray-700 text-sm">{metric.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          <p className="text-gray-700 text-base leading-relaxed">{c.result.closing}</p>
+        </motion.section>
+      )}
+
       {/* Reflection */}
       {c.reflection && (
         <motion.section id="reflection" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-4 text-black">Reflection</h2>
+          <h2 className="text-3xl font-bold mb-6 text-black">Reflection</h2>
           <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6">
-            <p className="text-gray-800 text-base leading-relaxed">{c.reflection}</p>
+            {Array.isArray(c.reflection) ? (
+              <div className="space-y-4">
+                {c.reflection.map((paragraph, i) => (
+                  <p key={i} className="text-gray-800 text-base leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-800 text-base leading-relaxed">{c.reflection}</p>
+            )}
           </div>
         </motion.section>
       )}
