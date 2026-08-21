@@ -1177,6 +1177,50 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
+      {/* Challenge (moved here for Reserve Me to appear after carousel) */}
+      {c.challenge && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-4 text-black">The Challenge</h2>
+          {/* Handle intro with potential line breaks */}
+          {c.challenge.intro && (typeof c.challenge.intro === 'string' && c.challenge.intro.includes('\n\n') ? 
+            c.challenge.intro.split('\n\n').map((para, i) => (
+              <p key={i} className="text-gray-700 text-base mb-4">{para}</p>
+            )) : 
+            <p className="text-gray-700 text-base mb-4">{c.challenge.intro}</p>
+          )}
+          {c.challenge.flowImage ? (
+            <>
+              <p className="text-sm font-semibold text-black mb-3">The Opportunity</p>
+              <p className="text-gray-700 text-base mb-4">Create a self-service experience where a restaurant owner can go from:</p>
+              <div className="mb-4">
+                <img src={c.challenge.flowImage} alt="Restaurant owner flow" className="w-full h-auto" />
+              </div>
+            </>
+          ) : c.challenge.points && (
+            <>
+              <ul className="space-y-3 mb-6">
+                {c.challenge.points.map((point, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                    <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {c.challenge.closing && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">{project.id === 'reserve-me-management' ? 'The underlying problem' : 'This led to the core design question'}</p>
+              <p className="text-gray-800 text-base leading-relaxed italic">{c.challenge.closing}</p>
+            </div>
+          )}
+          {c.challenge.image && (
+            <div className="mt-6 overflow-hidden border border-gray-200 shadow-sm">
+              <img src={c.challenge.image} alt="User flows" className="w-full h-auto object-contain" />
+            </div>
+          )}
+        </motion.section>
+      )}
+
       {/* The Problem */}
       {c.problem && (
         <motion.section id="problem" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
@@ -1365,65 +1409,164 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
-      {/* Outcome */}
-      {c.outcome && (
-        <motion.section id="outcome" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-6 text-black">Outcome</h2>
-          {c.outcomeIntro && <p className="text-gray-700 text-base leading-relaxed mb-4">{c.outcomeIntro}</p>}
-          <ul className="space-y-3 mb-6">
-            {c.outcome.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
-                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          {c.outcomeClosing && <p className="text-gray-600 text-base leading-relaxed">{c.outcomeClosing}</p>}
-        </motion.section>
-      )}
+      {/* Sections (for Reserve Me with custom structure) */}
+      {project.id === 'reserve-me' && c.sections && c.sections.map((section, idx) => (
+        <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-8 text-black">{section.title}</h2>
+          
+          {/* Intro paragraphs with line breaks */}
+          {section.intro && section.intro.split('\n\n').map((para, i) => (
+            <p key={i} className="text-gray-700 text-base leading-relaxed mb-6">{para}</p>
+          ))}
 
-      {/* Challenge */}
-      {c.challenge && (
-        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-4 text-black">The Challenge</h2>
-          <p className="text-gray-700 text-base mb-4">{c.challenge.intro}</p>
-          {c.challenge.flowImage ? (
-            <>
-              <p className="text-sm font-semibold text-black mb-3">The Opportunity</p>
-              <p className="text-gray-700 text-base mb-4">Create a self-service experience where a restaurant owner can go from:</p>
-              <div className="mb-4">
-                <img src={c.challenge.flowImage} alt="Restaurant owner flow" className="w-full h-auto" />
-              </div>
-            </>
-          ) : c.challenge.points && (
-            <>
-              <p className="text-sm font-semibold text-black mb-3">The Opportunity</p>
-              <p className="text-gray-700 text-base mb-3">Create a self-service experience where a restaurant owner can go from:</p>
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                {c.challenge.points.map((step, i, arr) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <span className="bg-pink-50 border border-pink-200 text-pink-700 font-semibold px-3 py-1.5 rounded-lg text-sm">{step}</span>
-                    {i < arr.length - 1 && <span className="text-pink-300">→</span>}
-                  </div>
+          {/* Subsections with points (for section 01) */}
+          {section.subsections && section.subsections.map((sub, i) => (
+            <div key={i} className="mb-8">
+              <h3 className="text-lg font-semibold text-black mb-4">{sub.title}</h3>
+              {sub.points && (
+                <div className="space-y-4">
+                  {sub.points.map((point, j) => (
+                    <div key={j}>
+                      <p className="text-gray-800 font-medium mb-1">{point.label}</p>
+                      <p className="text-gray-600 text-sm">{point.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Design Principles (for section 01) */}
+          {section.designPrinciples && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-8">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">{section.designPrinciples.intro}</p>
+              <ul className="space-y-3">
+                {section.designPrinciples.principles.map((principle, i) => (
+                  <li key={i} className="flex items-start gap-2 text-gray-800 text-sm">
+                    <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                    <span><span className="font-semibold">{principle.label}:</span> {principle.desc}</span>
+                  </li>
                 ))}
-              </div>
-            </>
-          )}
-          {c.challenge.closing && (
-            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
-              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">The underlying problem</p>
-              <p className="text-gray-800 text-base leading-relaxed">{c.challenge.closing}</p>
+              </ul>
             </div>
           )}
-          {c.challenge.image && (
-            <div className="mt-6 overflow-hidden border border-gray-200 shadow-sm">
-              <img src={c.challenge.image} alt="User flows" className="w-full h-auto object-contain" />
+
+          {/* Improvements list (for sections 02, 03) */}
+          {section.improvements && (
+            <ul className="space-y-2 mb-6">
+              {section.improvements.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                  <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Design Intent / Goal (for sections 02, 03) */}
+          {section.designIntent && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">Design Intent</p>
+              <p className="text-gray-800 text-base leading-relaxed">{section.designIntent}</p>
+            </div>
+          )}
+          {section.goal && (
+            <p className="text-gray-700 text-base leading-relaxed italic mb-6">{section.goal}</p>
+          )}
+
+          {/* Discovery Features (for section 04) */}
+          {section.discoveryFeatures && (
+            <ul className="space-y-2 mb-6">
+              {section.discoveryFeatures.map((feature, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                  <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {section.outcome && (
+            <p className="text-gray-700 text-base leading-relaxed italic mb-6">{section.outcome}</p>
+          )}
+
+          {/* Context Elements (for section 05) */}
+          {section.contextElements && (
+            <ul className="space-y-2 mb-6">
+              {section.contextElements.map((element, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                  <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                  <span>{element}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Location States (for section 06) */}
+          {section.locationStates && (
+            <div className="space-y-6 mb-6">
+              {section.locationStates.map((state, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{state.state}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{state.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {section.why && (
+            <div className="mb-6">
+              <h3 className="text-base font-semibold text-black mb-2">Why</h3>
+              <p className="text-gray-700 text-base leading-relaxed">{section.why}</p>
+            </div>
+          )}
+          {section.principle && (
+            <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-6 mb-6">
+              <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-2">The principle behind the decision</p>
+              <p className="text-gray-800 text-base leading-relaxed">{section.principle}</p>
+            </div>
+          )}
+
+          {/* Journey Table (for section 07) */}
+          {section.journeyTable && (
+            <div className="mb-6">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse mb-6">
+                  <thead>
+                    <tr className="border-b-2 border-gray-300">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700 uppercase tracking-wider">Stage</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700 uppercase tracking-wider">Focus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.journeyTable.map((row, i) => (
+                      <tr key={i} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="py-3 px-4 text-gray-800 font-medium">{row.stage}</td>
+                        <td className="py-3 px-4 text-gray-700">{row.focus}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+          {section.closing && (
+            <p className="text-gray-700 text-base leading-relaxed italic mb-6">{section.closing}</p>
+          )}
+
+          {/* Images for the section */}
+          {section.images && section.images.length > 0 && (
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {section.images.map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                  <img src={src} alt={`${section.title} screen ${i + 1}`} className="w-full h-auto object-contain" />
+                </div>
+              ))}
             </div>
           )}
         </motion.section>
-      )}
+      ))}
 
-      {/* Sections (for Reserve Me Management) */}
-      {c.sections && c.sections.map((section, idx) => (
+      {/* Sections (for Reserve Me Management - keep existing logic) */}
+      {project.id === 'reserve-me-management' && c.sections && c.sections.map((section, idx) => (
         <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-4 text-black">{section.title}</h2>
           <p className="text-gray-700 text-base leading-relaxed mb-6">{section.intro}</p>
@@ -1905,6 +2048,74 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
+      {/* High-Fidelity Experience (Reserve Me only) - Moved before Reflection */}
+      {project.id === 'reserve-me' && c.hifiTitle && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">{c.hifiTitle}</h2>
+          {c.hifiIntro && (
+            <>
+              <p className="text-gray-700 text-base leading-relaxed mb-4">{c.hifiIntro}</p>
+              {c.hifiScreens && (
+                <ul className="space-y-2 mb-6">
+                  {c.hifiScreens.map((screen, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                      <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                      <span>{screen}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
+          )}
+          {c.hifiClosing && (
+            <p className="text-gray-700 text-base leading-relaxed italic mb-6">{c.hifiClosing}</p>
+          )}
+          {c.hifiImages && c.hifiImages.length > 0 && (
+            <div className="mt-6">
+              <FFScrollingCollage />
+            </div>
+          )}
+        </motion.section>
+      )}
+
+      {/* Outcome - Updated for Reserve Me - Moved before Reflection */}
+      {project.id === 'reserve-me' && c.outcome && (
+        <motion.section id="outcome" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Outcome</h2>
+          {c.outcome.intro && c.outcome.intro.split('\n\n').map((para, i) => (
+            <p key={i} className="text-gray-700 text-base leading-relaxed mb-4">{para}</p>
+          ))}
+          {c.outcome.points && (
+            <ul className="space-y-3 mb-6">
+              {c.outcome.points.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                  <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {c.outcome.implementation && (
+            <p className="text-gray-600 text-base leading-relaxed italic">{c.outcome.implementation}</p>
+          )}
+        </motion.section>
+      )}
+
+      {/* Outcome - Original for other projects */}
+      {project.id !== 'reserve-me' && c.outcome && (
+        <motion.section id="outcome" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-6 text-black">Outcome</h2>
+          {c.outcomeIntro && <p className="text-gray-700 text-base leading-relaxed mb-4">{c.outcomeIntro}</p>}
+          <ul className="space-y-3 mb-6">
+            {c.outcome.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {c.outcomeClosing && <p className="text-gray-600 text-base leading-relaxed">{c.outcomeClosing}</p>}
+        </motion.section>
+      )}
+
       {/* Reflection */}
       {c.reflection && (
         <motion.section id="reflection" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
@@ -1913,6 +2124,12 @@ function GenericCaseStudy({ project }) {
             {Array.isArray(c.reflection) ? (
               <div className="space-y-4">
                 {c.reflection.map((paragraph, i) => (
+                  <p key={i} className="text-gray-800 text-base leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+            ) : typeof c.reflection === 'string' && c.reflection.includes('\n\n') ? (
+              <div className="space-y-4">
+                {c.reflection.split('\n\n').map((paragraph, i) => (
                   <p key={i} className="text-gray-800 text-base leading-relaxed">{paragraph}</p>
                 ))}
               </div>

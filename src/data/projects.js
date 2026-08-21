@@ -282,141 +282,172 @@ export const projects = [
       heroImage: '/Screenshots/rm.png',
       heroImageStyle: 'contain',
       overview: [
-        'Reserve Me is a restaurant discovery and reservation platform that helps users explore dining experiences and book tables across Kenya. From casual dining spots to fine dining restaurants, the platform aims to simplify how users discover and reserve restaurants.',
-        'While the app already supported restaurant discovery and booking, the mobile experience had gaps in usability, visual consistency, and overall user flow clarity.',
-        'This redesign focused on improving the user experience, visual design, and brand identity, with the goal of making restaurant discovery more intuitive, engaging, and trustworthy.',
+        'Reserve Me is a restaurant discovery and reservation platform that helps diners discover restaurants and book tables across Kenya.',
+        'The existing mobile experience supported the core discovery and reservation journey, but there were opportunities to improve usability, visual consistency, onboarding, and restaurant discovery.',
+        'I conducted a UX audit of the existing app, discussed the product with the founder, and redesigned the core customer experience from onboarding and discovery through search and reservations.',
+        'The redesign focused on making the experience clearer, more contextual, and more aligned with the Reserve Me brand.',
       ],
-      scopeItems: [
-        'UX audit of existing mobile app',
-        'UI redesign of core screens',
-        'Branding refinement and visual consistency',
-        'Improvement of onboarding, discovery, and reservation flows',
-      ],
-      problem: {
-        intro: 'Although Reserve Me provided access to restaurant listings and reservations, the experience had several friction points that affected usability and trust.',
-        label: 'Users struggled with:',
+      challenge: {
+        intro: 'The existing experience was functional, but several parts of the journey created unnecessary friction.\n\nThrough my audit and conversations with the founder, I identified four key areas:',
         points: [
-          'Inconsistent visual design across screens',
-          'Lack of clear brand identity',
-          'Limited personalization in discovery',
-          'Weak onboarding and authentication flows',
-          'Difficulty quickly finding relevant restaurants',
+          'Inconsistent visual language made the experience feel less cohesive.',
+          'Authentication flows lacked important usability and feedback states.',
+          'Restaurant discovery did not provide enough structure to help users quickly narrow their options.',
+          'Contextual information, such as location, preferences, and reservations, was not being used effectively throughout the experience.',
         ],
-        closing: 'The overall experience felt functional, but not intuitive or engaging enough for confident decision-making.',
+        closing: 'How might we help diners go from "I want to eat out" to "I\'ve found and booked a restaurant" with less friction and more confidence?',
       },
-      audit: [
+      sections: [
         {
-          title: '1. Weak Visual Language & Branding',
-          intro: 'The app relied heavily on illustrations instead of real restaurant imagery and did not consistently use Reserve Me\'s brand colors. This made the experience feel less immersive and reduced brand recognition.',
-          impact: ['Low visual trust', 'Weak brand identity', 'Reduced emotional connection to restaurants'],
-          images: ['/wv/on.png', '/wv/on1.png', '/wv/on3.png'],
+          title: '01: UX Audit & Discovery',
+          intro: 'I independently audited the existing mobile experience across the main customer journey: Onboarding → Authentication → Home → Discovery → Search → Restaurant Selection → Reservation.\n\nI also spoke with the founder to understand the product, existing experience, and intended direction.',
+          subsections: [
+            {
+              title: 'Key findings',
+              points: [
+                {
+                  label: 'Clarity',
+                  desc: 'The interface lacked consistent hierarchy and visual patterns, making some screens harder to scan.'
+                },
+                {
+                  label: 'Confidence',
+                  desc: 'Authentication and restaurant information needed clearer states and stronger visual cues to help users make decisions with confidence.'
+                },
+                {
+                  label: 'Context',
+                  desc: 'The experience had an opportunity to make better use of information such as location, date, preferences, and upcoming reservations.'
+                }
+              ]
+            }
+          ],
+          designPrinciples: {
+            intro: 'These findings shaped the redesign around three principles:',
+            principles: [
+              { label: 'Clarity', desc: 'Make information easier to scan and understand.' },
+              { label: 'Confidence', desc: 'Give users the information and feedback they need to make decisions.' },
+              { label: 'Context', desc: 'Make the experience more relevant to what the user is trying to accomplish.' }
+            ]
+          },
+          images: ['/old/login.png', '/old/signup filled.png', '/old/home.png', '/old/WhatsApp Image 2025-06-10 at 10.01.12 AM (1).png', '/old/WhatsApp Image 2025-06-10 at 11.20.09 AM (1) 1.png', '/old/WhatsApp Image 2025-06-10 at 11.20.10 AM (3) 1.png']
         },
         {
-          title: '2. Incomplete Authentication Experience',
-          intro: 'The login and sign-up flows lacked key modern UX patterns.',
-          issues: ['No Google sign-up option', 'No password visibility toggle', 'No error or validation states', 'No password recovery flow'],
-          impact: ['Friction during onboarding', 'Risk of user drop-off', 'Poor usability in authentication flows'],
-          images: ['/au/au.png', '/au/au1.png', '/au/au2.png', '/au/au3.png'],
+          title: '02: Establishing a Stronger Visual Identity',
+          intro: 'The existing experience relied heavily on illustrations and had inconsistent use of Reserve Me\'s visual identity.\n\nI introduced a more cohesive visual direction using:',
+          improvements: [
+            'Reserve Me brand colors',
+            'Real restaurant imagery',
+            'Stronger typography',
+            'Clearer visual hierarchy',
+            'Consistent spacing and components'
+          ],
+          designIntent: 'Rather than making Reserve Me feel like a generic restaurant directory, I wanted the interface to make restaurants and dining experiences the visual focus.',
+          images: ['/wv/on.png', '/wv/on1.png', '/wv/on3.png']
         },
         {
-          title: '3. Lack of Personalization on Home Screen',
-          intro: 'The home screen did not adapt to user behavior or context. There was no visibility of:',
-          issues: ['Upcoming reservations', 'Previously selected preferences', 'Contextual recommendations'],
-          impact: ['Home screen lacked relevance for returning users', 'Increased effort to continue previous actions'],
-          images: ['/home/Hm.png', '/home/hm2.png'],
+          title: '03: Improving Onboarding & Authentication',
+          intro: 'The existing authentication experience lacked several expected interaction patterns.\n\nI redesigned the flows to provide clearer guidance and feedback.',
+          improvements: [
+            'Google sign-up',
+            'Password visibility controls',
+            'Password recovery',
+            'Validation states',
+            'Error states',
+            'Clearer form hierarchy',
+            'More structured onboarding'
+          ],
+          goal: 'The goal was to make the first interaction with Reserve Me feel simpler and more trustworthy.',
+          images: ['/au/au.png', '/au/au1.png', '/au/au2.png', '/au/au3.png']
         },
         {
-          title: '4. Weak Discovery Structure',
-          intro: 'Restaurant discovery lacked strong prioritization and guidance. Users had limited ways to refine results quickly based on intent such as:',
-          issues: ['Top rated restaurants', 'Nearby options', 'Special offers', 'Cuisine or experience type'],
-          impact: ['Increased decision fatigue', 'Slower discovery process', 'Overwhelming browsing experience'],
-          images: ['/sn/s.png', '/sn/s1.png', '/sn/s3.png'],
+          title: '04: Making Restaurant Discovery Easier',
+          intro: 'The existing home and discovery experience did not give users enough ways to quickly narrow down restaurants based on what they were looking for.\n\nI introduced more structured discovery through:',
+          discoveryFeatures: [
+            'Top Rated',
+            'Nearby',
+            'Special Offers',
+            'Hidden Gems',
+            'Cuisine and experience categories',
+            'Improved restaurant cards',
+            'More prominent restaurant imagery',
+            'Clearer decision-making information'
+          ],
+          outcome: 'This created a more scannable experience where users could quickly identify restaurants relevant to their needs.',
+          images: ['/sn/s.png', '/sn/s1.png', '/sn/s3.png', '/home/Hm.png', '/home/hm2.png']
         },
         {
-          title: '5. Limited Context-Aware Search',
-          intro: 'While filtering existed, the system did not fully adapt results based on user-selected preferences such as location or date.',
-          impact: ['Users had to manually re-evaluate options', 'Less relevant search results', 'Reduced efficiency in finding available restaurants'],
+          title: '05: Designing for Context',
+          intro: 'One of the biggest opportunities was making the experience respond more naturally to user context.\n\nI introduced concepts around:',
+          contextElements: [
+            'Location',
+            'Date',
+            'Restaurant preferences',
+            'Upcoming reservations',
+            'Personalized discovery'
+          ],
+          goal: 'The goal was to move the experience from simply showing restaurants to helping users find restaurants that fit their situation.'
         },
         {
-          title: '6. Missing Engagement & Brand Storytelling',
-          intro: 'The app launched directly into the experience without a branded entry point.',
-          impact: ['Weak first impression', 'Missed opportunity for brand recognition'],
+          title: '06: A Key Design Decision: Making Location Contextual',
+          intro: 'The location experience required particular attention.\n\nThe initial map interaction felt distracting because the map appeared as part of the experience even when a diner hadn\'t chosen to use location.\n\nRather than making the map permanently visible, I designed the interaction around the user\'s choice.',
+          locationStates: [
+            {
+              state: 'Location Off',
+              desc: 'The user can continue without sharing their location, keeping the interface focused.'
+            },
+            {
+              state: 'Location On',
+              desc: 'Once the diner enables location, the map becomes available to support location-based discovery.'
+            }
+          ],
+          why: 'This allowed location to become a contextual feature rather than a persistent visual element.',
+          principle: 'Surface functionality when it becomes relevant, rather than making every feature visible at once.'
         },
+        {
+          title: '07: Bringing the Journey Together',
+          intro: 'The redesigned experience connected the core customer journey: Onboard → Discover → Search → Evaluate → Reserve.\n\nEach stage had a clear purpose:',
+          journeyTable: [
+            { stage: 'Onboarding', focus: 'Establish trust' },
+            { stage: 'Home', focus: 'Provide a relevant starting point' },
+            { stage: 'Discovery', focus: 'Help users explore' },
+            { stage: 'Search', focus: 'Match user intent' },
+            { stage: 'Restaurant details', focus: 'Support decision-making' },
+            { stage: 'Reservation', focus: 'Make booking straightforward' }
+          ],
+          closing: 'The redesign was therefore not just a collection of new screens. I focused on creating a more coherent journey between them.'
+        }
       ],
-      keyInsights: [
-        { title: '1. Clarity', desc: 'Users needed a more structured and scannable interface to reduce cognitive load during restaurant discovery.' },
-        { title: '2. Confidence', desc: 'Users needed better support through authentication, clearer information hierarchy, and more reliable decision-making cues.' },
-        { title: '3. Context', desc: 'The experience needed to feel more personalized and aware of user intent (location, time, preferences, reservations).' },
+      hifiTitle: 'High-Fidelity Experience',
+      hifiIntro: 'The final designs covered the core customer experience, including:',
+      hifiScreens: [
+        'Splash and onboarding',
+        'Login and registration',
+        'Location permissions',
+        'Home and discovery',
+        'Restaurant search',
+        'Restaurant listings',
+        'Restaurant details',
+        'Reservation journey'
       ],
-      designGoals: [
-        { title: 'Improve Visual Consistency', desc: 'Create a unified design system aligned with Reserve Me branding.' },
-        { title: 'Simplify Discovery', desc: 'Make it easier for users to find restaurants based on intent (location, budget, cuisine, and occasion).' },
-        { title: 'Strengthen Onboarding & Trust', desc: 'Improve authentication flows and reduce friction during sign-up and login.' },
-        { title: 'Introduce Context-Aware Experience', desc: 'Make the home and discovery screens more relevant to user behavior and preferences.' },
+      hifiClosing: 'The founder later developed the redesigned experience into an APK prototype, providing a tangible implementation direction for the product.',
+      hifiImages: [
+        '/ff/20.png', '/ff/21.png', '/ff/22.png', '/ff/23.png', '/ff/24.png', '/ff/25.png', '/ff/26.png', '/ff/27.png', '/ff/28.png'
       ],
-      designApproach: {
-        flow: ['Discover', 'Evaluate', 'Reserve'],
-        question: 'How might we help users go from "I want to eat out" to "I\'ve booked a table" with less friction and more confidence?',
+      outcome: {
+        intro: 'The redesign established a stronger UX and visual direction for Reserve Me\'s customer-facing experience.\n\nIt delivered:',
+        points: [
+          'A more cohesive visual identity',
+          'Clearer onboarding and authentication flows',
+          'More structured restaurant discovery',
+          'A more contextual approach to location and search',
+          'A clearer journey from discovery to reservation'
+        ],
+        implementation: 'The redesigned experience was developed into an APK prototype, but I don\'t have evidence that this version was publicly launched. I therefore have not attributed user or business metrics to the redesign.'
       },
-      keyImprovements: [
-        {
-          title: 'Branding & Visual Identity',
-          points: [
-            'Applied Reserve Me brand colors across the app',
-            'Replaced illustrations with real restaurant imagery',
-            'Improved typography and visual hierarchy',
-          ],
-          result: 'A more cohesive, premium, and recognizable brand experience.',
-        },
-        {
-          title: 'Authentication Experience',
-          points: [
-            'Added Google Sign-Up',
-            'Introduced password visibility and recovery',
-            'Implemented validation and error states',
-          ],
-          result: 'A smoother, more secure onboarding experience.',
-        },
-        {
-          title: 'Contextual Home Experience',
-          points: [
-            'Surfaced upcoming reservations',
-            'Added personalized discovery sections',
-            'Improved continuity for returning users',
-          ],
-          result: 'A more relevant and engaging home experience.',
-        },
-        {
-          title: 'Smarter Restaurant Discovery',
-          points: [
-            'Added quick filters (Top Rated, Nearby, Special Offers, Hidden Gems)',
-            'Improved restaurant card hierarchy',
-            'Prioritized key decision-making information',
-          ],
-          result: 'Faster restaurant discovery and decision-making.',
-        },
-        {
-          title: 'Context-Aware Search',
-          points: [
-            'Introduced location and date-based filtering',
-            'Simplified search with tag-based inputs',
-            'Improved result relevance based on user intent',
-          ],
-          result: 'A more personalized and efficient search experience.',
-        },
-      ],
-      outcome: [
-        'Intuitive discovery platform',
-        'Visually consistent brand experience',
-        'Context-aware recommendation system',
-        'Trust-driven booking experience',
-      ],
-      outcomeIntro: 'The redesign transformed Reserve Me from a functional restaurant listing app into a more:',
-      outcomeClosing: 'The focus was not just on improving visuals, but on making the entire journey from discovery to reservation feel faster, clearer, and more engaging.',
-      reflection: 'This project reinforced how much impact visual hierarchy, clarity, and context can have on user decision-making. Even small improvements such as better filters, clearer authentication flows, and stronger branding can significantly improve how users experience and trust a product.',
+      reflection: 'This project reinforced the importance of designing for context rather than simply adding functionality.\n\nThe location experience was a good example: instead of making the map visible by default, I considered when the user actually needed it and designed the interface to respond to that choice.\n\nIt also strengthened my ability to turn an existing product into a clearer, more cohesive experience through UX auditing, prioritization, and interface design.',
     },
     featured: true,
   },
+
   {
     id: 'health-mobile',
     title: 'AFYACARE',
