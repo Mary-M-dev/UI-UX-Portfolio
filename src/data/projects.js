@@ -464,58 +464,103 @@ export const projects = [
     caseStudyContent: {
       heroImage: '',
       overview: [
-        'I came across a design challenge that asked designers to create a telehealth platform tailored to elderly users.',
-        'The challenge immediately caught my attention because while telehealth has the potential to improve healthcare access, many digital healthcare products are designed for users who are already comfortable with technology. Elderly individuals often face additional barriers such as limited digital literacy, declining vision, reduced dexterity, and anxiety when navigating unfamiliar digital experiences.',
-        'Rather than approaching this as a healthcare platform challenge, I saw it as an opportunity to design for confidence, accessibility, and independence.',
-        'To make the project more relevant to my local context, I focused on elderly Kenyans and explored how technology could help them access healthcare services from home while reducing common barriers such as travel, long hospital queues, and reliance on family members for routine medical care.',
+        'AFYACARE was a design challenge to explore how telehealth could be made more accessible for elderly users.',
+        'I chose to focus on elderly Kenyans and considered common barriers associated with digital healthcare, including unfamiliar technology, small interfaces, complex navigation, and the need for support from caregivers.',
+        'I used existing online research and accessibility principles to inform my design decisions, then explored how a telehealth experience could help an older user move from booking an appointment to receiving care and managing follow-up information with as little friction as possible.',
       ],
       scopeItems: [
-        'Project Type: Design Challenge',
-        'Timeline: 2 Weeks',
-        'Tools: Figma, Miro',
+        'How might we help elderly users access healthcare remotely without feeling overwhelmed by technology?',
       ],
-      challenge: {
-        intro: 'Design a user-friendly telehealth platform that enables elderly users to:',
-        points: [
-          'Access healthcare services remotely',
-          'Book appointments with ease',
-          'Attend virtual consultations',
-          'Manage prescriptions and follow-up care',
-          'Navigate the experience confidently regardless of their level of digital literacy',
+      sections: [
+        {
+          title: 'Understanding the Challenge',
+          intro: 'Telehealth can reduce some of the practical barriers associated with accessing healthcare, such as travelling to a facility, arranging transportation, or waiting for an appointment.\n\nHowever, moving healthcare online can introduce another set of challenges.\n\nFor older adults, digital experiences may become difficult when they involve:',
+          challenges: [
+            'Complex navigation',
+            'Small text or touch targets',
+            'Too many choices on one screen',
+            'Unclear instructions',
+            'Unfamiliar interaction patterns',
+            'Limited feedback or reassurance'
+          ],
+          conclusion: 'Rather than trying to design a feature-rich healthcare platform, I focused on reducing complexity and building confidence.'
+        },
+        {
+          title: 'Design Considerations',
+          intro: 'Because this was a design challenge rather than a research project, I did not conduct interviews or usability testing with elderly users.\n\nInstead, I used accessibility principles and existing online research to establish the considerations that would guide the design.',
+          considerations: [
+            {
+              title: 'Simplicity',
+              desc: 'Keep essential tasks visible and remove unnecessary decisions.'
+            },
+            {
+              title: 'Accessibility',
+              desc: 'Use readable typography, strong contrast, large touch targets, and clear visual hierarchy.'
+            },
+            {
+              title: 'Confidence',
+              desc: 'Provide clear instructions, confirmations, and feedback so users understand what is happening at every stage.'
+            },
+            {
+              title: 'Caregiver Support',
+              desc: 'Recognize that some older users may rely on trusted family members when managing healthcare information.'
+            }
+          ],
+          conclusion: 'These considerations became the foundation for the experience.'
+        },
+        {
+          title: 'Mapping the Experience',
+          intro: 'I mapped the core journey from account creation through post-consultation care.\n\nThe experience was organized around five key tasks:',
+          tasks: [
+            {
+              title: 'Account Setup',
+              desc: 'Create an account and establish basic preferences.'
+            },
+            {
+              title: 'Appointment Booking',
+              desc: 'Find a doctor and schedule an appointment.'
+            },
+            {
+              title: 'Consultation',
+              desc: 'Join and complete a virtual consultation with minimal distractions.'
+            },
+            {
+              title: 'Follow-Up Care',
+              desc: 'Review prescriptions, visit summaries, and next steps.'
+            },
+            {
+              title: 'Caregiver Support',
+              desc: 'Share relevant healthcare information with a trusted family member.'
+            }
+          ],
+          conclusion: 'This helped me focus the product around the tasks that mattered most rather than designing a large collection of healthcare features.',
+          showUserFlowImage: true
+        }
+      ],
+      designTradeoffsSection: {
+        title: 'Design Trade-offs',
+        intro: 'Designing for accessibility often meant deliberately doing less.',
+        tradeoffs: [
+          {
+            title: 'Simplicity vs. Features',
+            desc: 'I prioritized essential healthcare tasks rather than exposing every possible feature.'
+          },
+          {
+            title: 'Guidance vs. Flexibility',
+            desc: 'I used guided flows for tasks such as appointment booking because reducing choices at each step can make complex processes easier to navigate.'
+          },
+          {
+            title: 'Information vs. Readability',
+            desc: 'Rather than displaying more information on each screen, I prioritized spacing, hierarchy, and progressive disclosure.'
+          }
         ],
+        conclusion: 'These decisions helped keep the experience focused on confidence over complexity.'
       },
-      problem: {
-        intro: 'Healthcare access remains a challenge for many elderly Kenyans. A routine medical consultation may require:',
-        points: [
-          'Travelling long distances',
-          'Waiting in crowded facilities',
-          'Coordinating transportation',
-          'Depending on family members for support',
-        ],
-        closing: 'While telehealth can help address these challenges, many existing healthcare applications introduce a different set of problems: complex navigation, small text and icons, information overload, confusing appointment booking processes, and limited accessibility options. As a result, many elderly users may feel excluded from digital healthcare solutions.',
+      finalExperienceSection: {
+        title: 'Final Experience',
+        intro: 'The final concept covers the core telehealth journey:\n\nAccount Setup → Appointment Booking → Consultation → Visit Summary → Follow-Up Care',
+        conclusion: 'The high-fidelity designs demonstrate how a telehealth platform could be structured around the needs of older users while keeping the experience simple enough to navigate independently.'
       },
-      hmw: 'How might we help elderly Kenyans access healthcare services remotely without feeling overwhelmed by technology?',
-      keyInsights: [
-        { title: 'Users Need Guidance', desc: 'Many elderly users are not frequent technology users and require voice instructions, clear onboarding, and step-by-step guidance.' },
-        { title: 'Accessibility Cannot Be Optional', desc: 'Users need larger text, adjustable contrast, large touch targets, and clear visual hierarchy.' },
-        { title: 'Confidence Matters More Than Speed', desc: 'Users need confirmation messages, appointment reminders, clear instructions, and error recovery support.' },
-        { title: 'Healthcare Often Involves Family Support', desc: 'In many Kenyan households, family members assist elderly relatives: sharing consultation summaries and caregiver support is essential.' },
-      ],
-      designPrinciples: [
-        { title: 'Simplicity Over Complexity', desc: 'Prioritize essential tasks and eliminate unnecessary decisions.' },
-        { title: 'Accessibility First', desc: 'Design for varying levels of vision, dexterity, and digital literacy.' },
-        { title: 'Build Confidence', desc: 'Provide reassurance and clear feedback throughout the experience.' },
-        { title: 'Support Care Networks', desc: 'Recognize that healthcare is often a shared responsibility between patients and caregivers.' },
-      ],
-      userFlows: [
-        { title: 'Account Setup', desc: 'Helping users create an account and personalize accessibility settings.' },
-        { title: 'Appointment Booking', desc: 'Allowing users to easily discover doctors and schedule appointments.' },
-        { title: 'Consultation Experience', desc: 'Providing a simple and stress-free virtual consultation experience.' },
-        { title: 'Follow-Up Care', desc: 'Helping users understand prescriptions and next steps.' },
-        { title: 'Caregiver Support', desc: 'Allowing trusted family members to access important healthcare information.' },
-      ],
-      showJourneyTitle: true,
-      showUserFlowImage: true,
       wireframes: {
         intro: 'I translated the user flows into mid-fidelity wireframes to focus on structure and usability. At this stage, the goal was simple: Make sure elderly users can complete key tasks without confusion.',
         decisions: [
@@ -542,26 +587,12 @@ export const projects = [
           { title: 'Post-Consultation', desc: 'Summary of visit, prescription details, follow-up instructions, share with caregiver option.' },
         ],
       },
-      designTradeoffs: [
-        { title: 'Simplicity vs Features', desc: 'Prioritized only essential healthcare tasks.' },
-        { title: 'Guided Flow vs Flexibility', desc: 'Step-by-step flows reduce confusion.' },
-        { title: 'Information Density vs Readability', desc: 'More spacing and fewer elements per screen.' },
-      ],
-      accessibilityFeatures: [
-        'Large, readable typography',
-        'High contrast UI',
-        'Large touch targets',
-        'Simple language',
-        'Consistent layouts',
-      ],
-      outcome: [
-        'Booking healthcare appointments easily',
-        'Attending consultations with confidence',
-        'Understanding medical feedback clearly',
-        'Involving caregivers when needed',
-      ],
-      outcomeIntro: 'The final design supports elderly Kenyans in:',
-      reflection: 'This project reinforced a key insight: Simplicity is what makes healthcare usable. By reducing complexity and focusing on clarity, the experience becomes more accessible for elderly users navigating digital healthcare for the first time.',
+      outcome: {
+        intro: 'As a two-week design challenge, AFYACARE was not developed or launched.',
+        context: 'The outcome was a complete UX/UI concept covering the core telehealth journey, supported by user flows, mid-fidelity wireframes, and high-fidelity designs.',
+        closing: 'The project allowed me to explore how accessibility, simplicity, and confidence can shape healthcare experiences for users who may not be comfortable with technology.'
+      },
+      reflection: 'AFYACARE reinforced that accessibility is not only about larger text or bigger buttons. It is also about reducing cognitive load and helping users feel confident about what to do next.\n\nDesigning for an older audience pushed me to question how much information and functionality a screen actually needs, and when doing less can create a better experience.',
     },
     featured: true,
   },

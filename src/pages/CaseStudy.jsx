@@ -1151,7 +1151,7 @@ function GenericCaseStudy({ project }) {
         </div>
         {c.scopeItems && (
           <div className="bg-pink-50 border-l-4 border-pink-500 rounded-r-xl p-5">
-            <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">My Role — {project.role}</p>
+            <p className="text-xs text-pink-600 uppercase tracking-widest font-semibold mb-3">{project.id === 'health-mobile' ? 'The Problem Statement' : `My Role — ${project.role}`}</p>
             <ul className="space-y-2">
               {c.scopeItems.map((s, i) => (
                 <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
@@ -1565,6 +1565,78 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       ))}
 
+      {/* Sections (for AFYACARE with custom structure) */}
+      {project.id === 'health-mobile' && c.sections && c.sections.map((section, idx) => (
+        <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-8 text-black">{section.title}</h2>
+          
+          {/* Intro paragraphs with line breaks */}
+          {section.intro && section.intro.split('\n\n').map((para, i) => (
+            <p key={i} className="text-gray-700 text-base leading-relaxed mb-6">{para}</p>
+          ))}
+
+          {/* Challenges list (for section 01) */}
+          {section.challenges && (
+            <ul className="space-y-2 mb-6">
+              {section.challenges.map((challenge, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-700 text-base">
+                  <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
+                  <span>{challenge}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Considerations (for section 02) */}
+          {section.considerations && (
+            <div className="space-y-6 mb-6">
+              {section.considerations.map((consideration, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{consideration.title}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{consideration.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Tasks (for section 03) */}
+          {section.tasks && (
+            <div className="space-y-6 mb-6">
+              {section.tasks.map((task, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{task.title}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{task.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Trade-offs (for section 08) */}
+          {section.tradeoffs && (
+            <div className="space-y-6 mb-6">
+              {section.tradeoffs.map((tradeoff, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-black mb-2">{tradeoff.title}</h3>
+                  <p className="text-gray-700 text-base leading-relaxed">{tradeoff.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Conclusion */}
+          {section.conclusion && (
+            <p className="text-gray-700 text-base leading-relaxed italic mb-6">{section.conclusion}</p>
+          )}
+
+          {/* User Flow Image (for section 03) */}
+          {section.showUserFlowImage && (
+            <div className="mt-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <img src="/uf.png" alt="User flow diagrams" className="w-full h-auto object-contain" />
+            </div>
+          )}
+        </motion.section>
+      ))}
+
       {/* Sections (for Reserve Me Management - keep existing logic) */}
       {project.id === 'reserve-me-management' && c.sections && c.sections.map((section, idx) => (
         <motion.section key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
@@ -1781,7 +1853,7 @@ function GenericCaseStudy({ project }) {
       )}
 
       {/* User Journey */}
-      {c.userJourneySteps ? (
+      {c.userJourneySteps && (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
           <div className="flex flex-wrap items-center gap-2">
@@ -1793,15 +1865,10 @@ function GenericCaseStudy({ project }) {
             ))}
           </div>
         </motion.section>
-      ) : c.showJourneyTitle ? (
-        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-6 text-black">Mapping the Experience</h2>
-          <p className="text-gray-700 text-base leading-relaxed">To understand the complete experience, I mapped the journey from account creation to post-consultation care, from the moment a user sets up their account through to managing follow-up care and sharing information with a caregiver.</p>
-        </motion.section>
-      ) : null}
+      )}
 
-      {/* User Flows */}
-      {c.userFlows && (
+      {/* User Flows - Only render for non-AFYACARE projects */}
+      {c.userFlows && project.id !== 'health-mobile' && (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">User Flows</h2>
           <p className="text-gray-700 text-base mb-6">I focused on five primary experiences:</p>
@@ -1835,7 +1902,7 @@ function GenericCaseStudy({ project }) {
             ))}
           </ul>
           {project.id === 'health-mobile' && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3">
               {[
                 '/lofi/Welcome screen.png',
                 '/lofi/Create account screen.png',
@@ -1892,7 +1959,7 @@ function GenericCaseStudy({ project }) {
             ))}
           </div>
           {project.id === 'health-mobile' && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 items-start">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3 mt-8 items-start">
               {[
                 '/hifi/Onboarding.png',
                 '/hifi/Onboarding 2.png',
@@ -1919,18 +1986,41 @@ function GenericCaseStudy({ project }) {
         </motion.section>
       )}
 
-      {/* Design Tradeoffs */}
-      {c.designTradeoffs && (
+      {/* Section 08: Design Trade-offs (AFYACARE only - after hifi screens) */}
+      {project.id === 'health-mobile' && c.designTradeoffsSection && (
         <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-6 text-black">Design Tradeoffs</h2>
-          <div className="space-y-4">
-            {c.designTradeoffs.map((t, i) => (
-              <div key={i} className="flex items-start gap-3 text-gray-700 text-base">
-                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span>
-                <span><span className="font-semibold text-black">{t.title} → </span>{t.desc}</span>
+          <h2 className="text-3xl font-bold mb-8 text-black">{c.designTradeoffsSection.title}</h2>
+          
+          {/* Intro */}
+          <p className="text-gray-700 text-base leading-relaxed mb-6">{c.designTradeoffsSection.intro}</p>
+
+          {/* Trade-offs */}
+          <div className="space-y-6 mb-6">
+            {c.designTradeoffsSection.tradeoffs.map((tradeoff, i) => (
+              <div key={i}>
+                <h3 className="text-lg font-semibold text-black mb-2">{tradeoff.title}</h3>
+                <p className="text-gray-700 text-base leading-relaxed">{tradeoff.desc}</p>
               </div>
             ))}
           </div>
+
+          {/* Conclusion */}
+          <p className="text-gray-700 text-base leading-relaxed italic">{c.designTradeoffsSection.conclusion}</p>
+        </motion.section>
+      )}
+
+      {/* Section 09: Final Experience (AFYACARE only - after hifi screens) */}
+      {project.id === 'health-mobile' && c.finalExperienceSection && (
+        <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <h2 className="text-3xl font-bold mb-8 text-black">{c.finalExperienceSection.title}</h2>
+          
+          {/* Intro paragraphs */}
+          {c.finalExperienceSection.intro.split('\n\n').map((para, i) => (
+            <p key={i} className="text-gray-700 text-base leading-relaxed mb-6">{para}</p>
+          ))}
+
+          {/* Conclusion */}
+          <p className="text-gray-700 text-base leading-relaxed italic">{c.finalExperienceSection.conclusion}</p>
         </motion.section>
       )}
 
@@ -2104,15 +2194,26 @@ function GenericCaseStudy({ project }) {
       {project.id !== 'reserve-me' && c.outcome && (
         <motion.section id="outcome" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold mb-6 text-black">Outcome</h2>
-          {c.outcomeIntro && <p className="text-gray-700 text-base leading-relaxed mb-4">{c.outcomeIntro}</p>}
-          <ul className="space-y-3 mb-6">
-            {c.outcome.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
-                <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          {c.outcomeClosing && <p className="text-gray-600 text-base leading-relaxed">{c.outcomeClosing}</p>}
+          {/* Handle AFYACARE's new outcome structure (object with intro, context, closing) */}
+          {typeof c.outcome === 'object' && !Array.isArray(c.outcome) ? (
+            <div className="space-y-4">
+              {c.outcome.intro && <p className="text-gray-700 text-base leading-relaxed">{c.outcome.intro}</p>}
+              {c.outcome.context && <p className="text-gray-700 text-base leading-relaxed">{c.outcome.context}</p>}
+              {c.outcome.closing && <p className="text-gray-700 text-base leading-relaxed">{c.outcome.closing}</p>}
+            </div>
+          ) : (
+            <>
+              {c.outcomeIntro && <p className="text-gray-700 text-base leading-relaxed mb-4">{c.outcomeIntro}</p>}
+              <ul className="space-y-3 mb-6">
+                {c.outcome.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700 text-base">
+                    <span className="text-pink-500 font-bold mt-0.5 flex-shrink-0">•</span><span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              {c.outcomeClosing && <p className="text-gray-600 text-base leading-relaxed">{c.outcomeClosing}</p>}
+            </>
+          )}
         </motion.section>
       )}
 
