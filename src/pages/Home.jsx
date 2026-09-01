@@ -2,167 +2,93 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
-import { useState } from 'react';
 
 export default function Home() {
   const featuredProjects = projects.filter(p => p.featured);
-  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div className="bg-white text-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-12 sm:py-20">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-20">
+        {/* White Background with Pink Gradient Overlay */}
+        <div className="absolute inset-0 bg-white"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50/50 via-transparent to-pink-100/30"></div>
+        
+        <div className="max-w-6xl mx-auto w-full relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            {/* Left Column - Product Designer */}
+            {/* Left Column - Text Content */}
             <motion.div
-              animate={{ opacity: isHovering ? 0.15 : 1 }}
-              transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center order-2 md:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <div className="space-y-4 sm:space-y-5">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black mb-2 sm:mb-3">
-                    Product<br />Designer
-                  </h2>
-                  <div className="w-12 h-1 bg-gradient-to-r from-pink-300 to-pink-500"></div>
-                </div>
-                <ul className="space-y-2 sm:space-y-3">
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">UI/UX Design</span>
-                  </li>
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">Design Systems</span>
-                  </li>
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">User Research</span>
-                  </li>
-                </ul>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black">
+                Hi, I am Mary
+              </h1>
+              <h2 className="text-3xl sm:text-4xl font-normal text-gray-700">
+                Product Designer
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                I turn complex product challenges into simple, intuitive experiences.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link to="/work">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-3 bg-pink-500 text-white font-medium rounded-lg shadow-md hover:bg-pink-600 transition-colors"
+                  >
+                    View Portfolio
+                  </motion.button>
+                </Link>
+                <Link to="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-3 bg-white text-black font-medium rounded-lg border-2 border-gray-300 hover:border-pink-500 transition-colors"
+                  >
+                    Contact Me
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
 
-            {/* Center Column - Portrait Image */}
+            {/* Right Column - Profile Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:col-span-6 flex justify-center order-1 md:order-2 mb-6 md:mb-0"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              className="flex justify-center md:justify-end"
             >
-              <div className="relative w-full max-w-[280px] sm:max-w-xs">
-                {/* Left Paint Splash */}
-                <motion.svg
-                  className="absolute w-20 h-20 sm:w-28 sm:h-28 -left-6 sm:-left-8 top-1/3 hidden sm:block"
-                  viewBox="0 0 100 100"
-                  animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <defs>
-                    <linearGradient id="pinkGradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#ec4899" />
-                      <stop offset="100%" stopColor="#f9a8d4" />
-                    </linearGradient>
-                  </defs>
-                  <g fill="url(#pinkGradientLeft)" opacity="0.7">
-                    <circle cx="30" cy="20" r="8" />
-                    <circle cx="50" cy="15" r="6" />
-                    <circle cx="40" cy="35" r="7" />
-                    <circle cx="25" cy="45" r="5" />
-                    <circle cx="45" cy="50" r="6" />
-                    <circle cx="35" cy="60" r="4" />
-                    <circle cx="55" cy="40" r="5" />
-                  </g>
-                </motion.svg>
-
-                {/* Right Paint Splash */}
-                <motion.svg
-                  className="absolute w-20 h-20 sm:w-24 sm:h-24 -right-4 sm:-right-6 bottom-1/3 hidden sm:block"
-                  viewBox="0 0 100 100"
-                  animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0.8 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                >
-                  <defs>
-                    <linearGradient id="pinkGradientRight" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#f9a8d4" />
-                      <stop offset="100%" stopColor="#ec4899" />
-                    </linearGradient>
-                  </defs>
-                  <g fill="url(#pinkGradientRight)" opacity="0.6">
-                    <circle cx="70" cy="30" r="7" />
-                    <circle cx="85" cy="45" r="6" />
-                    <circle cx="75" cy="60" r="5" />
-                    <circle cx="60" cy="50" r="6" />
-                    <circle cx="80" cy="70" r="4" />
-                    <circle cx="65" cy="75" r="5" />
-                  </g>
-                </motion.svg>
-
-                {/* Portrait */}
-                <motion.div
-                  className="relative z-10 w-full overflow-hidden rounded-2xl shadow-lg"
-                  style={{ aspectRatio: '3/4' }}
-                  animate={{ rotateY: isHovering ? 180 : 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <motion.div
-                    className="absolute inset-0"
-                    animate={{ opacity: isHovering ? 0 : 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img
-                      src="/IMG-20231121-WA0004 2.svg"
-                      alt="Mary Mwirigi - Product Designer & Product Owner"
-                      className="w-full h-full object-cover object-top grayscale"
-                    />
-                  </motion.div>
-                  <motion.div
-                    className="absolute inset-0"
-                    animate={{ opacity: isHovering ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img
-                      src="/Passport.jpeg"
-                      alt="Mary Mwirigi"
-                      className="w-full h-full object-cover object-top"
-                      style={{ filter: 'brightness(1.08) saturate(0.3) contrast(1.05)' }}
-                    />
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Product Owner */}
-            <motion.div
-              animate={{ opacity: isHovering ? 1 : 1 }}
-              transition={{ duration: 0.4 }}
-              className="md:col-span-3 flex flex-col justify-center order-3"
-            >
-              <div className="space-y-4 sm:space-y-5">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black mb-2 sm:mb-3">
-                    Product<br />Owner
-                  </h2>
-                  <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-pink-300"></div>
+              <div className="relative">
+                {/* Circular pink gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-transparent rounded-full transform -translate-x-8"></div>
+                
+                {/* Profile Image Container */}
+                <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-2xl">
+                  <img
+                    src="/Passport.jpeg"
+                    alt="Mary Mwirigi - Product Designer"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
-                <ul className="space-y-2 sm:space-y-3">
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">Product Strategy</span>
-                  </li>
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">Agile Architecture</span>
-                  </li>
-                  <li className="text-gray-700 flex items-center gap-2 sm:gap-3">
-                    <span className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></span>
-                    <span className="text-sm sm:text-base">Stakeholder Management</span>
-                  </li>
-                </ul>
+
+                {/* Decorative pink dots - left side */}
+                <div className="absolute left-8 top-1/3 space-y-3">
+                  <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-300 rounded-full ml-2"></div>
+                </div>
+
+                {/* Decorative pink dots - right side */}
+                <div className="absolute right-8 bottom-1/3 space-y-3">
+                  <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-300 rounded-full mr-2"></div>
+                  <div className="w-2.5 h-2.5 bg-pink-350 rounded-full"></div>
+                </div>
               </div>
             </motion.div>
 
@@ -179,7 +105,7 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
               Some of my latest work
             </span>
-            <Link to="/work" className="text-sm text-black/60 hover:text-black transition-colors">
+            <Link to="/work" className="text-sm text-black/60 hover:text-pink-500 transition-colors">
               See More
             </Link>
           </div>
